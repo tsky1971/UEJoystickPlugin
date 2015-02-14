@@ -72,7 +72,8 @@ public:
 	int32 getNumberOfHats(int32 InputDeviceIndex = 0);
 	int32 getNumberOfBalls(int32 InputDeviceIndex = 0);
 
-	bool getDeviceState(FJoystickState &InputData, int32 InputDeviceIndex = 0);
+	bool getDeviceState(FJoystickState &InputData, FJoystickInfo &JoystickInfo, int32 InputDeviceIndex = 0);
+
 	FString getDeviceName(int32 InputDeviceIndex = 0);
 	Sint32 getDeviceInstanceId(int32 InputDeviceIndex = 0);
 	FString getDeviceGUIDtoString(int32 InputDeviceIndex = 0);

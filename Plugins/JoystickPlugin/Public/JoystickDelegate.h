@@ -22,10 +22,10 @@
 //	static const FKey JoystickSlider[2];
 //};
 
-extern TArray<FKey> g_DeviceButtonKeys;
-extern TArray<FKey> g_DeviceAxisKeys;
-extern TArray<FKey> g_DeviceHatKeys;
-extern TArray<FKey> g_DeviceBallKeys;
+extern TArray<FKey> g_DeviceButtonKeys[MAX_JOYSTICKCOUNT];
+extern TArray<FKey> g_DeviceAxisKeys[MAX_JOYSTICKCOUNT];
+extern TArray<FKey> g_DeviceHatKeys[MAX_JOYSTICKCOUNT];
+extern TArray<FKey> g_DeviceBallKeys[MAX_JOYSTICKCOUNT];
 
 class JoystickDelegate
 {

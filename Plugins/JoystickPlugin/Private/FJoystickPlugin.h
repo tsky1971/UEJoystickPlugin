@@ -46,7 +46,7 @@ private:
 	TArray<FJoystickState> currData;
 	TArray<FJoystickState> prevData;
 
-	TArray<FJoystickInfo> joysticks;
+	TArray<FJoystickInfo> m_Joysticks;
 
 	//Delegate Private functions
 	void DelegateTick(float DeltaTime);

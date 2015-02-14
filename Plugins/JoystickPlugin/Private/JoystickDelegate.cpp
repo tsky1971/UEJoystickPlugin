@@ -66,10 +66,10 @@
 //		FKey("JoystickSlider2")
 //};
 
-TArray<FKey> g_DeviceButtonKeys;
-TArray<FKey> g_DeviceAxisKeys;
-TArray<FKey> g_DeviceHatKeys;
-TArray<FKey> g_DeviceBallKeys;
+TArray<FKey> g_DeviceButtonKeys[MAX_JOYSTICKCOUNT];
+TArray<FKey> g_DeviceAxisKeys[MAX_JOYSTICKCOUNT];
+TArray<FKey> g_DeviceHatKeys[MAX_JOYSTICKCOUNT];
+TArray<FKey> g_DeviceBallKeys[MAX_JOYSTICKCOUNT];
 
 /** Empty Event Functions, no Super call required, because they don't do anything! */
 void JoystickDelegate::JoystickButtonPressed(int32 buttonNr, const FJoystickState &state)

@@ -2,6 +2,8 @@
 
 #include "JoystickInterface.generated.h"
 
+#define MAX_JOYSTICKCOUNT 16
+
 UENUM(BlueprintType)
 enum EInputType
 {
@@ -40,6 +42,9 @@ struct FJoystickState
 			POV.Add(DIRECTION_NONE);
 		}
 	}
+
+	UPROPERTY(EditAnywhere, BlueprintReadonly, Category = JoystickState)
+	FString DeviceName;
 
 	UPROPERTY(EditAnywhere, BlueprintReadonly, Category = JoystickState)
 	int32 Player;
@@ -102,6 +107,8 @@ struct FJoystickInfo
 	FName ProductName;
 	UPROPERTY(EditAnywhere, BlueprintReadonly, Category = JoystickInfo)
 	FName InstanceName;
+	UPROPERTY(EditAnywhere, BlueprintReadonly, Category = JoystickInfo)
+	FString DeviceName;
 	UPROPERTY(EditAnywhere, BlueprintReadonly, Category = JoystickInfo)
 	bool Connected = false;
 	UPROPERTY(EditAnywhere, BlueprintReadonly, Category = JoystickInfo)

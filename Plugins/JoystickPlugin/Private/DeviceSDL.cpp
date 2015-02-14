@@ -226,7 +226,7 @@ JoystickPOVDirection SDL_hatValToDirection(int8 value)
 }
 
 
-bool DeviceSDL::getDeviceState(FJoystickState &InputData, int32 InputDeviceIndex)
+bool DeviceSDL::getDeviceState(FJoystickState &InputData, FJoystickInfo &JoystickInfo, int32 InputDeviceIndex)
 {
 	bool result = false;
 
@@ -242,7 +242,8 @@ bool DeviceSDL::getDeviceState(FJoystickState &InputData, int32 InputDeviceIndex
 
 	//UE_LOG(JoystickPluginLog, Log, TEXT("DeviceSDL::getDeviceState() %s"), ANSI_TO_TCHAR(SDL_JoystickName(m_Joysticks[InputDeviceIndex])));
 
-	InputData.Player = InputDeviceIndex;	
+	InputData.Player = InputDeviceIndex;
+	InputData.DeviceName = JoystickInfo.DeviceName;
 
 	InputData.NumberOfBalls = SDL_JoystickNumBalls(m_Joysticks[InputDeviceIndex]);
 
