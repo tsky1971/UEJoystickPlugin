@@ -42,5 +42,6 @@ public:
 	virtual void ForceFeedbackXY(int32 x, int32 y, float magnitudeScale) {};
 	virtual void JoystickTick(float DeltaTime) {};
 	virtual void SetDelegate(JoystickDelegate* newDelegate) {};
+	virtual bool JoystickIsAvailable() { return false;  };
 };
 

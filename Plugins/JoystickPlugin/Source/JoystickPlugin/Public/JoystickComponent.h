@@ -24,6 +24,9 @@ public:
 
 	UFUNCTION(BlueprintPure, Category = JoystickFunctions)
 	FJoystickState GetLatestFrame(int32 player);
+	
+	UFUNCTION(BlueprintPure, Category = JoystickFunctions)
+	FJoystickState GetPreviousFrame(int32 player);
 
 	UFUNCTION(BlueprintPure, Category = JoystickFunctions)
 	int32 JoystickCount();
