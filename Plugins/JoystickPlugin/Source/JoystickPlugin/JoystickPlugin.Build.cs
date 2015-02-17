@@ -2,6 +2,7 @@
 
 namespace UnrealBuildTool.Rules
 {
+    using System;
 	using System.IO;
 
 	public class JoystickPlugin : ModuleRules
@@ -11,11 +12,25 @@ namespace UnrealBuildTool.Rules
 			get { return Path.GetDirectoryName(RulesCompiler.GetModuleFilename(this.GetType().Name)); }
 		}
 
-		/*
-		private string ThirdPartyPath
-		{
-			get { return Path.GetFullPath(Path.Combine(ModulePath, "../../ThirdParty/")); }
-		}*/
+        private string ThirdPartyPath
+        {
+            get { return Path.GetFullPath(Path.Combine(ModulePath, "../../ThirdParty/")); }
+        }
+
+        private string BinariesPath
+        {
+            get { return Path.GetFullPath(Path.Combine(ModulePath, "../../Binaries/")); }
+        }
+
+        private string IncludePathSDL2
+        {
+            get { return Path.GetFullPath(Path.Combine(ThirdPartyPath, "SDL2/SDL2", "include")); }
+        }
+
+        private string LibraryPathSDL2
+        {
+            get { return Path.GetFullPath(Path.Combine(ThirdPartyPath, "SDL2/SDL2", "Lib")); }
+        }
 
 		public JoystickPlugin(TargetInfo Target)
 		{
@@ -60,6 +75,20 @@ namespace UnrealBuildTool.Rules
 				);
 
 			//LoadHydraLib(Target);
+
+            //PublicIncludePaths.Add(UEBuildConfiguration.UEThirdPartySourceDirectory + "SDL");
+            //PublicAdditionalLibraries.Add(UEBuildConfiguration.UEThirdPartySourceDirectory + "SDL/lib/x64/SDL.lib");
+
+            //PublicIncludePaths.Add(UEBuildConfiguration.UEThirdPartySourceDirectory + "SDL2/SDL2/include");
+            //PublicAdditionalLibraries.Add(UEBuildConfiguration.UEThirdPartySourceDirectory + "SDL2/SDL2/x64/SDL2.lib");
+            //PublicAdditionalLibraries.Add(UEBuildConfiguration.UEThirdPartySourceDirectory + "SDL2/SDL2/lib/SDL2.lib");
+
+            PublicIncludePaths.Add(IncludePathSDL2);
+            PublicAdditionalLibraries.Add(Path.Combine(LibraryPathSDL2, "SDL2.lib"));
+
+            //PublicAdditionalLibraries.Add("../../ThirdParty/SDL2/SDL2/lib/SDL2.lib");
+
+            PublicDelayLoadDLLs.Add("SDL2.dll");
 		}
 
 		/*
@@ -88,6 +117,8 @@ namespace UnrealBuildTool.Rules
 
 			return isLibrarySupported;
 		}*/
+
+
 	}
 
 }

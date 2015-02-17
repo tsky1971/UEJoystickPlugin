@@ -17,9 +17,9 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#include "SDL2/SDL.h"
-#include "SDL2/SDL_joystick.h"
-#include "SDL2/SDL_gamecontroller.h"
+#include "../../../ThirdParty/SDL2/SDL2/include/SDL2/SDL.h"
+#include "../../../ThirdParty/SDL2/SDL2/include/SDL2/SDL_joystick.h"
+#include "../../../ThirdParty/SDL2/SDL2/include/SDL2/SDL_gamecontroller.h"
 
 //////////////////////////////////////////////////////////////////////
 //
