@@ -5,5 +5,6 @@
 
 #include "Engine.h"
 #include "CoreUObject.h"
-#include "JoystickUtility.h"
+// obsolete #include "JoystickUtility.h"
+#include "DeviceSDL.h"
 

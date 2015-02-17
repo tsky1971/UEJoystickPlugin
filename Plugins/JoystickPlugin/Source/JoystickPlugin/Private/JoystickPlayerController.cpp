@@ -47,6 +47,9 @@ FJoystickInfo AJoystickPlayerController::GetJoystick(int32 player)
 FJoystickState AJoystickPlayerController::GetLatestFrame(int32 player)
 {
 	if (player < 0 || player >= Joysticks.Num()) return FJoystickState();
+	if (!LatestFrame.IsValidIndex(player)) {
+		return FJoystickState();
+	}
 	return LatestFrame[player];
 }
 

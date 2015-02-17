@@ -15,9 +15,17 @@ FVector2D UJoystickFunctions::POVAxis(TEnumAsByte<JoystickPOVDirection> directio
 
 bool UJoystickFunctions::ButtonPressed(FJoystickState state, int32 number)
 {
-	if (number < 1 || number > 128) return false;
+	bool result = false;
+	if (state.NumberOfButtons < number) {
+		if (state.ButtonsArray[number] == 1) {
+			result = true;
+		}
+	}
+	return result;
+
+	/*if (number < 1 || number > 128) return false;
 	number--;
 	return (number < 64
-		? state.buttonsPressedL & (uint64(1) << number)
-		: state.buttonsPressedH & (uint64(1) << (number - 64))) != 0;
+	? state.buttonsPressedL & (uint64(1) << number)
+	: state.buttonsPressedH & (uint64(1) << (number - 64))) != 0;*/
 }

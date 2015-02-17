@@ -40,6 +40,7 @@ void UJoystickComponent::TickComponent(float DeltaTime, enum ELevelTick TickType
 
 //Blueprint exposing the HydraDelegate Methods
 //Override Callable Functions - Required to forward their implementations in order to compile, cannot skip implementation or bp definition
+
 bool UJoystickComponent::IsAvailable()
 {
 	return JoystickDelegate::JoystickIsAvailable();
@@ -54,7 +55,19 @@ FJoystickInfo UJoystickComponent::GetJoystick(int32 player)
 FJoystickState UJoystickComponent::GetLatestFrame(int32 player)
 {
 	if (player < 0 || player >= Joysticks.Num()) return FJoystickState();
+	if (!LatestFrame.IsValidIndex(player)) {
+		return FJoystickState();
+	}
 	return LatestFrame[player];
+}
+
+FJoystickState UJoystickComponent::GetPreviousFrame(int32 player)
+{
+	if (player < 0 || player >= Joysticks.Num()) return FJoystickState();
+	if (!PreviousFrame.IsValidIndex(player)) {
+		return FJoystickState();
+	}
+	return PreviousFrame[player];
 }
 
 int32 UJoystickComponent::JoystickCount()

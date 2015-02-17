@@ -3,68 +3,73 @@
 #include "JoystickPluginPrivatePCH.h"
 #include "JoystickDelegate.h"
 #include "IJoystickPlugin.h"
+//
+//const FKey EKeysJoystick::JoystickButton[32] = {
+//	FKey("JoystickButton1"),
+//	FKey("JoystickButton2"),
+//	FKey("JoystickButton3"),
+//	FKey("JoystickButton4"),
+//	FKey("JoystickButton5"),
+//	FKey("JoystickButton6"),
+//	FKey("JoystickButton7"),
+//	FKey("JoystickButton8"),
+//	FKey("JoystickButton9"),
+//	FKey("JoystickButton10"),
+//	FKey("JoystickButton11"),
+//	FKey("JoystickButton12"),
+//	FKey("JoystickButton13"),
+//	FKey("JoystickButton14"),
+//	FKey("JoystickButton15"),
+//	FKey("JoystickButton16"),
+//	FKey("JoystickButton17"),
+//	FKey("JoystickButton18"),
+//	FKey("JoystickButton19"),
+//	FKey("JoystickButton20"),
+//	FKey("JoystickButton21"),
+//	FKey("JoystickButton22"),
+//	FKey("JoystickButton23"),
+//	FKey("JoystickButton24"),
+//	FKey("JoystickButton25"),
+//	FKey("JoystickButton26"),
+//	FKey("JoystickButton27"),
+//	FKey("JoystickButton28"),
+//	FKey("JoystickButton29"),
+//	FKey("JoystickButton30"),
+//	FKey("JoystickButton31"),
+//	FKey("JoystickButton32")
+//};
 
-const FKey EKeysJoystick::JoystickButton[32] = {
-	FKey("JoystickButton1"),
-	FKey("JoystickButton2"),
-	FKey("JoystickButton3"),
-	FKey("JoystickButton4"),
-	FKey("JoystickButton5"),
-	FKey("JoystickButton6"),
-	FKey("JoystickButton7"),
-	FKey("JoystickButton8"),
-	FKey("JoystickButton9"),
-	FKey("JoystickButton10"),
-	FKey("JoystickButton11"),
-	FKey("JoystickButton12"),
-	FKey("JoystickButton13"),
-	FKey("JoystickButton14"),
-	FKey("JoystickButton15"),
-	FKey("JoystickButton16"),
-	FKey("JoystickButton17"),
-	FKey("JoystickButton18"),
-	FKey("JoystickButton19"),
-	FKey("JoystickButton20"),
-	FKey("JoystickButton21"),
-	FKey("JoystickButton22"),
-	FKey("JoystickButton23"),
-	FKey("JoystickButton24"),
-	FKey("JoystickButton25"),
-	FKey("JoystickButton26"),
-	FKey("JoystickButton27"),
-	FKey("JoystickButton28"),
-	FKey("JoystickButton29"),
-	FKey("JoystickButton30"),
-	FKey("JoystickButton31"),
-	FKey("JoystickButton32")
-};
+//const FKey EKeysJoystick::JoystickAxisX("JoystickAxisX");
+//const FKey EKeysJoystick::JoystickAxisY("JoystickAxisY");
+//const FKey EKeysJoystick::JoystickAxisZ("JoystickAxisZ");
+//
+//const FKey EKeysJoystick::JoystickRAxisX("JoystickRAxisX");
+//const FKey EKeysJoystick::JoystickRAxisY("JoystickRAxisY");
+//const FKey EKeysJoystick::JoystickRAxisZ("JoystickRAxisZ");
 
-const FKey EKeysJoystick::JoystickAxisX("JoystickAxisX");
-const FKey EKeysJoystick::JoystickAxisY("JoystickAxisY");
-const FKey EKeysJoystick::JoystickAxisZ("JoystickAxisZ");
+//const FKey EKeysJoystick::JoystickPOVX[] {
+//	FKey("JoystickPOVX1"),
+//		FKey("JoystickPOVX2"),
+//		FKey("JoystickPOVX3"),
+//		FKey("JoystickPOVX4")
+//};
 
-const FKey EKeysJoystick::JoystickRAxisX("JoystickRAxisX");
-const FKey EKeysJoystick::JoystickRAxisY("JoystickRAxisY");
-const FKey EKeysJoystick::JoystickRAxisZ("JoystickRAxisZ");
+//const FKey EKeysJoystick::JoystickPOVY[] {
+//	FKey("JoystickPOVY1"),
+//		FKey("JoystickPOVY2"),
+//		FKey("JoystickPOVY3"),
+//		FKey("JoystickPOVY4")
+//};
 
-const FKey EKeysJoystick::JoystickPOVX[] {
-	FKey("JoystickPOVX1"),
-		FKey("JoystickPOVX2"),
-		FKey("JoystickPOVX3"),
-		FKey("JoystickPOVX4")
-};
+//const FKey EKeysJoystick::JoystickSlider[] {
+//	FKey("JoystickSlider1"),
+//		FKey("JoystickSlider2")
+//};
 
-const FKey EKeysJoystick::JoystickPOVY[] {
-	FKey("JoystickPOVY1"),
-		FKey("JoystickPOVY2"),
-		FKey("JoystickPOVY3"),
-		FKey("JoystickPOVY4")
-};
-
-const FKey EKeysJoystick::JoystickSlider[] {
-	FKey("JoystickSlider1"),
-		FKey("JoystickSlider2")
-};
+TArray<FKey> g_DeviceButtonKeys[MAX_JOYSTICKCOUNT];
+TArray<FKey> g_DeviceAxisKeys[MAX_JOYSTICKCOUNT];
+TArray<FKey> g_DeviceHatKeys[MAX_JOYSTICKCOUNT];
+TArray<FKey> g_DeviceBallKeys[MAX_JOYSTICKCOUNT];
 
 /** Empty Event Functions, no Super call required, because they don't do anything! */
 void JoystickDelegate::JoystickButtonPressed(int32 buttonNr, const FJoystickState &state)
@@ -79,29 +84,77 @@ void JoystickDelegate::JoystickButtonReleased(int32 buttonNr, const FJoystickSta
 		IJoystickInterface::Execute_JoystickButtonReleased(_interfaceDelegate, buttonNr, state);
 }
 
-void JoystickDelegate::AxisChanged(FVector AxisValue, const FJoystickState &state)
+//void JoystickDelegate::AxisChanged(FVector AxisValue, const FJoystickState &state)
+//{
+//	if (implementsInterface())
+//		IJoystickInterface::Execute_JoystickAxisChanged(_interfaceDelegate, AxisValue, state);
+//}
+
+//////////////////////////////////////////////////////////////////////
+//
+//////////////////////////////////////////////////////////////////////
+
+void JoystickDelegate::AxisArrayChanged(int32 index, float value, float valuePrev, const FJoystickState &state, const FJoystickState &prev)
 {
-	if (implementsInterface())
-		IJoystickInterface::Execute_JoystickAxisChanged(_interfaceDelegate, AxisValue, state);
+	if (implementsInterface()) {
+		IJoystickInterface::Execute_JoystickAxisArrayChanged(_interfaceDelegate, index, value, valuePrev, state, prev);
+	}
 }
 
-void JoystickDelegate::RAxisChanged(FVector AxisValue, const FJoystickState &state)
+//////////////////////////////////////////////////////////////////////
+//
+//////////////////////////////////////////////////////////////////////
+
+void JoystickDelegate::ButtonsArrayChanged(int32 index, bool value, const FJoystickState &state)
 {
-	if (implementsInterface())
-		IJoystickInterface::Execute_JoystickRAxisChanged(_interfaceDelegate, AxisValue, state);
+	if (implementsInterface()) {
+		IJoystickInterface::Execute_JoystickButtonsArrayChanged(_interfaceDelegate, index, value, state);
+	}
+}
+//////////////////////////////////////////////////////////////////////
+//
+//////////////////////////////////////////////////////////////////////
+
+void JoystickDelegate::HatsArrayChanged(int32 index, float value, const FJoystickState &state)
+{
+	if (implementsInterface()) {
+		IJoystickInterface::Execute_JoystickHatsArrayChanged(_interfaceDelegate, index, value, state);
+	}
 }
 
-void JoystickDelegate::POVChanged(JoystickPOVDirection POVValue, int32 index, const FJoystickState &state)
+//////////////////////////////////////////////////////////////////////
+//
+//////////////////////////////////////////////////////////////////////
+
+void JoystickDelegate::BallsArrayChanged(int32 index, float value, const FJoystickState &state)
 {
-	if (implementsInterface())
-		IJoystickInterface::Execute_JoystickPOVChanged(_interfaceDelegate, POVValue, index, state);
+	if (implementsInterface()) {
+		IJoystickInterface::Execute_JoystickBallsArrayChanged(_interfaceDelegate, index, value, state);
+	}
 }
 
-void JoystickDelegate::SliderChanged(FVector2D SliderValue, const FJoystickState &state)
-{
-	if (implementsInterface())
-		IJoystickInterface::Execute_JoystickSliderChanged(_interfaceDelegate, SliderValue, state);
-}
+//////////////////////////////////////////////////////////////////////
+//
+//////////////////////////////////////////////////////////////////////
+
+//
+//void JoystickDelegate::RAxisChanged(FVector AxisValue, const FJoystickState &state)
+//{
+//	if (implementsInterface())
+//		IJoystickInterface::Execute_JoystickRAxisChanged(_interfaceDelegate, AxisValue, state);
+//}
+//
+//void JoystickDelegate::POVChanged(JoystickPOVDirection POVValue, int32 index, const FJoystickState &state)
+//{
+//	if (implementsInterface())
+//		IJoystickInterface::Execute_JoystickPOVChanged(_interfaceDelegate, POVValue, index, state);
+//}
+//
+//void JoystickDelegate::SliderChanged(FVector2D SliderValue, const FJoystickState &state)
+//{
+//	if (implementsInterface())
+//		IJoystickInterface::Execute_JoystickSliderChanged(_interfaceDelegate, SliderValue, state);
+//}
 
 void JoystickDelegate::JoystickPluggedIn(const FJoystickInfo &info)
 {
@@ -152,8 +205,7 @@ void JoystickDelegate::SetInterfaceDelegate(UObject* newDelegate)
 //Startup
 void JoystickDelegate::JoystickStartup()
 {
-	if (IJoystickPlugin::IsAvailable())
-	{
+	if (IJoystickPlugin::IsAvailable()) {
 		//Required to Work - Set self as a delegate
 		IJoystickPlugin::Get().SetDelegate(this);
 	}
@@ -167,8 +219,7 @@ void JoystickDelegate::JoystickStartup()
 
 void JoystickDelegate::JoystickStop()
 {
-	if (IJoystickPlugin::IsAvailable())
-	{
+	if (IJoystickPlugin::IsAvailable()) {
 		//Required to Work - Set self as a delegate
 		IJoystickPlugin::Get().SetDelegate(nullptr);
 	}
@@ -176,13 +227,15 @@ void JoystickDelegate::JoystickStop()
 
 bool JoystickDelegate::JoystickIsAvailable()
 {
-	return true;
+	if (IJoystickPlugin::IsAvailable()) {
+		return IJoystickPlugin::Get().JoystickIsAvailable();
+	}
+	return false;
 }
 
 void JoystickDelegate::JoystickTick(float DeltaTime)
 {
-	if (IJoystickPlugin::IsAvailable())
-	{
+	if (IJoystickPlugin::IsAvailable()) {
 		//Required to Work - This is the plugin magic
 		IJoystickPlugin::Get().JoystickTick(DeltaTime);
 	}
