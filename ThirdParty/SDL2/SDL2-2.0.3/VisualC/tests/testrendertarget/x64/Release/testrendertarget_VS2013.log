@@ -1,8 +1,0 @@
-﻿  testrendertarget_VS2013.vcxproj -> D:\UE4\cglabUnrealEngine_tsky\Engine\Source\ThirdParty\SDL2\SDL2-2.0.3\VisualC\tests\testrendertarget\x64\Release\testrendertarget.exe
-          1 Datei(en) kopiert.
-  Das System kann die angegebene Datei nicht finden.
-  Das System kann die angegebene Datei nicht finden.
-C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppCommon.targets(132,5): error MSB3073: The command "copy "D:\UE4\cglabUnrealEngine_tsky\Engine\Source\ThirdParty\SDL2\SDL2-2.0.3\VisualC\\SDL\x64\Release\SDL2.dll" "D:\UE4\cglabUnrealEngine_tsky\Engine\Source\ThirdParty\SDL2\SDL2-2.0.3\VisualC\tests\testrendertarget\x64\Release\\SDL2.dll"
-C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppCommon.targets(132,5): error MSB3073: copy "D:\UE4\cglabUnrealEngine_tsky\Engine\Source\ThirdParty\SDL2\SDL2-2.0.3\VisualC\\..\test\icon.bmp" "D:\UE4\cglabUnrealEngine_tsky\Engine\Source\ThirdParty\SDL2\SDL2-2.0.3\VisualC\tests\testrendertarget\x64\Release\\icon.bmp"
-C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppCommon.targets(132,5): error MSB3073: copy "D:\UE4\cglabUnrealEngine_tsky\Engine\Source\ThirdParty\SDL2\SDL2-2.0.3\VisualC\\..\test\sample.bmp" "D:\UE4\cglabUnrealEngine_tsky\Engine\Source\ThirdParty\SDL2\SDL2-2.0.3\VisualC\tests\testrendertarget\x64\Release\\sample.bmp"
-C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppCommon.targets(132,5): error MSB3073: :VCEnd" exited with code 1.
