@@ -2,12 +2,12 @@
 	"FriendlyName": "Joystick Plugin",
 	"FileVersion": 3,
 	"Version": 9,
-	"VersionName": "0.6.0",
+	"VersionName": "0.8.0",
 	"CreatedBy": "Ikarus76, getnamo, samiljan, tsky",
 	"CreatedByURL": "https://github.com/samiljan/UEJoystickPlugin",
-	"EngineVersion": "4.6+",
+	"EngineVersion": "4.18.0",
 	"Description": "Unofficial plugin for Joystick Controllers",
-	"Category": "Input.Controller",
+	"Category": "Input Devices",
 
 	"Modules": 
 	[
