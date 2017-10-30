@@ -1,5 +1,4 @@
-// 
-
+//
 
 namespace UnrealBuildTool.Rules
 {
@@ -28,17 +27,7 @@ namespace UnrealBuildTool.Rules
 			get { return Path.GetFullPath(Path.Combine(ModulePath, "../../Binaries/")); }
 		}
 
-		public virtual void SetupBinaries(
-			TargetInfo Target,
-			ref List<UEBuildBinaryConfiguration> OutBuildBinaryConfigurations,
-			ref List<string> OutExtraModuleNames
-			)
-		{
-			//OutBuildBinaryConfigurations.Add(
-				//new UEBuildBinaryConfiguration(UEBuildBinaryType.DynamicLinkLibrary, InTargetName: "SDL2.dll"));
-		}
-
-		public JoystickPlugin(TargetInfo Target)
+		public JoystickPlugin(ReadOnlyTargetRules Target) : base(Target)
 		{
 			PublicDependencyModuleNames.AddRange(
 				new string[]
@@ -126,17 +115,25 @@ namespace UnrealBuildTool.Rules
 
                 PublicAdditionalLibraries.Add("Version.lib");
             }
-            else if (Target.Platform == UnrealTargetPlatform.Mac)
+			else if (Target.Platform == UnrealTargetPlatform.Mac)
 			{
-				PublicFrameworks.Add("/Library/Frameworks/SDL2.framework");
+                string SDL2Path = ThirdPartyPath + "SDL2/SDL/";
+
+                PublicIncludePaths.Add(Path.Combine(SDL2Path, "include/"));
+                PrivateIncludePaths.Add(Path.Combine(SDL2Path, "include/"));
+
+                PublicFrameworks.Add("/Library/Frameworks/SDL2.framework");
 			}
 			else if (Target.Platform == UnrealTargetPlatform.Linux)
-			{			
-				//AddThirdPartyPrivateStaticDependencies(Target, "SDL2");
-				AddEngineThirdPartyPrivateStaticDependencies(Target, "SDL2");
-			}
+			{
+                string SDL2Path = ThirdPartyPath + "SDL2/SDL/";
 
+                PublicIncludePaths.Add(Path.Combine(SDL2Path, "include/"));
+                PrivateIncludePaths.Add(Path.Combine(SDL2Path, "include/"));
+
+                //AddThirdPartyPrivateStaticDependencies(Target, new string[]{"SDL2"});
+                AddEngineThirdPartyPrivateStaticDependencies(Target, new string[]{"SDL2"});
+			}
 		}
 	}
-
 }
