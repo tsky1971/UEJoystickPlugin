@@ -205,7 +205,56 @@ void FJoystickDevice::JoystickHat(FDeviceId DeviceId, int32 Hat, EJoystickPOVDir
 {
 	CurrentState[DeviceId].Hats[Hat] = Value;
 
-	FVector2D povAxis = POVAxis(Value);
+	//FVector2D povAxis = POVAxis(Value);
+	FVector2D povAxis;
+	switch (Value) {
+	case EJoystickPOVDirection::DIRECTION_NONE:
+		UE_LOG(JoystickPluginLog, Log, TEXT("FJoystickDevice::JoystickHat() EJoystickPOVDirection::DIRECTION_NONE %i"), (int) Value);
+		povAxis.X = 0;
+		povAxis.Y = 0;
+		break;
+	case EJoystickPOVDirection::DIRECTION_UP:
+		UE_LOG(JoystickPluginLog, Log, TEXT("FJoystickDevice::JoystickHat() EJoystickPOVDirection::DIRECTION_UP %i"), (int)Value);
+		povAxis.X = 0;
+		povAxis.Y = 1;
+		break;
+	case EJoystickPOVDirection::DIRECTION_UP_RIGHT:
+		UE_LOG(JoystickPluginLog, Log, TEXT("FJoystickDevice::JoystickHat() EJoystickPOVDirection::DIRECTION_UP_RIGHT %i"), (int)Value);
+		povAxis.X = 1;
+		povAxis.Y = 1;
+		break;
+	case EJoystickPOVDirection::DIRECTION_RIGHT:
+		UE_LOG(JoystickPluginLog, Log, TEXT("FJoystickDevice::JoystickHat() EJoystickPOVDirection::DIRECTION_RIGHT %i"), (int)Value);
+		povAxis.X = 1;
+		povAxis.Y = 0;
+		break;
+	case EJoystickPOVDirection::DIRECTION_DOWN_RIGHT:
+		UE_LOG(JoystickPluginLog, Log, TEXT("FJoystickDevice::JoystickHat() EJoystickPOVDirection::DIRECTION_DOWN_RIGHT %i"), (int)Value);
+		povAxis.X = 1;
+		povAxis.Y = -1;
+		break;
+	case EJoystickPOVDirection::DIRECTION_DOWN:
+		UE_LOG(JoystickPluginLog, Log, TEXT("FJoystickDevice::JoystickHat() EJoystickPOVDirection::DIRECTION_DOWN %i"), (int)Value);
+		povAxis.X = 0;
+		povAxis.Y = -1;
+		break;
+	case EJoystickPOVDirection::DIRECTION_DOWN_LEFT:
+		UE_LOG(JoystickPluginLog, Log, TEXT("FJoystickDevice::JoystickHat() EJoystickPOVDirection::DIRECTION_DOWN_LEFT"), (int)Value);
+		povAxis.X = -1;
+		povAxis.Y = -1;
+		break;
+	case EJoystickPOVDirection::DIRECTION_LEFT: 
+		UE_LOG(JoystickPluginLog, Log, TEXT("FJoystickDevice::JoystickHat() EJoystickPOVDirection::DIRECTION_LEFT %i"), (int)Value);
+		povAxis.X = -1;
+		povAxis.Y = 0;
+		break;
+	case EJoystickPOVDirection::DIRECTION_UP_LEFT:
+		UE_LOG(JoystickPluginLog, Log, TEXT("FJoystickDevice::JoystickHat() EJoystickPOVDirection::DIRECTION_UP_LEFT %i"), (int)Value);
+		povAxis.X = -1;
+		povAxis.Y = 1;
+		break;
+	}
+
 	EmitAnalogInputEventForKey(DeviceHatKeys[0][DeviceId][Hat], povAxis.X, InputDevices[DeviceId].Player, 0);
 	EmitAnalogInputEventForKey(DeviceHatKeys[1][DeviceId][Hat], povAxis.Y, InputDevices[DeviceId].Player, 0);
 
@@ -261,7 +310,7 @@ void FJoystickDevice::EmitEvents(const FJoystickState &previous, const FJoystick
 		}
 	}
 	for (int iHat = 0; iHat < current.Hats.Num(); iHat++)
-	{
+	{		
 		if (previous.Hats[iHat] != current.Hats[iHat])
 		{
 			JoystickHat(FDeviceId(current.DeviceId), iHat, current.Hats[iHat]);
