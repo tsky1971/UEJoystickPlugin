@@ -1,10 +1,12 @@
 #pragma once
 
+
 #include <InputDevice.h>
 
 #include "IJoystickPlugin.h"
 #include "JoystickDevice.h"
 
+DECLARE_LOG_CATEGORY_EXTERN(JoystickPluginLog, Log, All);
 
 class FJoystickPlugin : public IJoystickPlugin
 {

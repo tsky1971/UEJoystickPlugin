@@ -8,8 +8,8 @@
 */
 
 #include "DeviceSDL.h"
+#include "JoystickPlugin.h"
 
-DEFINE_LOG_CATEGORY(JoystickPluginLog);
 
 FDeviceSDL::FDeviceSDL(IJoystickEventInterface * eventInterface) 
 	: EventInterface(eventInterface)

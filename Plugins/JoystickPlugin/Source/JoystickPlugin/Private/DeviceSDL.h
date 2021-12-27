@@ -10,21 +10,19 @@
 #pragma once
 
 #include "JoystickInterface.h"
-
 #include "JoystickDevice.h"
 #include <Engine.h>
 
 // @third party code - BEGIN SDL
 #include "Windows/AllowWindowsPlatformTypes.h"
 
-#include "SDL.h"
-#include "SDL_joystick.h"
-#include "SDL_gamecontroller.h"
+#include "SDL2/SDL.h"
+#include "SDL2/SDL_joystick.h"
+#include "SDL2/SDL_gamecontroller.h"
 
 #include "Windows/HideWindowsPlatformTypes.h"
 // @third party code - END SDL
 
-DECLARE_LOG_CATEGORY_EXTERN(JoystickPluginLog, Log, All);
 
 class IJoystickEventInterface;
 struct _SDL_Joystick;

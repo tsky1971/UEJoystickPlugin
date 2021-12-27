@@ -20,6 +20,7 @@ IMPLEMENT_MODULE(FJoystickPlugin, JoystickPlugin)
 
 #define LOCTEXT_NAMESPACE "JoystickPlugin"
 
+DEFINE_LOG_CATEGORY(JoystickPluginLog);
 
 void FJoystickPlugin::StartupModule()
 {

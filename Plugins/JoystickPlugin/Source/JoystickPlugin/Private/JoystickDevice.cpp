@@ -9,6 +9,8 @@
 */
 
 #include "JoystickDevice.h"
+
+#include "JoystickPlugin.h"
 #include "DeviceSDL.h"
 
 #include <Engine.h>
