@@ -1,7 +1,7 @@
 {
 	"FileVersion": 3,
 	"Version": 9,
-	"VersionName": "0.9.5",
+	"VersionName": "0.9.8",
 	"FriendlyName": "Joystick Plugin",
 	"Description": "Unofficial plugin for Joystick Controllers with SDL2 FF support",
 	"Category": "Input Devices",
@@ -20,7 +20,7 @@
 			"Name": "JoystickPlugin",
 			"Type": "Runtime",
 			"LoadingPhase": "Default",
-			"WhitelistPlatforms": [
+			"PlatformAllowList": [
 				"Win64"
 			]
 		}

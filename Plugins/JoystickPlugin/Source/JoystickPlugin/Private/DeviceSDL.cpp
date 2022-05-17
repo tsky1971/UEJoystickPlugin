@@ -324,11 +324,15 @@ int FDeviceSDL::HandleSDLEvent(void* Userdata, SDL_Event* Event)
 	{
 	case SDL_JOYDEVICEADDED:
 		Self.AddDevice(FDeviceIndex(Event->cdevice.which));
+		
+		UE_LOG(JoystickPluginLog, Log, TEXT("Event ADD Joystick Device=%d"), Event->cdevice.which);
 		break;
-	/*case SDL_CONTROLLERDEVICEADDED:
+	case SDL_CONTROLLERDEVICEADDED:
 	{
 		if (Self.bIgnoreGameControllers)
 		{
+			UE_LOG(JoystickPluginLog, Log, TEXT("Event ADD Joystick/GameController Device=%d will be added. TESTING PHASE"), Event->cdevice.which);
+
 			// Since JOYSTICK is inited before GAMECONTROLLER (by GAMECONTROLLER), 
 			// a controller can be added as a joystick before we can check that it is a controller.
 			// Remove it again and let UE handle it.
@@ -343,14 +347,17 @@ int FDeviceSDL::HandleSDLEvent(void* Userdata, SDL_Event* Event)
 			}
 		}
 		break;
-	}*/
+	}
 	case SDL_JOYDEVICEREMOVED:
 	{
 		FInstanceId InstanceId = FInstanceId(Event->cdevice.which);
 		if (Self.DeviceMapping.Contains(InstanceId))
 		{
+			UE_LOG(JoystickPluginLog, Log, TEXT("Event REMOVE Joystick Device=%d will be removed"), Event->cdevice.which);
+
 			FDeviceId DeviceId = Self.DeviceMapping[InstanceId];
 			Self.RemoveDevice(DeviceId);
+			
 		}
 		break;
 	}
@@ -369,6 +376,8 @@ int FDeviceSDL::HandleSDLEvent(void* Userdata, SDL_Event* Event)
 		{
 			FDeviceId DeviceId = Self.DeviceMapping[FInstanceId(Event->jaxis.which)];
 			Self.EventInterface->JoystickAxis(DeviceId, Event->jaxis.axis, Event->jaxis.value / (Event->jaxis.value < 0 ? 32768.0f : 32767.0f));
+
+			UE_LOG(JoystickPluginLog, Log, TEXT("Event JoystickAxis Device=%d Axis=%d Value=%d"), DeviceId.value, Event->jaxis.axis, Event->jaxis.value / (Event->jaxis.value < 0 ? 32768.0f : 32767.0f));
 		}
 		break;
 	case SDL_JOYHATMOTION:
@@ -376,6 +385,8 @@ int FDeviceSDL::HandleSDLEvent(void* Userdata, SDL_Event* Event)
 		{
 			FDeviceId DeviceId = Self.DeviceMapping[FInstanceId(Event->jhat.which)];
 			Self.EventInterface->JoystickHat(DeviceId, Event->jhat.hat, SDL_hatValToDirection(Event->jhat.value));
+
+			UE_LOG(JoystickPluginLog, Log, TEXT("Event JoystickHat Device=%d Hat=%d Value=%d"), DeviceId.value, Event->jhat.hat, Event->jhat.value);
 		}
 		break;
 	case SDL_JOYBALLMOTION:
@@ -383,6 +394,8 @@ int FDeviceSDL::HandleSDLEvent(void* Userdata, SDL_Event* Event)
 		{
 			FDeviceId DeviceId = Self.DeviceMapping[FInstanceId(Event->jball.which)];
 			Self.EventInterface->JoystickBall(DeviceId, Event->jball.ball, FVector2D(Event->jball.xrel, Event->jball.yrel));
+
+			UE_LOG(JoystickPluginLog, Log, TEXT("Event JoystickBall Device=%d Ball=%d xRel=%d yRel=%d"), DeviceId.value, Event->jball.ball, Event->jball.xrel, Event->jball.yrel);
 		}
 		break;
 	}

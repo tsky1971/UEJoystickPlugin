@@ -16,6 +16,8 @@
 #include <Engine.h>
 #include <SlateBasics.h>
 
+#include "Math/UnrealMathUtility.h"
+
 #define LOCTEXT_NAMESPACE "JoystickPlugin"
 
 //Init and Runtime
@@ -196,15 +198,18 @@ bool EmitAnalogInputEventForKey(FKey Key, float Value, int32 User, bool Repeat)
 
 void FJoystickDevice::JoystickAxis(FDeviceId DeviceId, int32 Axis, float Value)
 {
-	CurrentState[DeviceId].Axes[Axis] = Value;
-	EmitAnalogInputEventForKey(DeviceAxisKeys[DeviceId][Axis], Value, InputDevices[DeviceId].Player, 0);
+	if (FMath::IsNearlyEqual(CurrentState[DeviceId].Axes[Axis], Value, 0.1f) == false) {
+		CurrentState[DeviceId].Axes[Axis] = Value;
 
-	for (auto & listener : EventListeners)
-	{
-		UObject * o = listener.Get();
-		if (o != nullptr)
+		EmitAnalogInputEventForKey(DeviceAxisKeys[DeviceId][Axis], Value, InputDevices[DeviceId].Player, 0);
+
+		for (auto& listener : EventListeners)
 		{
-			IJoystickInterface::Execute_JoystickAxisChanged(o, Axis, CurrentState[DeviceId].Axes[Axis], PreviousState[DeviceId].Axes[Axis], CurrentState[DeviceId], PreviousState[DeviceId]);
+			UObject* o = listener.Get();
+			if (o != nullptr)
+			{
+				IJoystickInterface::Execute_JoystickAxisChanged(o, Axis, CurrentState[DeviceId].Axes[Axis], PreviousState[DeviceId].Axes[Axis], CurrentState[DeviceId], PreviousState[DeviceId]);
+			}
 		}
 	}
 }
