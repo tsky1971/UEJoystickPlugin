@@ -1,7 +1,3 @@
-# This plugin is obsolete
-
-This repo is very old now. Maybe check out https://github.com/JaydenMaalouf/JoystickPlugin instead!
-
 # 
 
 # UEJoystickPlugin
