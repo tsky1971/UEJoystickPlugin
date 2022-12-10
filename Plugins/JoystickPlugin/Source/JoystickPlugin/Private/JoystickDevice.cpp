@@ -64,7 +64,8 @@ void FJoystickDevice::InitInputDevice(const FDeviceInfoSDL &Device)
 		if (!EKeys::GetKeyDetails(DeviceAxisKeys[DeviceId][iAxis]).IsValid())
 		{
 			FText textValue = FText::Format(LOCTEXT("DeviceAxis", "{0} {1} Axis {2}"), FText::FromString(DeviceInfo.ProductName), DeviceInfo.DeviceId, FText::AsNumber(iAxis));
-			EKeys::AddKey(FKeyDetails(DeviceAxisKeys[DeviceId][iAxis], textValue, FKeyDetails::GamepadKey | FKeyDetails::FloatAxis));
+			//EKeys::AddKey(FKeyDetails(DeviceAxisKeys[DeviceId][iAxis], textValue, FKeyDetails::GamepadKey | FKeyDetails::FloatAxis));
+			EKeys::AddKey(FKeyDetails(DeviceAxisKeys[DeviceId][iAxis], textValue, FKeyDetails::GamepadKey | FKeyDetails::Axis1D));
 		}
 	}
 
@@ -99,7 +100,7 @@ void FJoystickDevice::InitInputDevice(const FDeviceInfoSDL &Device)
 			if (!EKeys::GetKeyDetails(key).IsValid())
 			{
 				FText textValue = FText::Format(LOCTEXT("DeviceHat", "{0} {1} Hat {2} {3}"), FText::FromString(DeviceInfo.ProductName), DeviceInfo.DeviceId, FText::AsNumber(iHat), FText::FromString(_2DaxisNames[iAxis]));
-				EKeys::AddKey(FKeyDetails(key, textValue, FKeyDetails::GamepadKey | FKeyDetails::FloatAxis));
+				EKeys::AddKey(FKeyDetails(key, textValue, FKeyDetails::GamepadKey | FKeyDetails::Axis1D));
 			}
 		}
 	}
@@ -118,7 +119,7 @@ void FJoystickDevice::InitInputDevice(const FDeviceInfoSDL &Device)
 			if (!EKeys::GetKeyDetails(key).IsValid())
 			{
 				FText textValue = FText::Format(LOCTEXT("DeviceBall", "{0} {1} Ball {2} {3}"), FText::FromString(DeviceInfo.ProductName), DeviceInfo.DeviceId, FText::AsNumber(iBall), FText::FromString(_2DaxisNames[iAxis]));
-				EKeys::AddKey(FKeyDetails(key, textValue, FKeyDetails::GamepadKey | FKeyDetails::FloatAxis));
+				EKeys::AddKey(FKeyDetails(key, textValue, FKeyDetails::GamepadKey | FKeyDetails::Axis1D));
 			}
 		}
 	}

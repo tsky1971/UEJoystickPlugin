@@ -377,7 +377,7 @@ int FDeviceSDL::HandleSDLEvent(void* Userdata, SDL_Event* Event)
 			FDeviceId DeviceId = Self.DeviceMapping[FInstanceId(Event->jaxis.which)];
 			Self.EventInterface->JoystickAxis(DeviceId, Event->jaxis.axis, Event->jaxis.value / (Event->jaxis.value < 0 ? 32768.0f : 32767.0f));
 
-			UE_LOG(JoystickPluginLog, Log, TEXT("Event JoystickAxis Device=%d Axis=%d Value=%d"), DeviceId.value, Event->jaxis.axis, Event->jaxis.value / (Event->jaxis.value < 0 ? 32768.0f : 32767.0f));
+			//UE_LOG(JoystickPluginLog, Log, TEXT("Event JoystickAxis Device=%d Axis=%d Value=%d"), DeviceId.value, Event->jaxis.axis, Event->jaxis.value / (Event->jaxis.value < 0 ? 32768.0f : 32767.0f));
 		}
 		break;
 	case SDL_JOYHATMOTION:

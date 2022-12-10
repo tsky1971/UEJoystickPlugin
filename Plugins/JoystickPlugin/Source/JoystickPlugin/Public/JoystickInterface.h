@@ -42,7 +42,7 @@ FORCEINLINE uint32 GetTypeHash(FDeviceId deviceId)
 
 
 UENUM(BlueprintType)
-enum class EInputType : uint8
+enum class EJoystickInputType : uint8
 {
 	INPUTTYPE_UNKNOWN,
 	INPUTTYPE_JOYSTICK,
@@ -113,7 +113,7 @@ struct FJoystickInfo
 	UPROPERTY(EditAnywhere, BlueprintReadonly, Category = JoystickInfo)
 	bool Connected = false;
 	UPROPERTY(EditAnywhere, BlueprintReadonly, Category = JoystickInfo)
-	TArray<EInputType> InputType;
+	TArray<EJoystickInputType> InputType;
 };
 
 UINTERFACE(MinimalAPI)

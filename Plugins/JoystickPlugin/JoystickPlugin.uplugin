@@ -1,7 +1,7 @@
 {
 	"FileVersion": 3,
 	"Version": 9,
-	"VersionName": "0.9.8",
+	"VersionName": "0.9.9",
 	"FriendlyName": "Joystick Plugin",
 	"Description": "Unofficial plugin for Joystick Controllers with SDL2 FF support",
 	"Category": "Input Devices",
@@ -13,8 +13,7 @@
 	"EngineVersion": "5.0.0",
 	"CanContainContent": true,
 	"IsBetaVersion": true,
-	"IsExperimentalVersion": false,
-	"Installed": false,
+	"Installed": true,
 	"Modules": [
 		{
 			"Name": "JoystickPlugin",
