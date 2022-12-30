@@ -13,9 +13,7 @@
 #include "JoystickPlugin.h"
 #include "DeviceSDL.h"
 
-//#include <Engine.h>
-#include <SlateBasics.h>
-
+#include "Framework/Application/SlateApplication.h"
 #include "Math/UnrealMathUtility.h"
 
 #define LOCTEXT_NAMESPACE "JoystickPlugin"

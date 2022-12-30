@@ -8,11 +8,7 @@
 */
 
 #include "JoystickFunctions.h"
-#include "IJoystickPlugin.h"
-#include "JoystickInterface.h"
-#include "JoystickDevice.h"
-#include "JoystickPlugin.h"
-#include <Engine.h>
+
 
 UJoystickFunctions::UJoystickFunctions(const class FObjectInitializer& PCIP)
 	: Super(PCIP)

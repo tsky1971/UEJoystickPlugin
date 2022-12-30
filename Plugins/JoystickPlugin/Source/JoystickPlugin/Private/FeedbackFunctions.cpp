@@ -1,7 +1,5 @@
 #include "FeedbackFunctions.h"
 
-#include "Engine/Engine.h"
-
 #include "JoystickDevice.h"
 #include "IJoystickPlugin.h"
 #include "JoystickInterface.h"

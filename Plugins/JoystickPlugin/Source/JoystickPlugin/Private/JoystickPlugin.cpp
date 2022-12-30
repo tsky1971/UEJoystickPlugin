@@ -9,9 +9,6 @@
 
 #include "JoystickPlugin.h"
 
-#include "Core.h"
-#include <Engine.h>
-
 #if WITH_EDITOR
 	#include "InputSettingsCustomization.h"
 #endif
@@ -46,7 +43,7 @@ void FJoystickPlugin::StartupModule()
 		SDL2LibraryHandle = !LibraryPath.IsEmpty() ? FPlatformProcess::GetDllHandle(*LibraryPath) : nullptr;
 		if (SDL2LibraryHandle == nullptr) {
 			UE_LOG(JoystickPluginLog, Error, TEXT("ThirdPartyLibraryError - Failed load sdl2.dll - %s"), *LibraryPath);
-			FMessageDialog::Open(EAppMsgType::Ok, LOCTEXT("ThirdPartyLibraryError", "Failed load sdl2.dll"));
+			// we do not need this FMessageDialog::Open(EAppMsgType::Ok, LOCTEXT("ThirdPartyLibraryError", "Failed load sdl2.dll"));
 			exit(99);
 		}
 	}
