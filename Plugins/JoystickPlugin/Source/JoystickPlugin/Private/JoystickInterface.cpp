@@ -8,7 +8,6 @@
 */
 
 #include "JoystickInterface.h"
-#include <Engine.h>
 
 UJoystickInterface::UJoystickInterface(const class FObjectInitializer& PCIP)
 	: Super(PCIP)

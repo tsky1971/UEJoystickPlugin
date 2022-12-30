@@ -312,7 +312,10 @@ void FDeviceSDL::Update()
 		while (SDL_PollEvent(&Event))
 		{
 			// The event watcher handles it
+			// but not often enought?!
+			
 		}
+		HandleSDLEvent(this, &Event);
 	}
 }
 

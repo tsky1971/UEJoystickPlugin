@@ -1,7 +1,15 @@
 #pragma once
 
+#include "CoreMinimal.h"
 
-#include <InputDevice.h>
+#include "UObject/Interface.h"
+#include "Containers/Map.h"
+#include "Containers/Array.h"
+#include "InputCoreTypes.h"
+
+#include "IInputDevice.h"
+#include "IInputDeviceModule.h"
+
 
 #include "IJoystickPlugin.h"
 #include "JoystickDevice.h"

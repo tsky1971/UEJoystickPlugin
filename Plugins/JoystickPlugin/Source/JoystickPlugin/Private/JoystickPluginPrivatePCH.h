@@ -7,5 +7,4 @@
 #include "JoystickDevice.h"
 #include "InputSettingsCustomization.h"
 
-#include "Engine.h"
-#include "CoreUObject.h"
+#include "CoreMinimal.h"

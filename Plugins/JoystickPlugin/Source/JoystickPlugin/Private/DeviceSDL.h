@@ -11,7 +11,6 @@
 
 #include "JoystickInterface.h"
 #include "JoystickDevice.h"
-#include <Engine.h>
 
 // @third party code - BEGIN SDL
 #include "Windows/AllowWindowsPlatformTypes.h"
