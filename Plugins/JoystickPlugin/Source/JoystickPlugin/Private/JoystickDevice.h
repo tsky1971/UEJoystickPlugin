@@ -1,6 +1,7 @@
 #pragma once
 
 #include <IInputDevice.h>
+
 #include "JoystickInterface.h"
 
 struct FDeviceInfoSDL;

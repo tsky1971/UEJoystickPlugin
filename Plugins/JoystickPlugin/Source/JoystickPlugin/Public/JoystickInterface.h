@@ -9,6 +9,10 @@
 
 #pragma once
 
+#include "Containers/Map.h"
+#include "Containers/Array.h"
+#include "InputCoreTypes.h"
+
 #include "JoystickInterface.generated.h"
 
 struct FDeviceIndex

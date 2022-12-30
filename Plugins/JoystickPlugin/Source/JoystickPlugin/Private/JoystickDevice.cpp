@@ -13,7 +13,7 @@
 #include "JoystickPlugin.h"
 #include "DeviceSDL.h"
 
-#include <Engine.h>
+//#include <Engine.h>
 #include <SlateBasics.h>
 
 #include "Math/UnrealMathUtility.h"
