@@ -17,7 +17,7 @@ void EmptyLinkFunctionForGeneratedCodeJoystickPlugin_init() {}
 				nullptr,
 				0,
 				PKG_CompiledIn | 0x00000000,
-				0x46F65DB5,
+				0xAD354E15,
 				0xE0F6A71A,
 				METADATA_PARAMS(nullptr, 0)
 			};
@@ -25,5 +25,5 @@ void EmptyLinkFunctionForGeneratedCodeJoystickPlugin_init() {}
 		}
 		return Z_Registration_Info_UPackage__Script_JoystickPlugin.OuterSingleton;
 	}
-	static FRegisterCompiledInInfo Z_CompiledInDeferPackage_UPackage__Script_JoystickPlugin(Z_Construct_UPackage__Script_JoystickPlugin, TEXT("/Script/JoystickPlugin"), Z_Registration_Info_UPackage__Script_JoystickPlugin, CONSTRUCT_RELOAD_VERSION_INFO(FPackageReloadVersionInfo, 0x46F65DB5, 0xE0F6A71A));
+	static FRegisterCompiledInInfo Z_CompiledInDeferPackage_UPackage__Script_JoystickPlugin(Z_Construct_UPackage__Script_JoystickPlugin, TEXT("/Script/JoystickPlugin"), Z_Registration_Info_UPackage__Script_JoystickPlugin, CONSTRUCT_RELOAD_VERSION_INFO(FPackageReloadVersionInfo, 0xAD354E15, 0xE0F6A71A));
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

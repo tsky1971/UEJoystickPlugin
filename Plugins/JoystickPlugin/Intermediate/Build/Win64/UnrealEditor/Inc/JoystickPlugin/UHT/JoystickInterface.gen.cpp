@@ -25,7 +25,7 @@ void EmptyLinkFunctionForGeneratedCodeJoystickInterface() {}
 	{
 		if (!Z_Registration_Info_UEnum_EJoystickInputType.OuterSingleton)
 		{
-			Z_Registration_Info_UEnum_EJoystickInputType.OuterSingleton = GetStaticEnum(Z_Construct_UEnum_JoystickPlugin_EJoystickInputType, Z_Construct_UPackage__Script_JoystickPlugin(), TEXT("EJoystickInputType"));
+			Z_Registration_Info_UEnum_EJoystickInputType.OuterSingleton = GetStaticEnum(Z_Construct_UEnum_JoystickPlugin_EJoystickInputType, (UObject*)Z_Construct_UPackage__Script_JoystickPlugin(), TEXT("EJoystickInputType"));
 		}
 		return Z_Registration_Info_UEnum_EJoystickInputType.OuterSingleton;
 	}
@@ -80,7 +80,7 @@ void EmptyLinkFunctionForGeneratedCodeJoystickInterface() {}
 	{
 		if (!Z_Registration_Info_UEnum_EJoystickPOVDirection.OuterSingleton)
 		{
-			Z_Registration_Info_UEnum_EJoystickPOVDirection.OuterSingleton = GetStaticEnum(Z_Construct_UEnum_JoystickPlugin_EJoystickPOVDirection, Z_Construct_UPackage__Script_JoystickPlugin(), TEXT("EJoystickPOVDirection"));
+			Z_Registration_Info_UEnum_EJoystickPOVDirection.OuterSingleton = GetStaticEnum(Z_Construct_UEnum_JoystickPlugin_EJoystickPOVDirection, (UObject*)Z_Construct_UPackage__Script_JoystickPlugin(), TEXT("EJoystickPOVDirection"));
 		}
 		return Z_Registration_Info_UEnum_EJoystickPOVDirection.OuterSingleton;
 	}
@@ -147,7 +147,7 @@ class UScriptStruct* FJoystickState::StaticStruct()
 {
 	if (!Z_Registration_Info_UScriptStruct_JoystickState.OuterSingleton)
 	{
-		Z_Registration_Info_UScriptStruct_JoystickState.OuterSingleton = GetStaticStruct(Z_Construct_UScriptStruct_FJoystickState, Z_Construct_UPackage__Script_JoystickPlugin(), TEXT("JoystickState"));
+		Z_Registration_Info_UScriptStruct_JoystickState.OuterSingleton = GetStaticStruct(Z_Construct_UScriptStruct_FJoystickState, (UObject*)Z_Construct_UPackage__Script_JoystickPlugin(), TEXT("JoystickState"));
 	}
 	return Z_Registration_Info_UScriptStruct_JoystickState.OuterSingleton;
 }
@@ -277,7 +277,7 @@ class UScriptStruct* FJoystickInfo::StaticStruct()
 {
 	if (!Z_Registration_Info_UScriptStruct_JoystickInfo.OuterSingleton)
 	{
-		Z_Registration_Info_UScriptStruct_JoystickInfo.OuterSingleton = GetStaticStruct(Z_Construct_UScriptStruct_FJoystickInfo, Z_Construct_UPackage__Script_JoystickPlugin(), TEXT("JoystickInfo"));
+		Z_Registration_Info_UScriptStruct_JoystickInfo.OuterSingleton = GetStaticStruct(Z_Construct_UScriptStruct_FJoystickInfo, (UObject*)Z_Construct_UPackage__Script_JoystickPlugin(), TEXT("JoystickInfo"));
 	}
 	return Z_Registration_Info_UScriptStruct_JoystickInfo.OuterSingleton;
 }
@@ -912,25 +912,25 @@ template<> JOYSTICKPLUGIN_API UScriptStruct* StaticStruct<FJoystickInfo>()
 			O->ProcessEvent(Func, &Parms);
 		}
 	}
-	struct Z_CompiledInDeferFile_FID_HostProject_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_JoystickInterface_h_Statics
+	struct Z_CompiledInDeferFile_FID_UE_Creates_CreateJoystick_UE52_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_JoystickInterface_h_Statics
 	{
 		static const FEnumRegisterCompiledInInfo EnumInfo[];
 		static const FStructRegisterCompiledInInfo ScriptStructInfo[];
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
-	const FEnumRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_JoystickInterface_h_Statics::EnumInfo[] = {
+	const FEnumRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE_Creates_CreateJoystick_UE52_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_JoystickInterface_h_Statics::EnumInfo[] = {
 		{ EJoystickInputType_StaticEnum, TEXT("EJoystickInputType"), &Z_Registration_Info_UEnum_EJoystickInputType, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 1837824172U) },
 		{ EJoystickPOVDirection_StaticEnum, TEXT("EJoystickPOVDirection"), &Z_Registration_Info_UEnum_EJoystickPOVDirection, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 3127258581U) },
 	};
-	const FStructRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_JoystickInterface_h_Statics::ScriptStructInfo[] = {
+	const FStructRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE_Creates_CreateJoystick_UE52_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_JoystickInterface_h_Statics::ScriptStructInfo[] = {
 		{ FJoystickState::StaticStruct, Z_Construct_UScriptStruct_FJoystickState_Statics::NewStructOps, TEXT("JoystickState"), &Z_Registration_Info_UScriptStruct_JoystickState, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FJoystickState), 1445536434U) },
 		{ FJoystickInfo::StaticStruct, Z_Construct_UScriptStruct_FJoystickInfo_Statics::NewStructOps, TEXT("JoystickInfo"), &Z_Registration_Info_UScriptStruct_JoystickInfo, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FJoystickInfo), 3396818950U) },
 	};
-	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_JoystickInterface_h_Statics::ClassInfo[] = {
+	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE_Creates_CreateJoystick_UE52_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_JoystickInterface_h_Statics::ClassInfo[] = {
 		{ Z_Construct_UClass_UJoystickInterface, UJoystickInterface::StaticClass, TEXT("UJoystickInterface"), &Z_Registration_Info_UClass_UJoystickInterface, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UJoystickInterface), 2593036708U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_JoystickInterface_h_2944720999(TEXT("/Script/JoystickPlugin"),
-		Z_CompiledInDeferFile_FID_HostProject_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_JoystickInterface_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_HostProject_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_JoystickInterface_h_Statics::ClassInfo),
-		Z_CompiledInDeferFile_FID_HostProject_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_JoystickInterface_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_HostProject_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_JoystickInterface_h_Statics::ScriptStructInfo),
-		Z_CompiledInDeferFile_FID_HostProject_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_JoystickInterface_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_HostProject_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_JoystickInterface_h_Statics::EnumInfo));
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE_Creates_CreateJoystick_UE52_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_JoystickInterface_h_2944720999(TEXT("/Script/JoystickPlugin"),
+		Z_CompiledInDeferFile_FID_UE_Creates_CreateJoystick_UE52_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_JoystickInterface_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_UE_Creates_CreateJoystick_UE52_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_JoystickInterface_h_Statics::ClassInfo),
+		Z_CompiledInDeferFile_FID_UE_Creates_CreateJoystick_UE52_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_JoystickInterface_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_UE_Creates_CreateJoystick_UE52_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_JoystickInterface_h_Statics::ScriptStructInfo),
+		Z_CompiledInDeferFile_FID_UE_Creates_CreateJoystick_UE52_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_JoystickInterface_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_UE_Creates_CreateJoystick_UE52_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_JoystickInterface_h_Statics::EnumInfo));
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
