@@ -14,7 +14,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define JOYSTICKPLUGIN_FeedbackEffect_generated_h
 
-#define FID_HostProject_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_FeedbackEffect_h_24_GENERATED_BODY \
+#define FID_CreateJoystick_UE51_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_FeedbackEffect_h_24_GENERATED_BODY \
 	friend struct Z_Construct_UScriptStruct_FFeedbackData_Statics; \
 	JOYSTICKPLUGIN_API static class UScriptStruct* StaticStruct();
 
@@ -22,7 +22,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 template<> JOYSTICKPLUGIN_API UScriptStruct* StaticStruct<struct FFeedbackData>();
 
 #undef CURRENT_FILE_ID
-#define CURRENT_FILE_ID FID_HostProject_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_FeedbackEffect_h
+#define CURRENT_FILE_ID FID_CreateJoystick_UE51_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_FeedbackEffect_h
 
 
 #define FOREACH_ENUM_EFEEDBACKTYPE(op) \
