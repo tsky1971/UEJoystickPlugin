@@ -1,6 +1,0 @@
-{
-	"OutputFiles": [
-		"..\\..\\..\\x64\\UnrealGame\\Shipping\\JoystickPlugin\\PCH.JoystickPlugin.h.obj",
-		"..\\..\\..\\x64\\UnrealGame\\Shipping\\JoystickPlugin\\Module.JoystickPlugin.cpp.obj"
-	]
-}
