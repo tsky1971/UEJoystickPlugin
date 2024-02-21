@@ -1,9 +1,9 @@
 {
 	"FileVersion": 3,
 	"Version": 9,
-	"VersionName": "0.9.12",
+	"VersionName": "0.9.52",
 	"FriendlyName": "Joystick Plugin",
-	"Description": "Unofficial plugin for Joystick Controllers with SDL2 FF support",
+	"Description": "Unofficial plugin for Joystick Controllers with SDL support",
 	"Category": "Input Devices",
 	"CreatedBy": "Ikarus76, getnamo, samiljan, tsky",
 	"CreatedByURL": "https://github.com/tsky1971/UEJoystickPlugin",

@@ -16,26 +16,26 @@ struct FJoystickState;
 #endif
 #define JOYSTICKPLUGIN_JoystickInterface_generated_h
 
-#define FID_CreateJoystick_UE52_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_JoystickInterface_h_76_GENERATED_BODY \
+#define FID_CreateJoystick_UE52_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_JoystickInterface_h_91_GENERATED_BODY \
 	friend struct Z_Construct_UScriptStruct_FJoystickState_Statics; \
 	JOYSTICKPLUGIN_API static class UScriptStruct* StaticStruct();
 
 
 template<> JOYSTICKPLUGIN_API UScriptStruct* StaticStruct<struct FJoystickState>();
 
-#define FID_CreateJoystick_UE52_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_JoystickInterface_h_102_GENERATED_BODY \
+#define FID_CreateJoystick_UE52_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_JoystickInterface_h_115_GENERATED_BODY \
 	friend struct Z_Construct_UScriptStruct_FJoystickInfo_Statics; \
 	JOYSTICKPLUGIN_API static class UScriptStruct* StaticStruct();
 
 
 template<> JOYSTICKPLUGIN_API UScriptStruct* StaticStruct<struct FJoystickInfo>();
 
-#define FID_CreateJoystick_UE52_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_JoystickInterface_h_126_SPARSE_DATA
-#define FID_CreateJoystick_UE52_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_JoystickInterface_h_126_RPC_WRAPPERS
-#define FID_CreateJoystick_UE52_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_JoystickInterface_h_126_RPC_WRAPPERS_NO_PURE_DECLS
-#define FID_CreateJoystick_UE52_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_JoystickInterface_h_126_ACCESSORS
-#define FID_CreateJoystick_UE52_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_JoystickInterface_h_126_CALLBACK_WRAPPERS
-#define FID_CreateJoystick_UE52_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_JoystickInterface_h_126_STANDARD_CONSTRUCTORS \
+#define FID_CreateJoystick_UE52_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_JoystickInterface_h_139_SPARSE_DATA
+#define FID_CreateJoystick_UE52_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_JoystickInterface_h_139_RPC_WRAPPERS
+#define FID_CreateJoystick_UE52_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_JoystickInterface_h_139_RPC_WRAPPERS_NO_PURE_DECLS
+#define FID_CreateJoystick_UE52_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_JoystickInterface_h_139_ACCESSORS
+#define FID_CreateJoystick_UE52_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_JoystickInterface_h_139_CALLBACK_WRAPPERS
+#define FID_CreateJoystick_UE52_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_JoystickInterface_h_139_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	JOYSTICKPLUGIN_API UJoystickInterface(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()); \
 	DEFINE_ABSTRACT_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(UJoystickInterface) \
@@ -49,7 +49,7 @@ public: \
 	JOYSTICKPLUGIN_API virtual ~UJoystickInterface();
 
 
-#define FID_CreateJoystick_UE52_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_JoystickInterface_h_126_ENHANCED_CONSTRUCTORS \
+#define FID_CreateJoystick_UE52_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_JoystickInterface_h_139_ENHANCED_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	JOYSTICKPLUGIN_API UJoystickInterface(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()); \
 private: \
@@ -63,7 +63,7 @@ public: \
 	JOYSTICKPLUGIN_API virtual ~UJoystickInterface();
 
 
-#define FID_CreateJoystick_UE52_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_JoystickInterface_h_126_GENERATED_UINTERFACE_BODY() \
+#define FID_CreateJoystick_UE52_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_JoystickInterface_h_139_GENERATED_UINTERFACE_BODY() \
 private: \
 	static void StaticRegisterNativesUJoystickInterface(); \
 	friend struct Z_Construct_UClass_UJoystickInterface_Statics; \
@@ -72,74 +72,72 @@ public: \
 	DECLARE_SERIALIZER(UJoystickInterface)
 
 
-#define FID_CreateJoystick_UE52_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_JoystickInterface_h_126_GENERATED_BODY_LEGACY \
+#define FID_CreateJoystick_UE52_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_JoystickInterface_h_139_GENERATED_BODY_LEGACY \
 		PRAGMA_DISABLE_DEPRECATION_WARNINGS \
-	FID_CreateJoystick_UE52_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_JoystickInterface_h_126_GENERATED_UINTERFACE_BODY() \
-	FID_CreateJoystick_UE52_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_JoystickInterface_h_126_STANDARD_CONSTRUCTORS \
+	FID_CreateJoystick_UE52_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_JoystickInterface_h_139_GENERATED_UINTERFACE_BODY() \
+	FID_CreateJoystick_UE52_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_JoystickInterface_h_139_STANDARD_CONSTRUCTORS \
 	PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define FID_CreateJoystick_UE52_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_JoystickInterface_h_126_GENERATED_BODY \
+#define FID_CreateJoystick_UE52_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_JoystickInterface_h_139_GENERATED_BODY \
 	PRAGMA_DISABLE_DEPRECATION_WARNINGS \
-	FID_CreateJoystick_UE52_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_JoystickInterface_h_126_GENERATED_UINTERFACE_BODY() \
-	FID_CreateJoystick_UE52_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_JoystickInterface_h_126_ENHANCED_CONSTRUCTORS \
+	FID_CreateJoystick_UE52_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_JoystickInterface_h_139_GENERATED_UINTERFACE_BODY() \
+	FID_CreateJoystick_UE52_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_JoystickInterface_h_139_ENHANCED_CONSTRUCTORS \
 private: \
 	PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define FID_CreateJoystick_UE52_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_JoystickInterface_h_126_INCLASS_IINTERFACE_NO_PURE_DECLS \
+#define FID_CreateJoystick_UE52_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_JoystickInterface_h_139_INCLASS_IINTERFACE_NO_PURE_DECLS \
 protected: \
 	virtual ~IJoystickInterface() {} \
 public: \
 	typedef UJoystickInterface UClassType; \
 	typedef IJoystickInterface ThisClass; \
-	static void Execute_JoystickAxisChanged(UObject* O, int32 Axis, float value, float valuePrev, FJoystickState state, FJoystickState prev); \
-	static void Execute_JoystickBallMoved(UObject* O, int32 Ball, FVector2D Delta, FJoystickState State); \
-	static void Execute_JoystickButtonPressed(UObject* O, int32 Button, FJoystickState state); \
-	static void Execute_JoystickButtonReleased(UObject* O, int32 Button, FJoystickState state); \
-	static void Execute_JoystickHatChanged(UObject* O, int32 Hat, EJoystickPOVDirection Value, FJoystickState state); \
-	static void Execute_JoystickPluggedIn(UObject* O, int32 DeviceId); \
-	static void Execute_JoystickUnplugged(UObject* O, int32 DeviceId); \
+	static void Execute_JoystickAxisChanged(UObject* O, int32 _Axis, float _value, float _valuePrev, FJoystickState _state, FJoystickState _prev); \
+	static void Execute_JoystickButtonPressed(UObject* O, int32 _Button, FJoystickState _state); \
+	static void Execute_JoystickButtonReleased(UObject* O, int32 _Button, FJoystickState _state); \
+	static void Execute_JoystickHatChanged(UObject* O, int32 _Hat, EJoystickPOVDirection _Value, FJoystickState _state); \
+	static void Execute_JoystickPluggedIn(UObject* O, int32 _DeviceInstanceId); \
+	static void Execute_JoystickUnplugged(UObject* O, int32 _DeviceInstanceId); \
 	virtual UObject* _getUObject() const { return nullptr; }
 
 
-#define FID_CreateJoystick_UE52_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_JoystickInterface_h_126_INCLASS_IINTERFACE \
+#define FID_CreateJoystick_UE52_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_JoystickInterface_h_139_INCLASS_IINTERFACE \
 protected: \
 	virtual ~IJoystickInterface() {} \
 public: \
 	typedef UJoystickInterface UClassType; \
 	typedef IJoystickInterface ThisClass; \
-	static void Execute_JoystickAxisChanged(UObject* O, int32 Axis, float value, float valuePrev, FJoystickState state, FJoystickState prev); \
-	static void Execute_JoystickBallMoved(UObject* O, int32 Ball, FVector2D Delta, FJoystickState State); \
-	static void Execute_JoystickButtonPressed(UObject* O, int32 Button, FJoystickState state); \
-	static void Execute_JoystickButtonReleased(UObject* O, int32 Button, FJoystickState state); \
-	static void Execute_JoystickHatChanged(UObject* O, int32 Hat, EJoystickPOVDirection Value, FJoystickState state); \
-	static void Execute_JoystickPluggedIn(UObject* O, int32 DeviceId); \
-	static void Execute_JoystickUnplugged(UObject* O, int32 DeviceId); \
+	static void Execute_JoystickAxisChanged(UObject* O, int32 _Axis, float _value, float _valuePrev, FJoystickState _state, FJoystickState _prev); \
+	static void Execute_JoystickButtonPressed(UObject* O, int32 _Button, FJoystickState _state); \
+	static void Execute_JoystickButtonReleased(UObject* O, int32 _Button, FJoystickState _state); \
+	static void Execute_JoystickHatChanged(UObject* O, int32 _Hat, EJoystickPOVDirection _Value, FJoystickState _state); \
+	static void Execute_JoystickPluggedIn(UObject* O, int32 _DeviceInstanceId); \
+	static void Execute_JoystickUnplugged(UObject* O, int32 _DeviceInstanceId); \
 	virtual UObject* _getUObject() const { return nullptr; }
 
 
-#define FID_CreateJoystick_UE52_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_JoystickInterface_h_123_PROLOG
-#define FID_CreateJoystick_UE52_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_JoystickInterface_h_131_GENERATED_BODY_LEGACY \
+#define FID_CreateJoystick_UE52_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_JoystickInterface_h_136_PROLOG
+#define FID_CreateJoystick_UE52_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_JoystickInterface_h_144_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_CreateJoystick_UE52_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_JoystickInterface_h_126_SPARSE_DATA \
-	FID_CreateJoystick_UE52_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_JoystickInterface_h_126_RPC_WRAPPERS \
-	FID_CreateJoystick_UE52_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_JoystickInterface_h_126_ACCESSORS \
-	FID_CreateJoystick_UE52_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_JoystickInterface_h_126_CALLBACK_WRAPPERS \
-	FID_CreateJoystick_UE52_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_JoystickInterface_h_126_INCLASS_IINTERFACE \
+	FID_CreateJoystick_UE52_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_JoystickInterface_h_139_SPARSE_DATA \
+	FID_CreateJoystick_UE52_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_JoystickInterface_h_139_RPC_WRAPPERS \
+	FID_CreateJoystick_UE52_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_JoystickInterface_h_139_ACCESSORS \
+	FID_CreateJoystick_UE52_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_JoystickInterface_h_139_CALLBACK_WRAPPERS \
+	FID_CreateJoystick_UE52_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_JoystickInterface_h_139_INCLASS_IINTERFACE \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define FID_CreateJoystick_UE52_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_JoystickInterface_h_131_GENERATED_BODY \
+#define FID_CreateJoystick_UE52_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_JoystickInterface_h_144_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_CreateJoystick_UE52_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_JoystickInterface_h_126_SPARSE_DATA \
-	FID_CreateJoystick_UE52_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_JoystickInterface_h_126_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_CreateJoystick_UE52_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_JoystickInterface_h_126_ACCESSORS \
-	FID_CreateJoystick_UE52_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_JoystickInterface_h_126_CALLBACK_WRAPPERS \
-	FID_CreateJoystick_UE52_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_JoystickInterface_h_126_INCLASS_IINTERFACE_NO_PURE_DECLS \
+	FID_CreateJoystick_UE52_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_JoystickInterface_h_139_SPARSE_DATA \
+	FID_CreateJoystick_UE52_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_JoystickInterface_h_139_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_CreateJoystick_UE52_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_JoystickInterface_h_139_ACCESSORS \
+	FID_CreateJoystick_UE52_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_JoystickInterface_h_139_CALLBACK_WRAPPERS \
+	FID_CreateJoystick_UE52_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_JoystickInterface_h_139_INCLASS_IINTERFACE_NO_PURE_DECLS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

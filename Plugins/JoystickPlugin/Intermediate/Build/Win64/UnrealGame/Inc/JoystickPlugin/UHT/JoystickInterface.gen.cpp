@@ -11,7 +11,6 @@ void EmptyLinkFunctionForGeneratedCodeJoystickInterface() {}
 // Cross Module References
 	COREUOBJECT_API UClass* Z_Construct_UClass_UInterface();
 	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FGuid();
-	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector2D();
 	JOYSTICKPLUGIN_API UClass* Z_Construct_UClass_UJoystickInterface();
 	JOYSTICKPLUGIN_API UClass* Z_Construct_UClass_UJoystickInterface_NoRegister();
 	JOYSTICKPLUGIN_API UEnum* Z_Construct_UEnum_JoystickPlugin_EJoystickInputType();
@@ -49,10 +48,12 @@ void EmptyLinkFunctionForGeneratedCodeJoystickInterface() {}
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UEnum_JoystickPlugin_EJoystickInputType_Statics::Enum_MetaDataParams[] = {
 		{ "BlueprintType", "true" },
+		{ "Comment", "//struct FDeviceId\n//{\n//\x09int32 value = -1;\n//\x09""explicit FDeviceId(int32 v) : value(v) {}\n//\x09""bool operator==(FDeviceId other) const { return value == other.value; };\n//};\n//\n//FORCEINLINE uint32 GetTypeHash(FDeviceId deviceId)\n//{\n//\x09return GetTypeHash(deviceId.value);\n//}\n" },
 		{ "INPUTTYPE_GAMECONTROLLER.Name", "EJoystickInputType::INPUTTYPE_GAMECONTROLLER" },
 		{ "INPUTTYPE_JOYSTICK.Name", "EJoystickInputType::INPUTTYPE_JOYSTICK" },
 		{ "INPUTTYPE_UNKNOWN.Name", "EJoystickInputType::INPUTTYPE_UNKNOWN" },
 		{ "ModuleRelativePath", "Public/JoystickInterface.h" },
+		{ "ToolTip", "struct FDeviceId\n{\n       int32 value = -1;\n       explicit FDeviceId(int32 v) : value(v) {}\n       bool operator==(FDeviceId other) const { return value == other.value; };\n};\n\nFORCEINLINE uint32 GetTypeHash(FDeviceId deviceId)\n{\n       return GetTypeHash(deviceId.value);\n}" },
 	};
 #endif
 	const UECodeGen_Private::FEnumParams Z_Construct_UEnum_JoystickPlugin_EJoystickInputType_Statics::EnumParams = {
@@ -162,9 +163,9 @@ template<> JOYSTICKPLUGIN_API UScriptStruct* StaticStruct<FJoystickState>()
 #endif
 		static void* NewStructOps();
 #if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_DeviceId_MetaData[];
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_DeviceInstanceId_MetaData[];
 #endif
-		static const UECodeGen_Private::FIntPropertyParams NewProp_DeviceId;
+		static const UECodeGen_Private::FIntPropertyParams NewProp_DeviceInstanceId;
 		static const UECodeGen_Private::FFloatPropertyParams NewProp_Axes_Inner;
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_Axes_MetaData[];
@@ -181,11 +182,6 @@ template<> JOYSTICKPLUGIN_API UScriptStruct* StaticStruct<FJoystickState>()
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_Hats_MetaData[];
 #endif
 		static const UECodeGen_Private::FArrayPropertyParams NewProp_Hats;
-		static const UECodeGen_Private::FStructPropertyParams NewProp_Balls_Inner;
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_Balls_MetaData[];
-#endif
-		static const UECodeGen_Private::FArrayPropertyParams NewProp_Balls;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const UECodeGen_Private::FStructParams ReturnStructParams;
 	};
@@ -200,12 +196,12 @@ template<> JOYSTICKPLUGIN_API UScriptStruct* StaticStruct<FJoystickState>()
 		return (UScriptStruct::ICppStructOps*)new UScriptStruct::TCppStructOps<FJoystickState>();
 	}
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FJoystickState_Statics::NewProp_DeviceId_MetaData[] = {
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FJoystickState_Statics::NewProp_DeviceInstanceId_MetaData[] = {
 		{ "Category", "JoystickState" },
 		{ "ModuleRelativePath", "Public/JoystickInterface.h" },
 	};
 #endif
-	const UECodeGen_Private::FIntPropertyParams Z_Construct_UScriptStruct_FJoystickState_Statics::NewProp_DeviceId = { "DeviceId", nullptr, (EPropertyFlags)0x0010000000000015, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(FJoystickState, DeviceId), METADATA_PARAMS(Z_Construct_UScriptStruct_FJoystickState_Statics::NewProp_DeviceId_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FJoystickState_Statics::NewProp_DeviceId_MetaData)) };
+	const UECodeGen_Private::FIntPropertyParams Z_Construct_UScriptStruct_FJoystickState_Statics::NewProp_DeviceInstanceId = { "DeviceInstanceId", nullptr, (EPropertyFlags)0x0010000000000015, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(FJoystickState, DeviceInstanceId), METADATA_PARAMS(Z_Construct_UScriptStruct_FJoystickState_Statics::NewProp_DeviceInstanceId_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FJoystickState_Statics::NewProp_DeviceInstanceId_MetaData)) };
 	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UScriptStruct_FJoystickState_Statics::NewProp_Axes_Inner = { "Axes", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, 0, METADATA_PARAMS(nullptr, 0) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FJoystickState_Statics::NewProp_Axes_MetaData[] = {
@@ -231,16 +227,8 @@ template<> JOYSTICKPLUGIN_API UScriptStruct* StaticStruct<FJoystickState>()
 	};
 #endif
 	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UScriptStruct_FJoystickState_Statics::NewProp_Hats = { "Hats", nullptr, (EPropertyFlags)0x0010000000000015, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(FJoystickState, Hats), EArrayPropertyFlags::None, METADATA_PARAMS(Z_Construct_UScriptStruct_FJoystickState_Statics::NewProp_Hats_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FJoystickState_Statics::NewProp_Hats_MetaData)) }; // 3127258581
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UScriptStruct_FJoystickState_Statics::NewProp_Balls_Inner = { "Balls", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, 0, Z_Construct_UScriptStruct_FVector2D, METADATA_PARAMS(nullptr, 0) };
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FJoystickState_Statics::NewProp_Balls_MetaData[] = {
-		{ "Category", "JoystickState" },
-		{ "ModuleRelativePath", "Public/JoystickInterface.h" },
-	};
-#endif
-	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UScriptStruct_FJoystickState_Statics::NewProp_Balls = { "Balls", nullptr, (EPropertyFlags)0x0010000000000015, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(FJoystickState, Balls), EArrayPropertyFlags::None, METADATA_PARAMS(Z_Construct_UScriptStruct_FJoystickState_Statics::NewProp_Balls_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FJoystickState_Statics::NewProp_Balls_MetaData)) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UScriptStruct_FJoystickState_Statics::PropPointers[] = {
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FJoystickState_Statics::NewProp_DeviceId,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FJoystickState_Statics::NewProp_DeviceInstanceId,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FJoystickState_Statics::NewProp_Axes_Inner,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FJoystickState_Statics::NewProp_Axes,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FJoystickState_Statics::NewProp_Buttons_Inner,
@@ -248,8 +236,6 @@ template<> JOYSTICKPLUGIN_API UScriptStruct* StaticStruct<FJoystickState>()
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FJoystickState_Statics::NewProp_Hats_Inner_Underlying,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FJoystickState_Statics::NewProp_Hats_Inner,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FJoystickState_Statics::NewProp_Hats,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FJoystickState_Statics::NewProp_Balls_Inner,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FJoystickState_Statics::NewProp_Balls,
 	};
 	const UECodeGen_Private::FStructParams Z_Construct_UScriptStruct_FJoystickState_Statics::ReturnStructParams = {
 		(UObject* (*)())Z_Construct_UPackage__Script_JoystickPlugin,
@@ -296,9 +282,9 @@ template<> JOYSTICKPLUGIN_API UScriptStruct* StaticStruct<FJoystickInfo>()
 #endif
 		static const UECodeGen_Private::FIntPropertyParams NewProp_Player;
 #if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_DeviceId_MetaData[];
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_DeviceInstanceId_MetaData[];
 #endif
-		static const UECodeGen_Private::FIntPropertyParams NewProp_DeviceId;
+		static const UECodeGen_Private::FIntPropertyParams NewProp_DeviceInstanceId;
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_IsRumbleDevice_MetaData[];
 #endif
@@ -348,12 +334,12 @@ template<> JOYSTICKPLUGIN_API UScriptStruct* StaticStruct<FJoystickInfo>()
 #endif
 	const UECodeGen_Private::FIntPropertyParams Z_Construct_UScriptStruct_FJoystickInfo_Statics::NewProp_Player = { "Player", nullptr, (EPropertyFlags)0x0010000000000015, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(FJoystickInfo, Player), METADATA_PARAMS(Z_Construct_UScriptStruct_FJoystickInfo_Statics::NewProp_Player_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FJoystickInfo_Statics::NewProp_Player_MetaData)) };
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FJoystickInfo_Statics::NewProp_DeviceId_MetaData[] = {
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FJoystickInfo_Statics::NewProp_DeviceInstanceId_MetaData[] = {
 		{ "Category", "JoystickInfo" },
 		{ "ModuleRelativePath", "Public/JoystickInterface.h" },
 	};
 #endif
-	const UECodeGen_Private::FIntPropertyParams Z_Construct_UScriptStruct_FJoystickInfo_Statics::NewProp_DeviceId = { "DeviceId", nullptr, (EPropertyFlags)0x0010000000000015, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(FJoystickInfo, DeviceId), METADATA_PARAMS(Z_Construct_UScriptStruct_FJoystickInfo_Statics::NewProp_DeviceId_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FJoystickInfo_Statics::NewProp_DeviceId_MetaData)) };
+	const UECodeGen_Private::FIntPropertyParams Z_Construct_UScriptStruct_FJoystickInfo_Statics::NewProp_DeviceInstanceId = { "DeviceInstanceId", nullptr, (EPropertyFlags)0x0010000000000015, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(FJoystickInfo, DeviceInstanceId), METADATA_PARAMS(Z_Construct_UScriptStruct_FJoystickInfo_Statics::NewProp_DeviceInstanceId_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FJoystickInfo_Statics::NewProp_DeviceInstanceId_MetaData)) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FJoystickInfo_Statics::NewProp_IsRumbleDevice_MetaData[] = {
 		{ "Category", "JoystickInfo" },
@@ -398,17 +384,17 @@ template<> JOYSTICKPLUGIN_API UScriptStruct* StaticStruct<FJoystickInfo>()
 	}
 	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UScriptStruct_FJoystickInfo_Statics::NewProp_Connected = { "Connected", nullptr, (EPropertyFlags)0x0010000000000015, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, sizeof(bool), sizeof(FJoystickInfo), &Z_Construct_UScriptStruct_FJoystickInfo_Statics::NewProp_Connected_SetBit, METADATA_PARAMS(Z_Construct_UScriptStruct_FJoystickInfo_Statics::NewProp_Connected_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FJoystickInfo_Statics::NewProp_Connected_MetaData)) };
 	const UECodeGen_Private::FBytePropertyParams Z_Construct_UScriptStruct_FJoystickInfo_Statics::NewProp_InputType_Inner_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, 0, nullptr, METADATA_PARAMS(nullptr, 0) };
-	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UScriptStruct_FJoystickInfo_Statics::NewProp_InputType_Inner = { "InputType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, 0, Z_Construct_UEnum_JoystickPlugin_EJoystickInputType, METADATA_PARAMS(nullptr, 0) }; // 1837824172
+	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UScriptStruct_FJoystickInfo_Statics::NewProp_InputType_Inner = { "InputType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, 0, Z_Construct_UEnum_JoystickPlugin_EJoystickInputType, METADATA_PARAMS(nullptr, 0) }; // 1013933855
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FJoystickInfo_Statics::NewProp_InputType_MetaData[] = {
 		{ "Category", "JoystickInfo" },
 		{ "ModuleRelativePath", "Public/JoystickInterface.h" },
 	};
 #endif
-	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UScriptStruct_FJoystickInfo_Statics::NewProp_InputType = { "InputType", nullptr, (EPropertyFlags)0x0010000000000015, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(FJoystickInfo, InputType), EArrayPropertyFlags::None, METADATA_PARAMS(Z_Construct_UScriptStruct_FJoystickInfo_Statics::NewProp_InputType_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FJoystickInfo_Statics::NewProp_InputType_MetaData)) }; // 1837824172
+	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UScriptStruct_FJoystickInfo_Statics::NewProp_InputType = { "InputType", nullptr, (EPropertyFlags)0x0010000000000015, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(FJoystickInfo, InputType), EArrayPropertyFlags::None, METADATA_PARAMS(Z_Construct_UScriptStruct_FJoystickInfo_Statics::NewProp_InputType_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FJoystickInfo_Statics::NewProp_InputType_MetaData)) }; // 1013933855
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UScriptStruct_FJoystickInfo_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FJoystickInfo_Statics::NewProp_Player,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FJoystickInfo_Statics::NewProp_DeviceId,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FJoystickInfo_Statics::NewProp_DeviceInstanceId,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FJoystickInfo_Statics::NewProp_IsRumbleDevice,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FJoystickInfo_Statics::NewProp_ProductId,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FJoystickInfo_Statics::NewProp_ProductName,
@@ -441,67 +427,57 @@ template<> JOYSTICKPLUGIN_API UScriptStruct* StaticStruct<FJoystickInfo>()
 	}
 	struct JoystickInterface_eventJoystickAxisChanged_Parms
 	{
-		int32 Axis;
-		float value;
-		float valuePrev;
-		FJoystickState state;
-		FJoystickState prev;
-	};
-	struct JoystickInterface_eventJoystickBallMoved_Parms
-	{
-		int32 Ball;
-		FVector2D Delta;
-		FJoystickState State;
+		int32 _Axis;
+		float _value;
+		float _valuePrev;
+		FJoystickState _state;
+		FJoystickState _prev;
 	};
 	struct JoystickInterface_eventJoystickButtonPressed_Parms
 	{
-		int32 Button;
-		FJoystickState state;
+		int32 _Button;
+		FJoystickState _state;
 	};
 	struct JoystickInterface_eventJoystickButtonReleased_Parms
 	{
-		int32 Button;
-		FJoystickState state;
+		int32 _Button;
+		FJoystickState _state;
 	};
 	struct JoystickInterface_eventJoystickHatChanged_Parms
 	{
-		int32 Hat;
-		EJoystickPOVDirection Value;
-		FJoystickState state;
+		int32 _Hat;
+		EJoystickPOVDirection _Value;
+		FJoystickState _state;
 	};
 	struct JoystickInterface_eventJoystickPluggedIn_Parms
 	{
-		int32 DeviceId;
+		int32 _DeviceInstanceId;
 	};
 	struct JoystickInterface_eventJoystickUnplugged_Parms
 	{
-		int32 DeviceId;
+		int32 _DeviceInstanceId;
 	};
-	void IJoystickInterface::JoystickAxisChanged(int32 Axis, float value, float valuePrev, FJoystickState state, FJoystickState prev)
+	void IJoystickInterface::JoystickAxisChanged(int32 _Axis, float _value, float _valuePrev, FJoystickState _state, FJoystickState _prev)
 	{
 		check(0 && "Do not directly call Event functions in Interfaces. Call Execute_JoystickAxisChanged instead.");
 	}
-	void IJoystickInterface::JoystickBallMoved(int32 Ball, FVector2D Delta, FJoystickState State)
-	{
-		check(0 && "Do not directly call Event functions in Interfaces. Call Execute_JoystickBallMoved instead.");
-	}
-	void IJoystickInterface::JoystickButtonPressed(int32 Button, FJoystickState state)
+	void IJoystickInterface::JoystickButtonPressed(int32 _Button, FJoystickState _state)
 	{
 		check(0 && "Do not directly call Event functions in Interfaces. Call Execute_JoystickButtonPressed instead.");
 	}
-	void IJoystickInterface::JoystickButtonReleased(int32 Button, FJoystickState state)
+	void IJoystickInterface::JoystickButtonReleased(int32 _Button, FJoystickState _state)
 	{
 		check(0 && "Do not directly call Event functions in Interfaces. Call Execute_JoystickButtonReleased instead.");
 	}
-	void IJoystickInterface::JoystickHatChanged(int32 Hat, EJoystickPOVDirection Value, FJoystickState state)
+	void IJoystickInterface::JoystickHatChanged(int32 _Hat, EJoystickPOVDirection _Value, FJoystickState _state)
 	{
 		check(0 && "Do not directly call Event functions in Interfaces. Call Execute_JoystickHatChanged instead.");
 	}
-	void IJoystickInterface::JoystickPluggedIn(int32 DeviceId)
+	void IJoystickInterface::JoystickPluggedIn(int32 _DeviceInstanceId)
 	{
 		check(0 && "Do not directly call Event functions in Interfaces. Call Execute_JoystickPluggedIn instead.");
 	}
-	void IJoystickInterface::JoystickUnplugged(int32 DeviceId)
+	void IJoystickInterface::JoystickUnplugged(int32 _DeviceInstanceId)
 	{
 		check(0 && "Do not directly call Event functions in Interfaces. Call Execute_JoystickUnplugged instead.");
 	}
@@ -510,32 +486,32 @@ template<> JOYSTICKPLUGIN_API UScriptStruct* StaticStruct<FJoystickInfo>()
 	}
 	struct Z_Construct_UFunction_UJoystickInterface_JoystickAxisChanged_Statics
 	{
-		static const UECodeGen_Private::FIntPropertyParams NewProp_Axis;
-		static const UECodeGen_Private::FFloatPropertyParams NewProp_value;
-		static const UECodeGen_Private::FFloatPropertyParams NewProp_valuePrev;
-		static const UECodeGen_Private::FStructPropertyParams NewProp_state;
-		static const UECodeGen_Private::FStructPropertyParams NewProp_prev;
+		static const UECodeGen_Private::FIntPropertyParams NewProp__Axis;
+		static const UECodeGen_Private::FFloatPropertyParams NewProp__value;
+		static const UECodeGen_Private::FFloatPropertyParams NewProp__valuePrev;
+		static const UECodeGen_Private::FStructPropertyParams NewProp__state;
+		static const UECodeGen_Private::FStructPropertyParams NewProp__prev;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
 #endif
 		static const UECodeGen_Private::FFunctionParams FuncParams;
 	};
-	const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_UJoystickInterface_JoystickAxisChanged_Statics::NewProp_Axis = { "Axis", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(JoystickInterface_eventJoystickAxisChanged_Parms, Axis), METADATA_PARAMS(nullptr, 0) };
-	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UFunction_UJoystickInterface_JoystickAxisChanged_Statics::NewProp_value = { "value", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(JoystickInterface_eventJoystickAxisChanged_Parms, value), METADATA_PARAMS(nullptr, 0) };
-	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UFunction_UJoystickInterface_JoystickAxisChanged_Statics::NewProp_valuePrev = { "valuePrev", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(JoystickInterface_eventJoystickAxisChanged_Parms, valuePrev), METADATA_PARAMS(nullptr, 0) };
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UJoystickInterface_JoystickAxisChanged_Statics::NewProp_state = { "state", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(JoystickInterface_eventJoystickAxisChanged_Parms, state), Z_Construct_UScriptStruct_FJoystickState, METADATA_PARAMS(nullptr, 0) }; // 1445536434
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UJoystickInterface_JoystickAxisChanged_Statics::NewProp_prev = { "prev", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(JoystickInterface_eventJoystickAxisChanged_Parms, prev), Z_Construct_UScriptStruct_FJoystickState, METADATA_PARAMS(nullptr, 0) }; // 1445536434
+	const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_UJoystickInterface_JoystickAxisChanged_Statics::NewProp__Axis = { "_Axis", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(JoystickInterface_eventJoystickAxisChanged_Parms, _Axis), METADATA_PARAMS(nullptr, 0) };
+	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UFunction_UJoystickInterface_JoystickAxisChanged_Statics::NewProp__value = { "_value", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(JoystickInterface_eventJoystickAxisChanged_Parms, _value), METADATA_PARAMS(nullptr, 0) };
+	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UFunction_UJoystickInterface_JoystickAxisChanged_Statics::NewProp__valuePrev = { "_valuePrev", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(JoystickInterface_eventJoystickAxisChanged_Parms, _valuePrev), METADATA_PARAMS(nullptr, 0) };
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UJoystickInterface_JoystickAxisChanged_Statics::NewProp__state = { "_state", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(JoystickInterface_eventJoystickAxisChanged_Parms, _state), Z_Construct_UScriptStruct_FJoystickState, METADATA_PARAMS(nullptr, 0) }; // 95070178
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UJoystickInterface_JoystickAxisChanged_Statics::NewProp__prev = { "_prev", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(JoystickInterface_eventJoystickAxisChanged_Parms, _prev), Z_Construct_UScriptStruct_FJoystickState, METADATA_PARAMS(nullptr, 0) }; // 95070178
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UJoystickInterface_JoystickAxisChanged_Statics::PropPointers[] = {
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UJoystickInterface_JoystickAxisChanged_Statics::NewProp_Axis,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UJoystickInterface_JoystickAxisChanged_Statics::NewProp_value,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UJoystickInterface_JoystickAxisChanged_Statics::NewProp_valuePrev,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UJoystickInterface_JoystickAxisChanged_Statics::NewProp_state,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UJoystickInterface_JoystickAxisChanged_Statics::NewProp_prev,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UJoystickInterface_JoystickAxisChanged_Statics::NewProp__Axis,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UJoystickInterface_JoystickAxisChanged_Statics::NewProp__value,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UJoystickInterface_JoystickAxisChanged_Statics::NewProp__valuePrev,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UJoystickInterface_JoystickAxisChanged_Statics::NewProp__state,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UJoystickInterface_JoystickAxisChanged_Statics::NewProp__prev,
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UJoystickInterface_JoystickAxisChanged_Statics::Function_MetaDataParams[] = {
-		{ "Category", "SDL2 Joystick" },
+		{ "Category", "SDL Joystick" },
 		{ "ModuleRelativePath", "Public/JoystickInterface.h" },
 	};
 #endif
@@ -549,60 +525,25 @@ template<> JOYSTICKPLUGIN_API UScriptStruct* StaticStruct<FJoystickInfo>()
 		}
 		return ReturnFunction;
 	}
-	struct Z_Construct_UFunction_UJoystickInterface_JoystickBallMoved_Statics
-	{
-		static const UECodeGen_Private::FIntPropertyParams NewProp_Ball;
-		static const UECodeGen_Private::FStructPropertyParams NewProp_Delta;
-		static const UECodeGen_Private::FStructPropertyParams NewProp_State;
-		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
-#endif
-		static const UECodeGen_Private::FFunctionParams FuncParams;
-	};
-	const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_UJoystickInterface_JoystickBallMoved_Statics::NewProp_Ball = { "Ball", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(JoystickInterface_eventJoystickBallMoved_Parms, Ball), METADATA_PARAMS(nullptr, 0) };
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UJoystickInterface_JoystickBallMoved_Statics::NewProp_Delta = { "Delta", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(JoystickInterface_eventJoystickBallMoved_Parms, Delta), Z_Construct_UScriptStruct_FVector2D, METADATA_PARAMS(nullptr, 0) };
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UJoystickInterface_JoystickBallMoved_Statics::NewProp_State = { "State", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(JoystickInterface_eventJoystickBallMoved_Parms, State), Z_Construct_UScriptStruct_FJoystickState, METADATA_PARAMS(nullptr, 0) }; // 1445536434
-	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UJoystickInterface_JoystickBallMoved_Statics::PropPointers[] = {
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UJoystickInterface_JoystickBallMoved_Statics::NewProp_Ball,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UJoystickInterface_JoystickBallMoved_Statics::NewProp_Delta,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UJoystickInterface_JoystickBallMoved_Statics::NewProp_State,
-	};
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UJoystickInterface_JoystickBallMoved_Statics::Function_MetaDataParams[] = {
-		{ "Category", "SDL2 Joystick" },
-		{ "ModuleRelativePath", "Public/JoystickInterface.h" },
-	};
-#endif
-	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UJoystickInterface_JoystickBallMoved_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UJoystickInterface, nullptr, "JoystickBallMoved", nullptr, nullptr, sizeof(JoystickInterface_eventJoystickBallMoved_Parms), Z_Construct_UFunction_UJoystickInterface_JoystickBallMoved_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UJoystickInterface_JoystickBallMoved_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x08820800, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UJoystickInterface_JoystickBallMoved_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UJoystickInterface_JoystickBallMoved_Statics::Function_MetaDataParams)) };
-	UFunction* Z_Construct_UFunction_UJoystickInterface_JoystickBallMoved()
-	{
-		static UFunction* ReturnFunction = nullptr;
-		if (!ReturnFunction)
-		{
-			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UJoystickInterface_JoystickBallMoved_Statics::FuncParams);
-		}
-		return ReturnFunction;
-	}
 	struct Z_Construct_UFunction_UJoystickInterface_JoystickButtonPressed_Statics
 	{
-		static const UECodeGen_Private::FIntPropertyParams NewProp_Button;
-		static const UECodeGen_Private::FStructPropertyParams NewProp_state;
+		static const UECodeGen_Private::FIntPropertyParams NewProp__Button;
+		static const UECodeGen_Private::FStructPropertyParams NewProp__state;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
 #endif
 		static const UECodeGen_Private::FFunctionParams FuncParams;
 	};
-	const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_UJoystickInterface_JoystickButtonPressed_Statics::NewProp_Button = { "Button", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(JoystickInterface_eventJoystickButtonPressed_Parms, Button), METADATA_PARAMS(nullptr, 0) };
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UJoystickInterface_JoystickButtonPressed_Statics::NewProp_state = { "state", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(JoystickInterface_eventJoystickButtonPressed_Parms, state), Z_Construct_UScriptStruct_FJoystickState, METADATA_PARAMS(nullptr, 0) }; // 1445536434
+	const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_UJoystickInterface_JoystickButtonPressed_Statics::NewProp__Button = { "_Button", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(JoystickInterface_eventJoystickButtonPressed_Parms, _Button), METADATA_PARAMS(nullptr, 0) };
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UJoystickInterface_JoystickButtonPressed_Statics::NewProp__state = { "_state", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(JoystickInterface_eventJoystickButtonPressed_Parms, _state), Z_Construct_UScriptStruct_FJoystickState, METADATA_PARAMS(nullptr, 0) }; // 95070178
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UJoystickInterface_JoystickButtonPressed_Statics::PropPointers[] = {
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UJoystickInterface_JoystickButtonPressed_Statics::NewProp_Button,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UJoystickInterface_JoystickButtonPressed_Statics::NewProp_state,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UJoystickInterface_JoystickButtonPressed_Statics::NewProp__Button,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UJoystickInterface_JoystickButtonPressed_Statics::NewProp__state,
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UJoystickInterface_JoystickButtonPressed_Statics::Function_MetaDataParams[] = {
-		{ "Category", "SDL2 Joystick" },
+		{ "Category", "SDL Joystick" },
 		{ "Comment", "//Define blueprint events\n" },
 		{ "ModuleRelativePath", "Public/JoystickInterface.h" },
 		{ "ToolTip", "Define blueprint events" },
@@ -620,23 +561,23 @@ template<> JOYSTICKPLUGIN_API UScriptStruct* StaticStruct<FJoystickInfo>()
 	}
 	struct Z_Construct_UFunction_UJoystickInterface_JoystickButtonReleased_Statics
 	{
-		static const UECodeGen_Private::FIntPropertyParams NewProp_Button;
-		static const UECodeGen_Private::FStructPropertyParams NewProp_state;
+		static const UECodeGen_Private::FIntPropertyParams NewProp__Button;
+		static const UECodeGen_Private::FStructPropertyParams NewProp__state;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
 #endif
 		static const UECodeGen_Private::FFunctionParams FuncParams;
 	};
-	const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_UJoystickInterface_JoystickButtonReleased_Statics::NewProp_Button = { "Button", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(JoystickInterface_eventJoystickButtonReleased_Parms, Button), METADATA_PARAMS(nullptr, 0) };
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UJoystickInterface_JoystickButtonReleased_Statics::NewProp_state = { "state", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(JoystickInterface_eventJoystickButtonReleased_Parms, state), Z_Construct_UScriptStruct_FJoystickState, METADATA_PARAMS(nullptr, 0) }; // 1445536434
+	const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_UJoystickInterface_JoystickButtonReleased_Statics::NewProp__Button = { "_Button", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(JoystickInterface_eventJoystickButtonReleased_Parms, _Button), METADATA_PARAMS(nullptr, 0) };
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UJoystickInterface_JoystickButtonReleased_Statics::NewProp__state = { "_state", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(JoystickInterface_eventJoystickButtonReleased_Parms, _state), Z_Construct_UScriptStruct_FJoystickState, METADATA_PARAMS(nullptr, 0) }; // 95070178
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UJoystickInterface_JoystickButtonReleased_Statics::PropPointers[] = {
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UJoystickInterface_JoystickButtonReleased_Statics::NewProp_Button,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UJoystickInterface_JoystickButtonReleased_Statics::NewProp_state,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UJoystickInterface_JoystickButtonReleased_Statics::NewProp__Button,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UJoystickInterface_JoystickButtonReleased_Statics::NewProp__state,
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UJoystickInterface_JoystickButtonReleased_Statics::Function_MetaDataParams[] = {
-		{ "Category", "SDL2 Joystick" },
+		{ "Category", "SDL Joystick" },
 		{ "ModuleRelativePath", "Public/JoystickInterface.h" },
 	};
 #endif
@@ -652,29 +593,29 @@ template<> JOYSTICKPLUGIN_API UScriptStruct* StaticStruct<FJoystickInfo>()
 	}
 	struct Z_Construct_UFunction_UJoystickInterface_JoystickHatChanged_Statics
 	{
-		static const UECodeGen_Private::FIntPropertyParams NewProp_Hat;
-		static const UECodeGen_Private::FBytePropertyParams NewProp_Value_Underlying;
-		static const UECodeGen_Private::FEnumPropertyParams NewProp_Value;
-		static const UECodeGen_Private::FStructPropertyParams NewProp_state;
+		static const UECodeGen_Private::FIntPropertyParams NewProp__Hat;
+		static const UECodeGen_Private::FBytePropertyParams NewProp__Value_Underlying;
+		static const UECodeGen_Private::FEnumPropertyParams NewProp__Value;
+		static const UECodeGen_Private::FStructPropertyParams NewProp__state;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
 #endif
 		static const UECodeGen_Private::FFunctionParams FuncParams;
 	};
-	const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_UJoystickInterface_JoystickHatChanged_Statics::NewProp_Hat = { "Hat", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(JoystickInterface_eventJoystickHatChanged_Parms, Hat), METADATA_PARAMS(nullptr, 0) };
-	const UECodeGen_Private::FBytePropertyParams Z_Construct_UFunction_UJoystickInterface_JoystickHatChanged_Statics::NewProp_Value_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, 0, nullptr, METADATA_PARAMS(nullptr, 0) };
-	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UFunction_UJoystickInterface_JoystickHatChanged_Statics::NewProp_Value = { "Value", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(JoystickInterface_eventJoystickHatChanged_Parms, Value), Z_Construct_UEnum_JoystickPlugin_EJoystickPOVDirection, METADATA_PARAMS(nullptr, 0) }; // 3127258581
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UJoystickInterface_JoystickHatChanged_Statics::NewProp_state = { "state", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(JoystickInterface_eventJoystickHatChanged_Parms, state), Z_Construct_UScriptStruct_FJoystickState, METADATA_PARAMS(nullptr, 0) }; // 1445536434
+	const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_UJoystickInterface_JoystickHatChanged_Statics::NewProp__Hat = { "_Hat", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(JoystickInterface_eventJoystickHatChanged_Parms, _Hat), METADATA_PARAMS(nullptr, 0) };
+	const UECodeGen_Private::FBytePropertyParams Z_Construct_UFunction_UJoystickInterface_JoystickHatChanged_Statics::NewProp__Value_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, 0, nullptr, METADATA_PARAMS(nullptr, 0) };
+	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UFunction_UJoystickInterface_JoystickHatChanged_Statics::NewProp__Value = { "_Value", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(JoystickInterface_eventJoystickHatChanged_Parms, _Value), Z_Construct_UEnum_JoystickPlugin_EJoystickPOVDirection, METADATA_PARAMS(nullptr, 0) }; // 3127258581
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UJoystickInterface_JoystickHatChanged_Statics::NewProp__state = { "_state", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(JoystickInterface_eventJoystickHatChanged_Parms, _state), Z_Construct_UScriptStruct_FJoystickState, METADATA_PARAMS(nullptr, 0) }; // 95070178
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UJoystickInterface_JoystickHatChanged_Statics::PropPointers[] = {
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UJoystickInterface_JoystickHatChanged_Statics::NewProp_Hat,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UJoystickInterface_JoystickHatChanged_Statics::NewProp_Value_Underlying,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UJoystickInterface_JoystickHatChanged_Statics::NewProp_Value,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UJoystickInterface_JoystickHatChanged_Statics::NewProp_state,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UJoystickInterface_JoystickHatChanged_Statics::NewProp__Hat,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UJoystickInterface_JoystickHatChanged_Statics::NewProp__Value_Underlying,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UJoystickInterface_JoystickHatChanged_Statics::NewProp__Value,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UJoystickInterface_JoystickHatChanged_Statics::NewProp__state,
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UJoystickInterface_JoystickHatChanged_Statics::Function_MetaDataParams[] = {
-		{ "Category", "SDL2 Joystick" },
+		{ "Category", "SDL Joystick" },
 		{ "ModuleRelativePath", "Public/JoystickInterface.h" },
 	};
 #endif
@@ -690,20 +631,20 @@ template<> JOYSTICKPLUGIN_API UScriptStruct* StaticStruct<FJoystickInfo>()
 	}
 	struct Z_Construct_UFunction_UJoystickInterface_JoystickPluggedIn_Statics
 	{
-		static const UECodeGen_Private::FIntPropertyParams NewProp_DeviceId;
+		static const UECodeGen_Private::FIntPropertyParams NewProp__DeviceInstanceId;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
 #endif
 		static const UECodeGen_Private::FFunctionParams FuncParams;
 	};
-	const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_UJoystickInterface_JoystickPluggedIn_Statics::NewProp_DeviceId = { "DeviceId", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(JoystickInterface_eventJoystickPluggedIn_Parms, DeviceId), METADATA_PARAMS(nullptr, 0) };
+	const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_UJoystickInterface_JoystickPluggedIn_Statics::NewProp__DeviceInstanceId = { "_DeviceInstanceId", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(JoystickInterface_eventJoystickPluggedIn_Parms, _DeviceInstanceId), METADATA_PARAMS(nullptr, 0) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UJoystickInterface_JoystickPluggedIn_Statics::PropPointers[] = {
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UJoystickInterface_JoystickPluggedIn_Statics::NewProp_DeviceId,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UJoystickInterface_JoystickPluggedIn_Statics::NewProp__DeviceInstanceId,
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UJoystickInterface_JoystickPluggedIn_Statics::Function_MetaDataParams[] = {
-		{ "Category", "SDL2 Joystick" },
+		{ "Category", "SDL Joystick" },
 		{ "ModuleRelativePath", "Public/JoystickInterface.h" },
 	};
 #endif
@@ -719,20 +660,20 @@ template<> JOYSTICKPLUGIN_API UScriptStruct* StaticStruct<FJoystickInfo>()
 	}
 	struct Z_Construct_UFunction_UJoystickInterface_JoystickUnplugged_Statics
 	{
-		static const UECodeGen_Private::FIntPropertyParams NewProp_DeviceId;
+		static const UECodeGen_Private::FIntPropertyParams NewProp__DeviceInstanceId;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
 #endif
 		static const UECodeGen_Private::FFunctionParams FuncParams;
 	};
-	const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_UJoystickInterface_JoystickUnplugged_Statics::NewProp_DeviceId = { "DeviceId", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(JoystickInterface_eventJoystickUnplugged_Parms, DeviceId), METADATA_PARAMS(nullptr, 0) };
+	const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_UJoystickInterface_JoystickUnplugged_Statics::NewProp__DeviceInstanceId = { "_DeviceInstanceId", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(JoystickInterface_eventJoystickUnplugged_Parms, _DeviceInstanceId), METADATA_PARAMS(nullptr, 0) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UJoystickInterface_JoystickUnplugged_Statics::PropPointers[] = {
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UJoystickInterface_JoystickUnplugged_Statics::NewProp_DeviceId,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UJoystickInterface_JoystickUnplugged_Statics::NewProp__DeviceInstanceId,
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UJoystickInterface_JoystickUnplugged_Statics::Function_MetaDataParams[] = {
-		{ "Category", "SDL2 Joystick" },
+		{ "Category", "SDL Joystick" },
 		{ "ModuleRelativePath", "Public/JoystickInterface.h" },
 	};
 #endif
@@ -766,13 +707,12 @@ template<> JOYSTICKPLUGIN_API UScriptStruct* StaticStruct<FJoystickInfo>()
 		(UObject* (*)())Z_Construct_UPackage__Script_JoystickPlugin,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_UJoystickInterface_Statics::FuncInfo[] = {
-		{ &Z_Construct_UFunction_UJoystickInterface_JoystickAxisChanged, "JoystickAxisChanged" }, // 1096530623
-		{ &Z_Construct_UFunction_UJoystickInterface_JoystickBallMoved, "JoystickBallMoved" }, // 4138055955
-		{ &Z_Construct_UFunction_UJoystickInterface_JoystickButtonPressed, "JoystickButtonPressed" }, // 2630846028
-		{ &Z_Construct_UFunction_UJoystickInterface_JoystickButtonReleased, "JoystickButtonReleased" }, // 2091239288
-		{ &Z_Construct_UFunction_UJoystickInterface_JoystickHatChanged, "JoystickHatChanged" }, // 2495094613
-		{ &Z_Construct_UFunction_UJoystickInterface_JoystickPluggedIn, "JoystickPluggedIn" }, // 843697145
-		{ &Z_Construct_UFunction_UJoystickInterface_JoystickUnplugged, "JoystickUnplugged" }, // 3650098455
+		{ &Z_Construct_UFunction_UJoystickInterface_JoystickAxisChanged, "JoystickAxisChanged" }, // 872655705
+		{ &Z_Construct_UFunction_UJoystickInterface_JoystickButtonPressed, "JoystickButtonPressed" }, // 657564941
+		{ &Z_Construct_UFunction_UJoystickInterface_JoystickButtonReleased, "JoystickButtonReleased" }, // 4259556126
+		{ &Z_Construct_UFunction_UJoystickInterface_JoystickHatChanged, "JoystickHatChanged" }, // 2257045380
+		{ &Z_Construct_UFunction_UJoystickInterface_JoystickPluggedIn, "JoystickPluggedIn" }, // 2117521771
+		{ &Z_Construct_UFunction_UJoystickInterface_JoystickUnplugged, "JoystickUnplugged" }, // 1994039777
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UJoystickInterface_Statics::Class_MetaDataParams[] = {
@@ -812,7 +752,7 @@ template<> JOYSTICKPLUGIN_API UScriptStruct* StaticStruct<FJoystickInfo>()
 	DEFINE_VTABLE_PTR_HELPER_CTOR(UJoystickInterface);
 	UJoystickInterface::~UJoystickInterface() {}
 	static FName NAME_UJoystickInterface_JoystickAxisChanged = FName(TEXT("JoystickAxisChanged"));
-	void IJoystickInterface::Execute_JoystickAxisChanged(UObject* O, int32 Axis, float value, float valuePrev, FJoystickState state, FJoystickState prev)
+	void IJoystickInterface::Execute_JoystickAxisChanged(UObject* O, int32 _Axis, float _value, float _valuePrev, FJoystickState _state, FJoystickState _prev)
 	{
 		check(O != NULL);
 		check(O->GetClass()->ImplementsInterface(UJoystickInterface::StaticClass()));
@@ -820,31 +760,16 @@ template<> JOYSTICKPLUGIN_API UScriptStruct* StaticStruct<FJoystickInfo>()
 		UFunction* const Func = O->FindFunction(NAME_UJoystickInterface_JoystickAxisChanged);
 		if (Func)
 		{
-			Parms.Axis=Axis;
-			Parms.value=value;
-			Parms.valuePrev=valuePrev;
-			Parms.state=state;
-			Parms.prev=prev;
-			O->ProcessEvent(Func, &Parms);
-		}
-	}
-	static FName NAME_UJoystickInterface_JoystickBallMoved = FName(TEXT("JoystickBallMoved"));
-	void IJoystickInterface::Execute_JoystickBallMoved(UObject* O, int32 Ball, FVector2D Delta, FJoystickState State)
-	{
-		check(O != NULL);
-		check(O->GetClass()->ImplementsInterface(UJoystickInterface::StaticClass()));
-		JoystickInterface_eventJoystickBallMoved_Parms Parms;
-		UFunction* const Func = O->FindFunction(NAME_UJoystickInterface_JoystickBallMoved);
-		if (Func)
-		{
-			Parms.Ball=Ball;
-			Parms.Delta=Delta;
-			Parms.State=State;
+			Parms._Axis=_Axis;
+			Parms._value=_value;
+			Parms._valuePrev=_valuePrev;
+			Parms._state=_state;
+			Parms._prev=_prev;
 			O->ProcessEvent(Func, &Parms);
 		}
 	}
 	static FName NAME_UJoystickInterface_JoystickButtonPressed = FName(TEXT("JoystickButtonPressed"));
-	void IJoystickInterface::Execute_JoystickButtonPressed(UObject* O, int32 Button, FJoystickState state)
+	void IJoystickInterface::Execute_JoystickButtonPressed(UObject* O, int32 _Button, FJoystickState _state)
 	{
 		check(O != NULL);
 		check(O->GetClass()->ImplementsInterface(UJoystickInterface::StaticClass()));
@@ -852,13 +777,13 @@ template<> JOYSTICKPLUGIN_API UScriptStruct* StaticStruct<FJoystickInfo>()
 		UFunction* const Func = O->FindFunction(NAME_UJoystickInterface_JoystickButtonPressed);
 		if (Func)
 		{
-			Parms.Button=Button;
-			Parms.state=state;
+			Parms._Button=_Button;
+			Parms._state=_state;
 			O->ProcessEvent(Func, &Parms);
 		}
 	}
 	static FName NAME_UJoystickInterface_JoystickButtonReleased = FName(TEXT("JoystickButtonReleased"));
-	void IJoystickInterface::Execute_JoystickButtonReleased(UObject* O, int32 Button, FJoystickState state)
+	void IJoystickInterface::Execute_JoystickButtonReleased(UObject* O, int32 _Button, FJoystickState _state)
 	{
 		check(O != NULL);
 		check(O->GetClass()->ImplementsInterface(UJoystickInterface::StaticClass()));
@@ -866,13 +791,13 @@ template<> JOYSTICKPLUGIN_API UScriptStruct* StaticStruct<FJoystickInfo>()
 		UFunction* const Func = O->FindFunction(NAME_UJoystickInterface_JoystickButtonReleased);
 		if (Func)
 		{
-			Parms.Button=Button;
-			Parms.state=state;
+			Parms._Button=_Button;
+			Parms._state=_state;
 			O->ProcessEvent(Func, &Parms);
 		}
 	}
 	static FName NAME_UJoystickInterface_JoystickHatChanged = FName(TEXT("JoystickHatChanged"));
-	void IJoystickInterface::Execute_JoystickHatChanged(UObject* O, int32 Hat, EJoystickPOVDirection Value, FJoystickState state)
+	void IJoystickInterface::Execute_JoystickHatChanged(UObject* O, int32 _Hat, EJoystickPOVDirection _Value, FJoystickState _state)
 	{
 		check(O != NULL);
 		check(O->GetClass()->ImplementsInterface(UJoystickInterface::StaticClass()));
@@ -880,14 +805,14 @@ template<> JOYSTICKPLUGIN_API UScriptStruct* StaticStruct<FJoystickInfo>()
 		UFunction* const Func = O->FindFunction(NAME_UJoystickInterface_JoystickHatChanged);
 		if (Func)
 		{
-			Parms.Hat=Hat;
-			Parms.Value=Value;
-			Parms.state=state;
+			Parms._Hat=_Hat;
+			Parms._Value=_Value;
+			Parms._state=_state;
 			O->ProcessEvent(Func, &Parms);
 		}
 	}
 	static FName NAME_UJoystickInterface_JoystickPluggedIn = FName(TEXT("JoystickPluggedIn"));
-	void IJoystickInterface::Execute_JoystickPluggedIn(UObject* O, int32 DeviceId)
+	void IJoystickInterface::Execute_JoystickPluggedIn(UObject* O, int32 _DeviceInstanceId)
 	{
 		check(O != NULL);
 		check(O->GetClass()->ImplementsInterface(UJoystickInterface::StaticClass()));
@@ -895,12 +820,12 @@ template<> JOYSTICKPLUGIN_API UScriptStruct* StaticStruct<FJoystickInfo>()
 		UFunction* const Func = O->FindFunction(NAME_UJoystickInterface_JoystickPluggedIn);
 		if (Func)
 		{
-			Parms.DeviceId=DeviceId;
+			Parms._DeviceInstanceId=_DeviceInstanceId;
 			O->ProcessEvent(Func, &Parms);
 		}
 	}
 	static FName NAME_UJoystickInterface_JoystickUnplugged = FName(TEXT("JoystickUnplugged"));
-	void IJoystickInterface::Execute_JoystickUnplugged(UObject* O, int32 DeviceId)
+	void IJoystickInterface::Execute_JoystickUnplugged(UObject* O, int32 _DeviceInstanceId)
 	{
 		check(O != NULL);
 		check(O->GetClass()->ImplementsInterface(UJoystickInterface::StaticClass()));
@@ -908,7 +833,7 @@ template<> JOYSTICKPLUGIN_API UScriptStruct* StaticStruct<FJoystickInfo>()
 		UFunction* const Func = O->FindFunction(NAME_UJoystickInterface_JoystickUnplugged);
 		if (Func)
 		{
-			Parms.DeviceId=DeviceId;
+			Parms._DeviceInstanceId=_DeviceInstanceId;
 			O->ProcessEvent(Func, &Parms);
 		}
 	}
@@ -919,17 +844,17 @@ template<> JOYSTICKPLUGIN_API UScriptStruct* StaticStruct<FJoystickInfo>()
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FEnumRegisterCompiledInInfo Z_CompiledInDeferFile_FID_CreateJoystick_UE52_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_JoystickInterface_h_Statics::EnumInfo[] = {
-		{ EJoystickInputType_StaticEnum, TEXT("EJoystickInputType"), &Z_Registration_Info_UEnum_EJoystickInputType, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 1837824172U) },
+		{ EJoystickInputType_StaticEnum, TEXT("EJoystickInputType"), &Z_Registration_Info_UEnum_EJoystickInputType, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 1013933855U) },
 		{ EJoystickPOVDirection_StaticEnum, TEXT("EJoystickPOVDirection"), &Z_Registration_Info_UEnum_EJoystickPOVDirection, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 3127258581U) },
 	};
 	const FStructRegisterCompiledInInfo Z_CompiledInDeferFile_FID_CreateJoystick_UE52_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_JoystickInterface_h_Statics::ScriptStructInfo[] = {
-		{ FJoystickState::StaticStruct, Z_Construct_UScriptStruct_FJoystickState_Statics::NewStructOps, TEXT("JoystickState"), &Z_Registration_Info_UScriptStruct_JoystickState, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FJoystickState), 1445536434U) },
-		{ FJoystickInfo::StaticStruct, Z_Construct_UScriptStruct_FJoystickInfo_Statics::NewStructOps, TEXT("JoystickInfo"), &Z_Registration_Info_UScriptStruct_JoystickInfo, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FJoystickInfo), 3396818950U) },
+		{ FJoystickState::StaticStruct, Z_Construct_UScriptStruct_FJoystickState_Statics::NewStructOps, TEXT("JoystickState"), &Z_Registration_Info_UScriptStruct_JoystickState, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FJoystickState), 95070178U) },
+		{ FJoystickInfo::StaticStruct, Z_Construct_UScriptStruct_FJoystickInfo_Statics::NewStructOps, TEXT("JoystickInfo"), &Z_Registration_Info_UScriptStruct_JoystickInfo, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FJoystickInfo), 2098661710U) },
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_CreateJoystick_UE52_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_JoystickInterface_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UJoystickInterface, UJoystickInterface::StaticClass, TEXT("UJoystickInterface"), &Z_Registration_Info_UClass_UJoystickInterface, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UJoystickInterface), 2593036708U) },
+		{ Z_Construct_UClass_UJoystickInterface, UJoystickInterface::StaticClass, TEXT("UJoystickInterface"), &Z_Registration_Info_UClass_UJoystickInterface, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UJoystickInterface), 2289031885U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_CreateJoystick_UE52_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_JoystickInterface_h_2944720999(TEXT("/Script/JoystickPlugin"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_CreateJoystick_UE52_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_JoystickInterface_h_3941813262(TEXT("/Script/JoystickPlugin"),
 		Z_CompiledInDeferFile_FID_CreateJoystick_UE52_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_JoystickInterface_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_CreateJoystick_UE52_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_JoystickInterface_h_Statics::ClassInfo),
 		Z_CompiledInDeferFile_FID_CreateJoystick_UE52_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_JoystickInterface_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_CreateJoystick_UE52_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_JoystickInterface_h_Statics::ScriptStructInfo),
 		Z_CompiledInDeferFile_FID_CreateJoystick_UE52_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_JoystickInterface_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_CreateJoystick_UE52_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_JoystickInterface_h_Statics::EnumInfo));
