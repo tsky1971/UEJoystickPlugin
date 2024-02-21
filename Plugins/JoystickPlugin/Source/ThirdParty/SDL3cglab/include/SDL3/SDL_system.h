@@ -22,7 +22,7 @@
 /**
  *  \file SDL_system.h
  *
- *  \brief Include file for platform specific SDL API functions
+ *  Include file for platform specific SDL API functions
  */
 
 #ifndef SDL_system_h_
@@ -40,13 +40,20 @@ extern "C" {
 #endif
 
 
-/* Platform specific functions for Windows */
+/*
+ * Platform specific functions for Windows
+ */
 #if defined(__WIN32__) || defined(__GDK__)
 
-typedef void (SDLCALL * SDL_WindowsMessageHook)(void *userdata, void *hWnd, unsigned int message, Uint64 wParam, Sint64 lParam);
+typedef struct tagMSG MSG;
+typedef SDL_bool (SDLCALL *SDL_WindowsMessageHook)(void *userdata, MSG *msg);
 
 /**
  * Set a callback for every Windows message, run before TranslateMessage().
+ *
+ * The callback may modify the message, and should return SDL_TRUE if the
+ * message should continue to be processed, or SDL_FALSE to prevent further
+ * processing.
  *
  * \param callback The SDL_WindowsMessageHook function to call.
  * \param userdata a pointer to pass to every iteration of `callback`
@@ -73,59 +80,7 @@ extern DECLSPEC void SDLCALL SDL_SetWindowsMessageHook(SDL_WindowsMessageHook ca
  */
 extern DECLSPEC int SDLCALL SDL_Direct3D9GetAdapterIndex(SDL_DisplayID displayID);
 
-typedef struct IDirect3DDevice9 IDirect3DDevice9;
-
-/**
- * Get the D3D9 device associated with a renderer.
- *
- * Once you are done using the device, you should release it to avoid a
- * resource leak.
- *
- * \param renderer the renderer from which to get the associated D3D device
- * \returns the D3D9 device associated with given renderer or NULL if it is
- *          not a D3D9 renderer; call SDL_GetError() for more information.
- *
- * \since This function is available since SDL 3.0.0.
- */
-extern DECLSPEC IDirect3DDevice9* SDLCALL SDL_GetRenderD3D9Device(SDL_Renderer * renderer);
-
-typedef struct ID3D11Device ID3D11Device;
-
-/**
- * Get the D3D11 device associated with a renderer.
- *
- * Once you are done using the device, you should release it to avoid a
- * resource leak.
- *
- * \param renderer the renderer from which to get the associated D3D11 device
- * \returns the D3D11 device associated with given renderer or NULL if it is
- *          not a D3D11 renderer; call SDL_GetError() for more information.
- *
- * \since This function is available since SDL 3.0.0.
- */
-extern DECLSPEC ID3D11Device* SDLCALL SDL_GetRenderD3D11Device(SDL_Renderer * renderer);
-
 #endif /* defined(__WIN32__) || defined(__WINGDK__) */
-
-#if defined(__WIN32__) || defined(__GDK__)
-
-typedef struct ID3D12Device ID3D12Device;
-
-/**
- * Get the D3D12 device associated with a renderer.
- *
- * Once you are done using the device, you should release it to avoid a
- * resource leak.
- *
- * \param renderer the renderer from which to get the associated D3D12 device
- * \returns the D3D12 device associated with given renderer or NULL if it is
- *          not a D3D12 renderer; call SDL_GetError() for more information.
- *
- * \since This function is available since SDL 3.0.0.
- */
-extern DECLSPEC ID3D12Device* SDLCALL SDL_RenderGetD3D12Device(SDL_Renderer* renderer);
-
-#endif /* defined(__WIN32__) || defined(__GDK__) */
 
 #if defined(__WIN32__) || defined(__WINGDK__)
 
@@ -148,7 +103,30 @@ extern DECLSPEC SDL_bool SDLCALL SDL_DXGIGetOutputInfo(SDL_DisplayID displayID, 
 
 #endif /* defined(__WIN32__) || defined(__WINGDK__) */
 
-/* Platform specific functions for Linux */
+/*
+ * Platform specific functions for UNIX
+ */
+
+typedef union _XEvent XEvent;
+typedef SDL_bool (SDLCALL *SDL_X11EventHook)(void *userdata, XEvent *xevent);
+
+/**
+ * Set a callback for every X11 event
+ *
+ * The callback may modify the event, and should return SDL_TRUE if the event
+ * should continue to be processed, or SDL_FALSE to prevent further
+ * processing.
+ *
+ * \param callback The SDL_X11EventHook function to call.
+ * \param userdata a pointer to pass to every iteration of `callback`
+ *
+ * \since This function is available since SDL 3.0.0.
+ */
+extern DECLSPEC void SDLCALL SDL_SetX11EventHook(SDL_X11EventHook callback, void *userdata);
+
+/*
+ * Platform specific functions for Linux
+ */
 #ifdef __LINUX__
 
 /**
@@ -182,7 +160,9 @@ extern DECLSPEC int SDLCALL SDL_LinuxSetThreadPriorityAndPolicy(Sint64 threadID,
 
 #endif /* __LINUX__ */
 
-/* Platform specific functions for iOS */
+/*
+ * Platform specific functions for iOS
+ */
 #ifdef __IOS__
 
 #define SDL_iOSSetAnimationCallback(window, interval, callback, callbackParam) SDL_iPhoneSetAnimationCallback(window, interval, callback, callbackParam)
@@ -242,7 +222,9 @@ extern DECLSPEC void SDLCALL SDL_iPhoneSetEventPump(SDL_bool enabled);
 #endif /* __IOS__ */
 
 
-/* Platform specific functions for Android */
+/*
+ * Platform specific functions for Android
+ */
 #ifdef __ANDROID__
 
 /**
@@ -471,48 +453,50 @@ extern DECLSPEC int SDLCALL SDL_AndroidSendMessage(Uint32 command, int param);
 
 #endif /* __ANDROID__ */
 
-/* Platform specific functions for WinRT */
+/*
+ * Platform specific functions for WinRT
+ */
 #ifdef __WINRT__
 
 /**
- *  \brief WinRT / Windows Phone path types
+ *  WinRT / Windows Phone path types
  */
 typedef enum
 {
-    /** \brief The installed app's root directory.
+    /** The installed app's root directory.
         Files here are likely to be read-only. */
     SDL_WINRT_PATH_INSTALLED_LOCATION,
 
-    /** \brief The app's local data store.  Files may be written here */
+    /** The app's local data store.  Files may be written here */
     SDL_WINRT_PATH_LOCAL_FOLDER,
 
-    /** \brief The app's roaming data store.  Unsupported on Windows Phone.
+    /** The app's roaming data store.  Unsupported on Windows Phone.
         Files written here may be copied to other machines via a network
         connection.
     */
     SDL_WINRT_PATH_ROAMING_FOLDER,
 
-    /** \brief The app's temporary data store.  Unsupported on Windows Phone.
+    /** The app's temporary data store.  Unsupported on Windows Phone.
         Files written here may be deleted at any time. */
     SDL_WINRT_PATH_TEMP_FOLDER
 } SDL_WinRT_Path;
 
 
 /**
- *  \brief WinRT Device Family
+ *  WinRT Device Family
  */
 typedef enum
 {
-    /** \brief Unknown family  */
+    /** Unknown family  */
     SDL_WINRT_DEVICEFAMILY_UNKNOWN,
 
-    /** \brief Desktop family*/
+    /** Desktop family*/
     SDL_WINRT_DEVICEFAMILY_DESKTOP,
 
-    /** \brief Mobile family (for example smartphone) */
+    /** Mobile family (for example smartphone) */
     SDL_WINRT_DEVICEFAMILY_MOBILE,
 
-    /** \brief XBox family */
+    /** XBox family */
     SDL_WINRT_DEVICEFAMILY_XBOX,
 } SDL_WinRT_DeviceFamily;
 
@@ -633,7 +617,9 @@ extern DECLSPEC void SDLCALL SDL_OnApplicationDidBecomeActive(void);
 extern DECLSPEC void SDLCALL SDL_OnApplicationDidChangeStatusBarOrientation(void);
 #endif
 
-/* Functions used only by GDK */
+/*
+ * Functions used only by GDK
+ */
 #ifdef __GDK__
 typedef struct XTaskQueueObject *XTaskQueueHandle;
 typedef struct XUser *XUserHandle;

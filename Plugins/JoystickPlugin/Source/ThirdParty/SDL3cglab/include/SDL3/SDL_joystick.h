@@ -22,7 +22,7 @@
 /**
  *  \file SDL_joystick.h
  *
- *  \brief Include file for SDL joystick event handling
+ *  Include file for SDL joystick event handling
  *
  *  The term "instance_id" is the current instantiation of a joystick device in the system, if the joystick is removed and then re-inserted
  *    then it will get a new instance_id, instance_id's are monotonically increasing identifiers of a joystick plugged in.
@@ -343,7 +343,7 @@ typedef struct SDL_VirtualJoystickDesc
     Uint16 product_id;  /**< the USB product ID of this joystick */
     Uint16 padding;     /**< unused */
     Uint32 button_mask; /**< A mask of which buttons are valid for this controller
-                             e.g. (1 << SDL_GAMEPAD_BUTTON_A) */
+                             e.g. (1 << SDL_GAMEPAD_BUTTON_SOUTH) */
     Uint32 axis_mask;   /**< A mask of which axes are valid for this controller
                              e.g. (1 << SDL_GAMEPAD_AXIS_LEFTX) */
     const char *name;   /**< the name of the joystick */
@@ -359,7 +359,7 @@ typedef struct SDL_VirtualJoystickDesc
 } SDL_VirtualJoystickDesc;
 
 /**
- * \brief The current version of the SDL_VirtualJoystickDesc structure
+ * The current version of the SDL_VirtualJoystickDesc structure
  */
 #define SDL_VIRTUAL_JOYSTICK_DESC_VERSION   1
 

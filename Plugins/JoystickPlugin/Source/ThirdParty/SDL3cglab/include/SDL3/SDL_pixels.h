@@ -22,7 +22,7 @@
 /**
  *  \file SDL_pixels.h
  *
- *  \brief Header for the enumerated pixel format definitions.
+ *  Header for the enumerated pixel format definitions.
  *
  *  SDL's pixel formats have the following naming convention:
  *
@@ -97,7 +97,9 @@ typedef enum
     SDL_PIXELTYPE_ARRAYU16,
     SDL_PIXELTYPE_ARRAYU32,
     SDL_PIXELTYPE_ARRAYF16,
-    SDL_PIXELTYPE_ARRAYF32
+    SDL_PIXELTYPE_ARRAYF32,
+    /* appended at the end for compatibility with sdl2-compat:  */
+    SDL_PIXELTYPE_INDEX2
 } SDL_PixelType;
 
 /** Bitmap pixel order, high bit -> low bit. */
@@ -166,6 +168,7 @@ typedef enum
 #define SDL_ISPIXELFORMAT_INDEXED(format)   \
     (!SDL_ISPIXELFORMAT_FOURCC(format) && \
      ((SDL_PIXELTYPE(format) == SDL_PIXELTYPE_INDEX1) || \
+      (SDL_PIXELTYPE(format) == SDL_PIXELTYPE_INDEX2) || \
       (SDL_PIXELTYPE(format) == SDL_PIXELTYPE_INDEX4) || \
       (SDL_PIXELTYPE(format) == SDL_PIXELTYPE_INDEX8)))
 
@@ -190,6 +193,10 @@ typedef enum
       (SDL_PIXELORDER(format) == SDL_PACKEDORDER_ABGR) || \
       (SDL_PIXELORDER(format) == SDL_PACKEDORDER_BGRA))))
 
+#define SDL_ISPIXELFORMAT_10BIT(format)    \
+      ((SDL_PIXELTYPE(format) == SDL_PIXELTYPE_PACKED32) && \
+       (SDL_PIXELLAYOUT(format) == SDL_PACKEDLAYOUT_2101010))
+
 /* The flag is set to 1 because 0x1? is not in the printable ASCII range */
 #define SDL_ISPIXELFORMAT_FOURCC(format)    \
     ((format) && (SDL_PIXELFLAG(format) != 1))
@@ -204,6 +211,12 @@ typedef enum
     SDL_PIXELFORMAT_INDEX1MSB =
         SDL_DEFINE_PIXELFORMAT(SDL_PIXELTYPE_INDEX1, SDL_BITMAPORDER_1234, 0,
                                1, 0),
+    SDL_PIXELFORMAT_INDEX2LSB =
+        SDL_DEFINE_PIXELFORMAT(SDL_PIXELTYPE_INDEX2, SDL_BITMAPORDER_4321, 0,
+                               2, 0),
+    SDL_PIXELFORMAT_INDEX2MSB =
+        SDL_DEFINE_PIXELFORMAT(SDL_PIXELTYPE_INDEX2, SDL_BITMAPORDER_1234, 0,
+                               2, 0),
     SDL_PIXELFORMAT_INDEX4LSB =
         SDL_DEFINE_PIXELFORMAT(SDL_PIXELTYPE_INDEX4, SDL_BITMAPORDER_4321, 0,
                                4, 0),
@@ -291,8 +304,17 @@ typedef enum
     SDL_PIXELFORMAT_BGRA8888 =
         SDL_DEFINE_PIXELFORMAT(SDL_PIXELTYPE_PACKED32, SDL_PACKEDORDER_BGRA,
                                SDL_PACKEDLAYOUT_8888, 32, 4),
+    SDL_PIXELFORMAT_XRGB2101010 =
+        SDL_DEFINE_PIXELFORMAT(SDL_PIXELTYPE_PACKED32, SDL_PACKEDORDER_XRGB,
+                               SDL_PACKEDLAYOUT_2101010, 32, 4),
+    SDL_PIXELFORMAT_XBGR2101010 =
+        SDL_DEFINE_PIXELFORMAT(SDL_PIXELTYPE_PACKED32, SDL_PACKEDORDER_XBGR,
+                               SDL_PACKEDLAYOUT_2101010, 32, 4),
     SDL_PIXELFORMAT_ARGB2101010 =
         SDL_DEFINE_PIXELFORMAT(SDL_PIXELTYPE_PACKED32, SDL_PACKEDORDER_ARGB,
+                               SDL_PACKEDLAYOUT_2101010, 32, 4),
+    SDL_PIXELFORMAT_ABGR2101010 =
+        SDL_DEFINE_PIXELFORMAT(SDL_PIXELTYPE_PACKED32, SDL_PACKEDORDER_ABGR,
                                SDL_PACKEDLAYOUT_2101010, 32, 4),
 
     /* Aliases for RGBA byte arrays of color data, for the current platform */

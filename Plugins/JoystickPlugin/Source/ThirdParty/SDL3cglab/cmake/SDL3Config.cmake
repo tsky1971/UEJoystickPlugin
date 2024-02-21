@@ -13,13 +13,6 @@ set_package_properties(SDL3 PROPERTIES
 
 get_filename_component(PACKAGE_PREFIX_DIR "${CMAKE_CURRENT_LIST_DIR}/../" ABSOLUTE)
 
-macro(set_and_check _var _file)
-  set(${_var} "${_file}")
-  if(NOT EXISTS "${_file}")
-    message(FATAL_ERROR "File or directory ${_file} referenced by variable ${_var} does not exist !")
-  endif()
-endmacro()
-
 macro(check_required_components _NAME)
   foreach(comp ${${_NAME}_FIND_COMPONENTS})
     if(NOT ${_NAME}_${comp}_FOUND)
@@ -70,6 +63,11 @@ else()
       include("${CMAKE_CURRENT_LIST_DIR}/SDL3staticTargets.cmake")
     endif()
   endif()
+endif()
+
+if(ANDROID AND EXISTS "${CMAKE_CURRENT_LIST_DIR}/SDL3jarTargets.cmake")
+  include("${CMAKE_CURRENT_LIST_DIR}/SDL3jarTargets.cmake")
+  set(SDL3_Jar_FOUND TRUE)
 endif()
 
 if(SDL3_SDL3-shared_FOUND OR SDL3_SDL3-static_FOUND)
