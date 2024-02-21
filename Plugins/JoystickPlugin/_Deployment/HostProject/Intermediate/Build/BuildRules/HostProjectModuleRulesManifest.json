@@ -1,0 +1,7 @@
+{
+	"SourceFiles": [
+		"E:\\UE_Creates\\UEJoystickPlugin_53\\Plugins\\JoystickPlugin\\_Deployment\\HostProject\\Plugins\\JoystickPlugin\\Source\\JoystickPlugin\\JoystickPlugin.Build.cs",
+		"E:\\UE_Creates\\UEJoystickPlugin_53\\Plugins\\JoystickPlugin\\_Deployment\\HostProject\\Plugins\\JoystickPlugin\\Source\\ThirdParty\\SDL2extern\\SDL2extern.Build.cs"
+	],
+	"EngineVersion": "5.3.2"
+}

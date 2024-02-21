@@ -10,9 +10,7 @@
 #include "Windows/AllowWindowsPlatformTypes.h"
 
 #include "Windows/MinWindows.h"
-#include "SDL2/SDL.h"
-#include "SDL2/SDL_joystick.h"
-#include "SDL2/SDL_gamecontroller.h"
+#include "SDL3/SDL.h"
 
 #include "Windows/HideWindowsPlatformTypes.h"
 // @third party code - END SDL
@@ -23,19 +21,19 @@ UFeedbackFunctions::UFeedbackFunctions(const class FObjectInitializer& PCIP)
 
 }
 
-SDL_Haptic* GetSDLHapticFromDeviceId(int32 DeviceId) {
+SDL_Haptic* GetSDLHapticFromDeviceId(int32 _DeviceInstanceId) {
 	if (!IJoystickPlugin::IsAvailable()) return NULL;
 
 	TSharedPtr<FJoystickDevice> JoystickDevice = static_cast<FJoystickPlugin&>(IJoystickPlugin::Get()).JoystickDevice;
-	auto* DeviceSDL = JoystickDevice->DeviceSDL->GetDevice(FDeviceId(DeviceId));
+	auto* DeviceSDL = JoystickDevice->DeviceSDL->GetDevice(FDeviceInstanceId(_DeviceInstanceId));
 	if (!DeviceSDL) {
-		UE_LOG(JoystickPluginLog, Log, TEXT("Invalid device"));
+		UE_LOG(JoystickPluginLog, Log, TEXT("GetSDLHapticFromDeviceID() Invalid device"));
 		return NULL;
 	}
 
 	SDL_Haptic* Haptic = DeviceSDL->Haptic;
 	if (!Haptic) {
-		UE_LOG(JoystickPluginLog, Log, TEXT("Device doesn't support force feedback"));
+		UE_LOG(JoystickPluginLog, Log, TEXT("GetSDLHapticFromDeviceID() Device doesn't support force feedback"));
 		return NULL;
 	}
 

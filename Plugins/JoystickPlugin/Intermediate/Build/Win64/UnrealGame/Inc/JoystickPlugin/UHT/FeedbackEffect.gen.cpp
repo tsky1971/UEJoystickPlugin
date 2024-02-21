@@ -19,7 +19,7 @@ void EmptyLinkFunctionForGeneratedCodeFeedbackEffect() {}
 	{
 		if (!Z_Registration_Info_UEnum_EFeedbackType.OuterSingleton)
 		{
-			Z_Registration_Info_UEnum_EFeedbackType.OuterSingleton = GetStaticEnum(Z_Construct_UEnum_JoystickPlugin_EFeedbackType, Z_Construct_UPackage__Script_JoystickPlugin(), TEXT("EFeedbackType"));
+			Z_Registration_Info_UEnum_EFeedbackType.OuterSingleton = GetStaticEnum(Z_Construct_UEnum_JoystickPlugin_EFeedbackType, (UObject*)Z_Construct_UPackage__Script_JoystickPlugin(), TEXT("EFeedbackType"));
 		}
 		return Z_Registration_Info_UEnum_EFeedbackType.OuterSingleton;
 	}
@@ -69,11 +69,11 @@ void EmptyLinkFunctionForGeneratedCodeFeedbackEffect() {}
 		"EFeedbackType",
 		"EFeedbackType",
 		Z_Construct_UEnum_JoystickPlugin_EFeedbackType_Statics::Enumerators,
-		UE_ARRAY_COUNT(Z_Construct_UEnum_JoystickPlugin_EFeedbackType_Statics::Enumerators),
 		RF_Public|RF_Transient|RF_MarkAsNative,
+		UE_ARRAY_COUNT(Z_Construct_UEnum_JoystickPlugin_EFeedbackType_Statics::Enumerators),
 		EEnumFlags::None,
 		(uint8)UEnum::ECppForm::EnumClass,
-		METADATA_PARAMS(Z_Construct_UEnum_JoystickPlugin_EFeedbackType_Statics::Enum_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UEnum_JoystickPlugin_EFeedbackType_Statics::Enum_MetaDataParams))
+		METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UEnum_JoystickPlugin_EFeedbackType_Statics::Enum_MetaDataParams), Z_Construct_UEnum_JoystickPlugin_EFeedbackType_Statics::Enum_MetaDataParams)
 	};
 	UEnum* Z_Construct_UEnum_JoystickPlugin_EFeedbackType()
 	{
@@ -88,7 +88,7 @@ class UScriptStruct* FFeedbackData::StaticStruct()
 {
 	if (!Z_Registration_Info_UScriptStruct_FeedbackData.OuterSingleton)
 	{
-		Z_Registration_Info_UScriptStruct_FeedbackData.OuterSingleton = GetStaticStruct(Z_Construct_UScriptStruct_FFeedbackData, Z_Construct_UPackage__Script_JoystickPlugin(), TEXT("FeedbackData"));
+		Z_Registration_Info_UScriptStruct_FeedbackData.OuterSingleton = GetStaticStruct(Z_Construct_UScriptStruct_FFeedbackData, (UObject*)Z_Construct_UPackage__Script_JoystickPlugin(), TEXT("FeedbackData"));
 	}
 	return Z_Registration_Info_UScriptStruct_FeedbackData.OuterSingleton;
 }
@@ -205,70 +205,70 @@ template<> JOYSTICKPLUGIN_API UScriptStruct* StaticStruct<FFeedbackData>()
 	{
 		return (UScriptStruct::ICppStructOps*)new UScriptStruct::TCppStructOps<FFeedbackData>();
 	}
-	const UECodeGen_Private::FBytePropertyParams Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_Type_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, 0, nullptr, METADATA_PARAMS(nullptr, 0) };
+	const UECodeGen_Private::FBytePropertyParams Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_Type_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, nullptr, METADATA_PARAMS(0, nullptr) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_Type_MetaData[] = {
 		{ "Category", "SDL Effects" },
 		{ "ModuleRelativePath", "Public/FeedbackEffect.h" },
 	};
 #endif
-	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_Type = { "Type", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(FFeedbackData, Type), Z_Construct_UEnum_JoystickPlugin_EFeedbackType, METADATA_PARAMS(Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_Type_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_Type_MetaData)) }; // 3617817218
+	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_Type = { "Type", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FFeedbackData, Type), Z_Construct_UEnum_JoystickPlugin_EFeedbackType, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_Type_MetaData), Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_Type_MetaData) }; // 1568151285
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_Direction_MetaData[] = {
 		{ "Category", "SDL Effects" },
 		{ "ModuleRelativePath", "Public/FeedbackEffect.h" },
 	};
 #endif
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_Direction = { "Direction", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(FFeedbackData, Direction), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_Direction_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_Direction_MetaData)) };
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_Direction = { "Direction", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FFeedbackData, Direction), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_Direction_MetaData), Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_Direction_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_Level_MetaData[] = {
 		{ "Category", "SDL Effects" },
 		{ "ModuleRelativePath", "Public/FeedbackEffect.h" },
 	};
 #endif
-	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_Level = { "Level", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(FFeedbackData, Level), METADATA_PARAMS(Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_Level_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_Level_MetaData)) };
+	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_Level = { "Level", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FFeedbackData, Level), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_Level_MetaData), Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_Level_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_Period_MetaData[] = {
 		{ "Category", "SDL Effects" },
 		{ "ModuleRelativePath", "Public/FeedbackEffect.h" },
 	};
 #endif
-	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_Period = { "Period", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(FFeedbackData, Period), METADATA_PARAMS(Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_Period_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_Period_MetaData)) };
+	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_Period = { "Period", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FFeedbackData, Period), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_Period_MetaData), Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_Period_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_Magnitude_MetaData[] = {
 		{ "Category", "SDL Effects" },
 		{ "ModuleRelativePath", "Public/FeedbackEffect.h" },
 	};
 #endif
-	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_Magnitude = { "Magnitude", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(FFeedbackData, Magnitude), METADATA_PARAMS(Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_Magnitude_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_Magnitude_MetaData)) };
+	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_Magnitude = { "Magnitude", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FFeedbackData, Magnitude), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_Magnitude_MetaData), Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_Magnitude_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_Offset_MetaData[] = {
 		{ "Category", "SDL Effects" },
 		{ "ModuleRelativePath", "Public/FeedbackEffect.h" },
 	};
 #endif
-	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_Offset = { "Offset", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(FFeedbackData, Offset), METADATA_PARAMS(Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_Offset_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_Offset_MetaData)) };
+	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_Offset = { "Offset", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FFeedbackData, Offset), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_Offset_MetaData), Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_Offset_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_Phase_MetaData[] = {
 		{ "Category", "SDL Effects" },
 		{ "ModuleRelativePath", "Public/FeedbackEffect.h" },
 	};
 #endif
-	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_Phase = { "Phase", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(FFeedbackData, Phase), METADATA_PARAMS(Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_Phase_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_Phase_MetaData)) };
+	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_Phase = { "Phase", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FFeedbackData, Phase), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_Phase_MetaData), Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_Phase_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_Delay_MetaData[] = {
 		{ "Category", "SDL Effects" },
 		{ "ModuleRelativePath", "Public/FeedbackEffect.h" },
 	};
 #endif
-	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_Delay = { "Delay", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(FFeedbackData, Delay), METADATA_PARAMS(Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_Delay_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_Delay_MetaData)) };
+	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_Delay = { "Delay", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FFeedbackData, Delay), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_Delay_MetaData), Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_Delay_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_Length_MetaData[] = {
 		{ "Category", "SDL Effects" },
 		{ "ModuleRelativePath", "Public/FeedbackEffect.h" },
 	};
 #endif
-	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_Length = { "Length", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(FFeedbackData, Length), METADATA_PARAMS(Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_Length_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_Length_MetaData)) };
+	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_Length = { "Length", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FFeedbackData, Length), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_Length_MetaData), Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_Length_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_InfiniteLength_MetaData[] = {
 		{ "Category", "SDL Effects" },
@@ -279,91 +279,91 @@ template<> JOYSTICKPLUGIN_API UScriptStruct* StaticStruct<FFeedbackData>()
 	{
 		((FFeedbackData*)Obj)->InfiniteLength = 1;
 	}
-	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_InfiniteLength = { "InfiniteLength", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, sizeof(bool), sizeof(FFeedbackData), &Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_InfiniteLength_SetBit, METADATA_PARAMS(Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_InfiniteLength_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_InfiniteLength_MetaData)) };
+	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_InfiniteLength = { "InfiniteLength", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(FFeedbackData), &Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_InfiniteLength_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_InfiniteLength_MetaData), Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_InfiniteLength_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_AttackLength_MetaData[] = {
 		{ "Category", "SDL Effects" },
 		{ "ModuleRelativePath", "Public/FeedbackEffect.h" },
 	};
 #endif
-	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_AttackLength = { "AttackLength", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(FFeedbackData, AttackLength), METADATA_PARAMS(Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_AttackLength_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_AttackLength_MetaData)) };
+	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_AttackLength = { "AttackLength", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FFeedbackData, AttackLength), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_AttackLength_MetaData), Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_AttackLength_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_AttackLevel_MetaData[] = {
 		{ "Category", "SDL Effects" },
 		{ "ModuleRelativePath", "Public/FeedbackEffect.h" },
 	};
 #endif
-	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_AttackLevel = { "AttackLevel", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(FFeedbackData, AttackLevel), METADATA_PARAMS(Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_AttackLevel_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_AttackLevel_MetaData)) };
+	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_AttackLevel = { "AttackLevel", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FFeedbackData, AttackLevel), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_AttackLevel_MetaData), Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_AttackLevel_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_FadeLength_MetaData[] = {
 		{ "Category", "SDL Effects" },
 		{ "ModuleRelativePath", "Public/FeedbackEffect.h" },
 	};
 #endif
-	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_FadeLength = { "FadeLength", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(FFeedbackData, FadeLength), METADATA_PARAMS(Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_FadeLength_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_FadeLength_MetaData)) };
+	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_FadeLength = { "FadeLength", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FFeedbackData, FadeLength), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_FadeLength_MetaData), Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_FadeLength_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_FadeLevel_MetaData[] = {
 		{ "Category", "SDL Effects" },
 		{ "ModuleRelativePath", "Public/FeedbackEffect.h" },
 	};
 #endif
-	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_FadeLevel = { "FadeLevel", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(FFeedbackData, FadeLevel), METADATA_PARAMS(Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_FadeLevel_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_FadeLevel_MetaData)) };
+	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_FadeLevel = { "FadeLevel", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FFeedbackData, FadeLevel), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_FadeLevel_MetaData), Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_FadeLevel_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_Center_MetaData[] = {
 		{ "Category", "SDL Effects" },
 		{ "ModuleRelativePath", "Public/FeedbackEffect.h" },
 	};
 #endif
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_Center = { "Center", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(FFeedbackData, Center), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_Center_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_Center_MetaData)) };
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_Center = { "Center", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FFeedbackData, Center), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_Center_MetaData), Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_Center_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_Deadband_MetaData[] = {
 		{ "Category", "SDL Effects" },
 		{ "ModuleRelativePath", "Public/FeedbackEffect.h" },
 	};
 #endif
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_Deadband = { "Deadband", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(FFeedbackData, Deadband), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_Deadband_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_Deadband_MetaData)) };
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_Deadband = { "Deadband", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FFeedbackData, Deadband), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_Deadband_MetaData), Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_Deadband_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_LeftCoeff_MetaData[] = {
 		{ "Category", "SDL Effects" },
 		{ "ModuleRelativePath", "Public/FeedbackEffect.h" },
 	};
 #endif
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_LeftCoeff = { "LeftCoeff", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(FFeedbackData, LeftCoeff), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_LeftCoeff_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_LeftCoeff_MetaData)) };
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_LeftCoeff = { "LeftCoeff", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FFeedbackData, LeftCoeff), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_LeftCoeff_MetaData), Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_LeftCoeff_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_LeftSat_MetaData[] = {
 		{ "Category", "SDL Effects" },
 		{ "ModuleRelativePath", "Public/FeedbackEffect.h" },
 	};
 #endif
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_LeftSat = { "LeftSat", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(FFeedbackData, LeftSat), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_LeftSat_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_LeftSat_MetaData)) };
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_LeftSat = { "LeftSat", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FFeedbackData, LeftSat), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_LeftSat_MetaData), Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_LeftSat_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_RightCoeff_MetaData[] = {
 		{ "Category", "SDL Effects" },
 		{ "ModuleRelativePath", "Public/FeedbackEffect.h" },
 	};
 #endif
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_RightCoeff = { "RightCoeff", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(FFeedbackData, RightCoeff), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_RightCoeff_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_RightCoeff_MetaData)) };
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_RightCoeff = { "RightCoeff", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FFeedbackData, RightCoeff), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_RightCoeff_MetaData), Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_RightCoeff_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_RightSat_MetaData[] = {
 		{ "Category", "SDL Effects" },
 		{ "ModuleRelativePath", "Public/FeedbackEffect.h" },
 	};
 #endif
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_RightSat = { "RightSat", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(FFeedbackData, RightSat), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_RightSat_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_RightSat_MetaData)) };
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_RightSat = { "RightSat", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FFeedbackData, RightSat), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_RightSat_MetaData), Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_RightSat_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_RampStart_MetaData[] = {
 		{ "Category", "SDL Effects" },
 		{ "ModuleRelativePath", "Public/FeedbackEffect.h" },
 	};
 #endif
-	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_RampStart = { "RampStart", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(FFeedbackData, RampStart), METADATA_PARAMS(Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_RampStart_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_RampStart_MetaData)) };
+	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_RampStart = { "RampStart", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FFeedbackData, RampStart), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_RampStart_MetaData), Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_RampStart_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_RampEnd_MetaData[] = {
 		{ "Category", "SDL Effects" },
 		{ "ModuleRelativePath", "Public/FeedbackEffect.h" },
 	};
 #endif
-	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_RampEnd = { "RampEnd", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(FFeedbackData, RampEnd), METADATA_PARAMS(Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_RampEnd_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_RampEnd_MetaData)) };
+	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_RampEnd = { "RampEnd", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FFeedbackData, RampEnd), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_RampEnd_MetaData), Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_RampEnd_MetaData) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UScriptStruct_FFeedbackData_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_Type_Underlying,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FFeedbackData_Statics::NewProp_Type,
@@ -394,14 +394,15 @@ template<> JOYSTICKPLUGIN_API UScriptStruct* StaticStruct<FFeedbackData>()
 		nullptr,
 		&NewStructOps,
 		"FeedbackData",
-		sizeof(FFeedbackData),
-		alignof(FFeedbackData),
 		Z_Construct_UScriptStruct_FFeedbackData_Statics::PropPointers,
 		UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FFeedbackData_Statics::PropPointers),
+		sizeof(FFeedbackData),
+		alignof(FFeedbackData),
 		RF_Public|RF_Transient|RF_MarkAsNative,
 		EStructFlags(0x00000001),
-		METADATA_PARAMS(Z_Construct_UScriptStruct_FFeedbackData_Statics::Struct_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FFeedbackData_Statics::Struct_MetaDataParams))
+		METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FFeedbackData_Statics::Struct_MetaDataParams), Z_Construct_UScriptStruct_FFeedbackData_Statics::Struct_MetaDataParams)
 	};
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FFeedbackData_Statics::PropPointers) < 2048);
 	UScriptStruct* Z_Construct_UScriptStruct_FFeedbackData()
 	{
 		if (!Z_Registration_Info_UScriptStruct_FeedbackData.InnerSingleton)
@@ -410,19 +411,19 @@ template<> JOYSTICKPLUGIN_API UScriptStruct* StaticStruct<FFeedbackData>()
 		}
 		return Z_Registration_Info_UScriptStruct_FeedbackData.InnerSingleton;
 	}
-	struct Z_CompiledInDeferFile_FID_HostProject_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_FeedbackEffect_h_Statics
+	struct Z_CompiledInDeferFile_FID_CreateJoystick_UE53_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_FeedbackEffect_h_Statics
 	{
 		static const FEnumRegisterCompiledInInfo EnumInfo[];
 		static const FStructRegisterCompiledInInfo ScriptStructInfo[];
 	};
-	const FEnumRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_FeedbackEffect_h_Statics::EnumInfo[] = {
-		{ EFeedbackType_StaticEnum, TEXT("EFeedbackType"), &Z_Registration_Info_UEnum_EFeedbackType, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 3617817218U) },
+	const FEnumRegisterCompiledInInfo Z_CompiledInDeferFile_FID_CreateJoystick_UE53_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_FeedbackEffect_h_Statics::EnumInfo[] = {
+		{ EFeedbackType_StaticEnum, TEXT("EFeedbackType"), &Z_Registration_Info_UEnum_EFeedbackType, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 1568151285U) },
 	};
-	const FStructRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_FeedbackEffect_h_Statics::ScriptStructInfo[] = {
-		{ FFeedbackData::StaticStruct, Z_Construct_UScriptStruct_FFeedbackData_Statics::NewStructOps, TEXT("FeedbackData"), &Z_Registration_Info_UScriptStruct_FeedbackData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FFeedbackData), 2842943838U) },
+	const FStructRegisterCompiledInInfo Z_CompiledInDeferFile_FID_CreateJoystick_UE53_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_FeedbackEffect_h_Statics::ScriptStructInfo[] = {
+		{ FFeedbackData::StaticStruct, Z_Construct_UScriptStruct_FFeedbackData_Statics::NewStructOps, TEXT("FeedbackData"), &Z_Registration_Info_UScriptStruct_FeedbackData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FFeedbackData), 3493151707U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_FeedbackEffect_h_3638283497(TEXT("/Script/JoystickPlugin"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_CreateJoystick_UE53_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_FeedbackEffect_h_1330088760(TEXT("/Script/JoystickPlugin"),
 		nullptr, 0,
-		Z_CompiledInDeferFile_FID_HostProject_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_FeedbackEffect_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_HostProject_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_FeedbackEffect_h_Statics::ScriptStructInfo),
-		Z_CompiledInDeferFile_FID_HostProject_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_FeedbackEffect_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_HostProject_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_FeedbackEffect_h_Statics::EnumInfo));
+		Z_CompiledInDeferFile_FID_CreateJoystick_UE53_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_FeedbackEffect_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_CreateJoystick_UE53_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_FeedbackEffect_h_Statics::ScriptStructInfo),
+		Z_CompiledInDeferFile_FID_CreateJoystick_UE53_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_FeedbackEffect_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_CreateJoystick_UE53_Plugins_JoystickPlugin_Source_JoystickPlugin_Public_FeedbackEffect_h_Statics::EnumInfo));
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

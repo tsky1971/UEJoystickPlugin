@@ -1,0 +1,27 @@
+{
+	"FileVersion": 3,
+	"Version": 9,
+	"VersionName": "0.9.10",
+	"FriendlyName": "Joystick Plugin",
+	"Description": "Unofficial plugin for Joystick Controllers with SDL2 FF support",
+	"Category": "Input Devices",
+	"CreatedBy": "Ikarus76, getnamo, samiljan, tsky",
+	"CreatedByURL": "https://github.com/tsky1971/UEJoystickPlugin",
+	"DocsURL": "",
+	"MarketplaceURL": "",
+	"SupportURL": "",
+	"EngineVersion": "5.1.0",
+	"CanContainContent": true,
+	"IsBetaVersion": true,
+	"Installed": true,
+	"Modules": [
+		{
+			"Name": "JoystickPlugin",
+			"Type": "Runtime",
+			"LoadingPhase": "Default",
+			"PlatformAllowList": [
+				"Win64"
+			]
+		}
+	]
+}

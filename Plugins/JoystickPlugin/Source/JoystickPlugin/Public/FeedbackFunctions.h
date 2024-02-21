@@ -11,39 +11,39 @@ class UFeedbackFunctions : public UObject
 	GENERATED_UCLASS_BODY()
 public:
 
-	UFUNCTION(BlueprintPure, Category = "SDL2 Force Feedback")
-	static int GetNumEffects(int32 DeviceId);
+	UFUNCTION(BlueprintPure, Category = "SDL Force Feedback")
+	static int GetNumEffects(int32 _DeviceInstanceId);
 
-	UFUNCTION(BlueprintPure, Category = "SDL2 Force Feedback")
-	static int GetNumEffectsPlaying(int32 DeviceId);
+	UFUNCTION(BlueprintPure, Category = "SDL Force Feedback")
+	static int GetNumEffectsPlaying(int32 _DeviceInstanceId);
 
-	UFUNCTION(BlueprintPure, Category = "SDL2 Force Feedback")
-	static int GetEffectStatus(int32 DeviceId, int32 EffectId);
+	UFUNCTION(BlueprintPure, Category = "SDL Force Feedback")
+	static int GetEffectStatus(int32 _DeviceInstanceId, int32 _EffectId);
 
-	UFUNCTION(BlueprintCallable, Category = "SDL2 Force Feedback")
-	static bool SetAutocenter(int32 DeviceId, int Center);
+	UFUNCTION(BlueprintCallable, Category = "SDL Force Feedback")
+	static bool SetAutocenter(int32 _DeviceInstanceId, int _Center);
 
-	UFUNCTION(BlueprintCallable, Category = "SDL2 Force Feedback")
-	static bool SetGain(int32 DeviceId, int Gain);
+	UFUNCTION(BlueprintCallable, Category = "SDL Force Feedback")
+	static bool SetGain(int32 _DeviceInstanceId, int _Gain);
 
-	UFUNCTION(BlueprintCallable, Category = "SDL2 Force Feedback")
-	static int32 CreateEffect(int32 DeviceId, const FFeedbackData EffectData, int NumIterations = 1, bool Infinity = false);
+	UFUNCTION(BlueprintCallable, Category = "SDL Force Feedback")
+	static int32 CreateEffect(int32 _DeviceInstanceId, const FFeedbackData _EffectData, int _NumIterations = 1, bool _Infinity = false);
 
-	UFUNCTION(BlueprintCallable, Category = "SDL2 Force Feedback")
-	static void UpdateEffect(int32 DeviceId, int32 EffectId, FFeedbackData EffectData);
+	UFUNCTION(BlueprintCallable, Category = "SDL Force Feedback")
+	static void UpdateEffect(int32 _DeviceInstanceId, int32 _EffectId, FFeedbackData _EffectData);
 
-	UFUNCTION(BlueprintCallable, Category = "SDL2 Force Feedback")
-	static void PauseDevice(int32 DeviceId);
+	UFUNCTION(BlueprintCallable, Category = "SDL Force Feedback")
+	static void PauseDevice(int32 _DeviceInstanceId);
 
-	UFUNCTION(BlueprintCallable, Category = "SDL2 Force Feedback")
-	static void UnpauseDevice(int32 DeviceId);
+	UFUNCTION(BlueprintCallable, Category = "SDL Force Feedback")
+	static void UnpauseDevice(int32 _DeviceInstanceId);
 
-	UFUNCTION(BlueprintCallable, Category = "SDL2 Force Feedback")
-	static void StopEffect(int32 DeviceId, int32 EffectId);
+	UFUNCTION(BlueprintCallable, Category = "SDL Force Feedback")
+	static void StopEffect(int32 _DeviceInstanceId, int32 _EffectId);
 
-	UFUNCTION(BlueprintCallable, Category = "SDL2 Force Feedback")
-	static void StopAllEffects(int32 DeviceId);
+	UFUNCTION(BlueprintCallable, Category = "SDL Force Feedback")
+	static void StopAllEffects(int32 _DeviceInstanceId);
 
-	UFUNCTION(BlueprintCallable, Category = "SDL2 Force Feedback")
-	static void DestroyEffect(int32 DeviceId, int32 EffectId);
+	UFUNCTION(BlueprintCallable, Category = "SDL Force Feedback")
+	static void DestroyEffect(int32 _DeviceInstanceId, int32 _EffectId);
 };
