@@ -1,7 +1,7 @@
 # 
 
 # UEJoystickPlugin
-This plugin uses SDL2 functions to get input instead of DirectInput.
+This plugin uses SDL3 functions to get input instead of DirectInput.
 
 Thank you Ikarus76 and samiljan for the good working basis. My implementation is a bit hacky, but I did not have much exercise and UE 4 is not easy.
 I was free and did everything so adjusted as I need it for my lab projects. 
