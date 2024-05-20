@@ -14,12 +14,11 @@ public:
 	{
 	}
 
-	virtual void JoystickPluggedIn(const FDeviceInfoSDL &Device) = 0;
-	virtual void JoystickUnplugged(FDeviceId DeviceId) = 0;
-	virtual void JoystickButton(FDeviceId DeviceId, int32 Button, bool Pressed) = 0;
-	virtual void JoystickAxis(FDeviceId DeviceId, int32 Axis, float Value) = 0;
-	virtual void JoystickHat(FDeviceId DeviceId, int32 Hat, EJoystickPOVDirection Value) = 0;
-	virtual void JoystickBall(FDeviceId DeviceId, int32 Ball, FVector2D Delta) = 0;
+	virtual void JoystickPluggedIn(const FDeviceInfoSDL &_Device) = 0;
+	virtual void JoystickUnplugged(FDeviceInstanceId _DeviceInstanceId) = 0;
+	virtual void JoystickButton(FDeviceInstanceId _DeviceInstanceId, int32 _Button, bool _Pressed) = 0;
+	virtual void JoystickAxis(FDeviceInstanceId _DeviceInstanceId, int32 _Axis, float _Value) = 0;
+	virtual void JoystickHat(FDeviceInstanceId _DeviceInstanceId, int32 _Hat, EJoystickPOVDirection _Value) = 0;	
 };
 
 class FJoystickDevice : public IInputDevice, public IJoystickEventInterface
@@ -27,38 +26,35 @@ class FJoystickDevice : public IInputDevice, public IJoystickEventInterface
 public:
 	FJoystickDevice();
 
-	void Tick(float DeltaTime) override;
+	void Tick(float _DeltaTime) override;
 	void SendControllerEvents() override;
-	void SetMessageHandler(const TSharedRef<FGenericApplicationMessageHandler>& InMessageHandler) override;
-	bool Exec(UWorld* InWorld, const TCHAR* Cmd, FOutputDevice& Ar) override;
-	void SetChannelValue(int32 ControllerId, FForceFeedbackChannelType ChannelType, float Value) override;
-	void SetChannelValues(int32 ControllerId, const FForceFeedbackValues& Values) override;
+	void SetMessageHandler(const TSharedRef<FGenericApplicationMessageHandler>& _InMessageHandler) override;
+	bool Exec(UWorld* _InWorld, const TCHAR* _Cmd, FOutputDevice& _Ar) override;
+	void SetChannelValue(int32 _ControllerId, FForceFeedbackChannelType _ChannelType, float _Value) override;
+	void SetChannelValues(int32 _ControllerId, const FForceFeedbackValues& _Values) override;
 
-	bool AddEventListener(UObject* Listener);
-	void IgnoreGameControllers(bool bIgnore);
+	bool AddEventListener(UObject* _Listener);
+	void IgnoreGameControllers(bool _bIgnore);
 
-	virtual void JoystickPluggedIn(const FDeviceInfoSDL &Device) override;
-	virtual void JoystickUnplugged(FDeviceId DeviceId) override;
-	virtual void JoystickButton(FDeviceId DeviceId, int32 Button, bool Pressed) override;
-	virtual void JoystickAxis(FDeviceId DeviceId, int32 Axis, float Value) override;
-	virtual void JoystickHat(FDeviceId DeviceId, int32 Hat, EJoystickPOVDirection Value) override;
-	virtual void JoystickBall(FDeviceId DeviceId, int32 Ball, FVector2D Delta) override;
+	/*virtual*/ void JoystickPluggedIn(const FDeviceInfoSDL &_Device) override;
+	/*virtual*/ void JoystickUnplugged(FDeviceInstanceId _DeviceInstanceId) override;
+	/*virtual*/ void JoystickButton(FDeviceInstanceId _DeviceInstanceId, int32 _Button, bool _Pressed) override;
+	/*virtual*/ void JoystickAxis(FDeviceInstanceId _DeviceInstanceId, int32 _Axis, float _Value) override;
+	/*virtual*/ void JoystickHat(FDeviceInstanceId _DeviceInstanceId, int32 _Hat, EJoystickPOVDirection _Value) override;	
 
-	TMap<FDeviceId, FJoystickState> CurrentState;
-	TMap<FDeviceId, FJoystickState> PreviousState;
+	TMap<FDeviceInstanceId, FJoystickState> CurrentState;
+	TMap<FDeviceInstanceId, FJoystickState> PreviousState;
 
-	TMap<FDeviceId, FJoystickInfo> InputDevices;	
+	TMap<FDeviceInstanceId, FJoystickInfo> InputDevices;
 	TSharedPtr<FDeviceSDL> DeviceSDL;
 
 private:
-	void InitInputDevice(const FDeviceInfoSDL &Device);
-	void EmitEvents(const FJoystickState& previous, const FJoystickState& current);
-
+	void InitInputDevice(const FDeviceInfoSDL &_Device);
+	void EmitEvents(const FJoystickState& _previous, const FJoystickState& _current);
 
 	TArray<TWeakObjectPtr<UObject>> EventListeners;
 
-	TMap<FDeviceId, TArray<FKey>> DeviceButtonKeys;
-	TMap<FDeviceId, TArray<FKey>> DeviceAxisKeys;
-	TMap<FDeviceId, TArray<FKey>> DeviceHatKeys[2];
-	TMap<FDeviceId, TArray<FKey>> DeviceBallKeys[2];
+	TMap<FDeviceInstanceId, TArray<FKey>> DeviceButtonKeys;
+	TMap<FDeviceInstanceId, TArray<FKey>> DeviceAxisKeys;
+	TMap<FDeviceInstanceId, TArray<FKey>> DeviceHatKeys[2];
 };

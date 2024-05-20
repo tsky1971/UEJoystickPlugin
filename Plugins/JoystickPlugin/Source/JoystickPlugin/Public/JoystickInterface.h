@@ -15,34 +15,49 @@
 
 #include "JoystickInterface.generated.h"
 
+// SDLDeviceInstanceID is the ID of the Gamingdevice (USB)
+//struct FSDLDevice
+//{
+//	uint32 DeviceIndex = -1;
+//	uint32 DeviceInstanceId = -1;
+//};
+
+// Index is the Devicenumber in the list of devices
 struct FDeviceIndex
 {
-	int32 value = -1;
+	int32 value = -1;	
 	explicit FDeviceIndex(int32 v) : value(v) {}
 	bool operator==(const FDeviceIndex other) const { return value == other.value; };
 };
-
-struct FInstanceId
+FORCEINLINE uint32 GetTypeHash(FDeviceIndex _DeviceIndex)
 {
-	int32 value = -1;
-	explicit FInstanceId(int32 v) : value(v) {}
-	bool operator==(FInstanceId other) const { return value == other.value; };
-};
-FORCEINLINE uint32 GetTypeHash(FInstanceId instanceId)
-{
-	return GetTypeHash(instanceId.value);
+	return GetTypeHash(_DeviceIndex.value);
 }
 
-struct FDeviceId
+// SDLDeviceInstanceID is the ID of the gaming device (USB)
+struct FDeviceInstanceId
 {
 	int32 value = -1;
-	explicit FDeviceId(int32 v) : value(v) {}
-	bool operator==(FDeviceId other) const { return value == other.value; };
+	explicit FDeviceInstanceId(int32 v) : value(v) {}
+	bool operator==(FDeviceInstanceId other) const { return value == other.value; };
 };
-FORCEINLINE uint32 GetTypeHash(FDeviceId deviceId)
+
+FORCEINLINE uint32 GetTypeHash(FDeviceInstanceId _DeviceInstanceId)
 {
-	return GetTypeHash(deviceId.value);
+	return GetTypeHash(_DeviceInstanceId.value);
 }
+
+//struct FDeviceId
+//{
+//	int32 value = -1;
+//	explicit FDeviceId(int32 v) : value(v) {}
+//	bool operator==(FDeviceId other) const { return value == other.value; };
+//};
+//
+//FORCEINLINE uint32 GetTypeHash(FDeviceId deviceId)
+//{
+//	return GetTypeHash(deviceId.value);
+//}
 
 
 UENUM(BlueprintType)
@@ -75,13 +90,13 @@ struct FJoystickState
 {
 	GENERATED_USTRUCT_BODY()
 
-	explicit FJoystickState(int32 DeviceId = -1)
-	: DeviceId(DeviceId)
+	explicit FJoystickState(int32 _DeviceInstanceId = -1)
+	: DeviceInstanceId(_DeviceInstanceId)
 	{
 	}
 
 	UPROPERTY(EditAnywhere, BlueprintReadonly, Category = JoystickState)
-	int32 DeviceId;
+	int32 DeviceInstanceId;
 
 	UPROPERTY(EditAnywhere, BlueprintReadonly, Category = JoystickState)
 	TArray<float> Axes;
@@ -92,8 +107,6 @@ struct FJoystickState
 	UPROPERTY(EditAnywhere, BlueprintReadonly, Category = JoystickState)
 	TArray<EJoystickPOVDirection> Hats;
 
-	UPROPERTY(EditAnywhere, BlueprintReadonly, Category = JoystickState)
-	TArray<FVector2D> Balls;
 };
 
 USTRUCT(BlueprintType)
@@ -104,7 +117,7 @@ struct FJoystickInfo
 	UPROPERTY(EditAnywhere, BlueprintReadonly, Category = JoystickInfo)
 	int32 Player = -1;
 	UPROPERTY(EditAnywhere, BlueprintReadonly, Category = JoystickInfo)
-	int32 DeviceId = -1;
+	int32 DeviceInstanceId = -1;
 	UPROPERTY(EditAnywhere, BlueprintReadonly, Category = JoystickInfo)
 	bool IsRumbleDevice = false;
 
@@ -133,26 +146,23 @@ class IJoystickInterface
 public:
 
 	//Define blueprint events
-	UFUNCTION(BlueprintImplementableEvent, Category = "SDL2 Joystick")
-	void JoystickButtonPressed(int32 Button, FJoystickState state);
+	UFUNCTION(BlueprintImplementableEvent, Category = "SDL Joystick")
+	void JoystickButtonPressed(int32 _Button, FJoystickState _state);
 
-	UFUNCTION(BlueprintImplementableEvent, Category = "SDL2 Joystick")
-	void JoystickButtonReleased(int32 Button, FJoystickState state);
+	UFUNCTION(BlueprintImplementableEvent, Category = "SDL Joystick")
+	void JoystickButtonReleased(int32 _Button, FJoystickState _state);
 
-	UFUNCTION(BlueprintImplementableEvent, Category = "SDL2 Joystick")
-	void JoystickAxisChanged(int32 Axis, float value, float valuePrev, FJoystickState state, FJoystickState prev);
+	UFUNCTION(BlueprintImplementableEvent, Category = "SDL Joystick")
+	void JoystickAxisChanged(int32 _Axis, float _value, float _valuePrev, FJoystickState _state, FJoystickState _prev);
 
-	UFUNCTION(BlueprintImplementableEvent, Category = "SDL2 Joystick")
-	void JoystickHatChanged(int32 Hat, EJoystickPOVDirection Value, FJoystickState state);
+	UFUNCTION(BlueprintImplementableEvent, Category = "SDL Joystick")
+	void JoystickHatChanged(int32 _Hat, EJoystickPOVDirection _Value, FJoystickState _state);
+	
+	UFUNCTION(BlueprintImplementableEvent, Category = "SDL Joystick")
+	void JoystickPluggedIn(int32 _DeviceInstanceId);
 
-	UFUNCTION(BlueprintImplementableEvent, Category = "SDL2 Joystick")
-	void JoystickBallMoved(int32 Ball, FVector2D Delta, FJoystickState State);
-
-	UFUNCTION(BlueprintImplementableEvent, Category = "SDL2 Joystick")
-	void JoystickPluggedIn(int32 DeviceId);
-
-	UFUNCTION(BlueprintImplementableEvent, Category = "SDL2 Joystick")
-	void JoystickUnplugged(int32 DeviceId);
+	UFUNCTION(BlueprintImplementableEvent, Category = "SDL Joystick")
+	void JoystickUnplugged(int32 _DeviceInstanceId);
 
 	virtual FString ToString();
 };

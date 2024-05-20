@@ -14,6 +14,8 @@
 #include <DetailCustomizations.h>
 #include <PropertyCustomizationHelpers.h>
 #include <PropertyEditorDelegates.h>
+#include "Widgets/Layout/SBox.h"
+#include "Widgets/SWidget.h" // Include other necessary headers as well
 
 #include "GameFramework/PlayerInput.h"
 

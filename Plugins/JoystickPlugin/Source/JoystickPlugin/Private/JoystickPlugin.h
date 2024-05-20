@@ -6,6 +6,7 @@
 #include "Containers/Map.h"
 #include "Containers/Array.h"
 #include "InputCoreTypes.h"
+#include "Misc/Paths.h"
 
 #include "IInputDevice.h"
 #include "IInputDeviceModule.h"
@@ -35,5 +36,5 @@ public:
 
 	TSharedPtr< class FJoystickDevice > JoystickDevice;
 
-	void *SDL2LibraryHandle;
+	void *SDLXLibraryHandle;
 };

@@ -15,33 +15,39 @@
 // @third party code - BEGIN SDL
 #include "Windows/AllowWindowsPlatformTypes.h"
 
-#include "SDL2/SDL.h"
-#include "SDL2/SDL_joystick.h"
-#include "SDL2/SDL_gamecontroller.h"
+#include "SDL3/SDL.h"
+//#include "SDL3/SDL_joystick.h"
+//#include "SDL3/SDL_gamepad.h"
+//#include "SDL3/SDL_events.h"
 
 #include "Windows/HideWindowsPlatformTypes.h"
 // @third party code - END SDL
 
 
 class IJoystickEventInterface;
-struct _SDL_Joystick;
-typedef struct _SDL_Joystick SDL_Joystick;
-struct _SDL_Haptic;
-typedef struct _SDL_Haptic SDL_Haptic;
-struct _SDL_GameController;
-typedef struct _SDL_GameController SDL_GameController;
 
-union SDL_Event;
+//struct SDL_Joystick;
+//typedef struct SDL_Joystick SDL_Joystick;
+//struct SDL_Haptic;
+//typedef struct SDL_Haptic SDL_Haptic;
+//struct SDL_GamePad;
+//typedef struct SDL_GamePad SDL_GamePad;
+
+//union SDL_Event;
 
 struct FDeviceInfoSDL
 {
 	FDeviceInfoSDL() {}
 
+	// DeviceIndex is the number in the Joystick array, 
+	// while the DeviceInstanceId is the number of Inputdevice (USB?) -> SDL3
+	// finally all be uint32 values
 	FDeviceIndex DeviceIndex {0};
-	FDeviceId DeviceId {0};
-	FInstanceId InstanceId {0};
+	//FDeviceId DeviceId {0}; // removed while same as instance
+	FDeviceInstanceId DeviceInstanceId {0};
 
 	FString Name = "unknown";
+	FString Path = "unknown";
 
 	SDL_Haptic* Haptic = nullptr;
 	SDL_Joystick* Joystick = nullptr;
@@ -50,29 +56,38 @@ struct FDeviceInfoSDL
 class FDeviceSDL
 {
 public:
-	FJoystickState InitialDeviceState(FDeviceId DeviceId);
+	void ScanJoystickDevices();
 
-	static FString DeviceGUIDtoString(FDeviceIndex DeviceIndex);
-	static FGuid DeviceGUIDtoGUID(FDeviceIndex DeviceIndex);
+	FJoystickState InitialDeviceState(FDeviceInstanceId _DeviceId);
 
-	FDeviceInfoSDL * GetDevice(FDeviceId DeviceId);
+	// delete this static FString DeviceGUIDtoString(FDeviceIndex _DeviceIndex);
+	static FGuid DeviceGUIDtoGUID(FDeviceInfoSDL _DeviceInfo);
+
+	FDeviceInfoSDL * GetDevice(FDeviceInstanceId _DeviceInstanceId);
 	
-	void IgnoreGameControllers(bool bIgnore);
+	void IgnoreGameControllers(bool _bIgnore);
 
 	void Update();
 
-	FDeviceSDL(IJoystickEventInterface * EventInterface);
+	FDeviceSDL(IJoystickEventInterface * _EventInterface);
 	void Init();
 	virtual ~FDeviceSDL();
 
 private:
-	FDeviceInfoSDL AddDevice(FDeviceIndex DeviceIndex);
-	void RemoveDevice(FDeviceId DeviceId);
 
-	TMap<FDeviceId, FDeviceInfoSDL> Devices;	
-	TMap<FInstanceId, FDeviceId> DeviceMapping;
+	FDeviceInfoSDL AddDevice(FDeviceInfoSDL _deviceInfoSDL);
+	void RemoveDevice(FDeviceInstanceId _DeviceInstanceID);
+
+	// maps the instanceID to the deviceInfo
+	TMap<FDeviceInstanceId, FDeviceInfoSDL> DevicesMap;
+	// maps the index to the instanceId
+	TMap<FDeviceIndex, FDeviceInstanceId> DeviceMapping;
 
 	IJoystickEventInterface* EventInterface;
+
+	//SDL3
+	int m_NumJoysticks = 0;
+	SDL_JoystickID* m_pJoystickIDArray;
 
 	bool bOwnsSDL;
 
@@ -82,5 +97,5 @@ private:
 	bool bSubSystemJoystick;
 	bool bSubSystemGameController;
 
-	static int HandleSDLEvent(void* Userdata, SDL_Event* Event);
+	static int HandleSDLEvent(void* _Userdata, SDL_Event* _Event);
 };
