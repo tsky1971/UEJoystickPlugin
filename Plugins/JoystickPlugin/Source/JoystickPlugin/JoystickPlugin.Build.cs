@@ -34,7 +34,7 @@ namespace UnrealBuildTool.Rules
             ShadowVariableWarningLevel = WarningLevel.Error;
             PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
 
-            //DefaultBuildSettings = BuildSettingsVersion.V2;
+            DefaultBuildSettings = BuildSettingsVersion.V5;
 
             PublicDefinitions.Add("SDL_DEPRECATED=0");
             PublicDefinitions.Add("SDL_WITH_EPIC_EXTENSIONS=1");

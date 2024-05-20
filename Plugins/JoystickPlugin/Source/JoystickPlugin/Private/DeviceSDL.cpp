@@ -108,6 +108,14 @@ void FDeviceSDL::Init()
 		bOwnsSDL = true;
 	}
 
+	SDL_version compiled;
+	SDL_version linked;
+
+	SDL_VERSION(&compiled);
+	SDL_GetVersion(&linked);
+	UE_LOG(JoystickPluginLog, Log, TEXT("We compiled against SDL version %u.%u.%u ..."), compiled.major, compiled.minor, compiled.patch);
+	UE_LOG(JoystickPluginLog, Log, TEXT("But we are linking against SDL version %u.%u.%u."),	linked.major, linked.minor, linked.patch);
+
 	int result = SDL_InitSubSystem(SDL_INIT_HAPTIC);
 	if (result == 0)
 	{
