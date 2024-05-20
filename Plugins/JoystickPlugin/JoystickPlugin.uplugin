@@ -1,7 +1,7 @@
 {
 	"FileVersion": 3,
 	"Version": 9,
-	"VersionName": "0.9.53",
+	"VersionName": "0.9.54",
 	"FriendlyName": "Joystick Plugin",
 	"Description": "Unofficial plugin for Joystick Controllers with SDL support",
 	"Category": "Input Devices",
@@ -10,10 +10,10 @@
 	"DocsURL": "",
 	"MarketplaceURL": "",
 	"SupportURL": "",
-	"EngineVersion": "5.3",
+	"EngineVersion": "5.4",
 	"CanContainContent": true,
 	"IsBetaVersion": true,
-	"IsExperimentalVersion": false,
+	"IsExperimentalVersion": true,
 	"Installed": false,
 	"Modules": [
 		{

@@ -1,6 +1,6 @@
 @echo off
 
-set EngineVersion=53
+set EngineVersion=54
 
 set EngineDirectory=D:\UE_Build\UE_%EngineVersion%\Windows
 set AutomationToolPath="%EngineDirectory%\Engine\Build\BatchFiles\RunUAT.bat"
