@@ -1,0 +1,13 @@
+{
+	"OutputFiles": [
+		"..\\..\\..\\x64\\UnrealGame\\Development\\JoystickPlugin\\PCH.JoystickPlugin.h.obj",
+		"..\\..\\..\\x64\\UnrealGame\\Development\\JoystickPlugin\\Module.JoystickPlugin.cpp.obj",
+		"..\\..\\..\\x64\\UnrealGame\\Development\\JoystickPlugin\\DeviceSDL.cpp.obj",
+		"..\\..\\..\\x64\\UnrealGame\\Development\\JoystickPlugin\\FeedbackFunctions.cpp.obj",
+		"..\\..\\..\\x64\\UnrealGame\\Development\\JoystickPlugin\\InputSettingsCustomization.cpp.obj",
+		"..\\..\\..\\x64\\UnrealGame\\Development\\JoystickPlugin\\JoystickDevice.cpp.obj",
+		"..\\..\\..\\x64\\UnrealGame\\Development\\JoystickPlugin\\JoystickFunctions.cpp.obj",
+		"..\\..\\..\\x64\\UnrealGame\\Development\\JoystickPlugin\\JoystickInterface.cpp.obj",
+		"..\\..\\..\\x64\\UnrealGame\\Development\\JoystickPlugin\\JoystickPlugin.cpp.obj"
+	]
+}
