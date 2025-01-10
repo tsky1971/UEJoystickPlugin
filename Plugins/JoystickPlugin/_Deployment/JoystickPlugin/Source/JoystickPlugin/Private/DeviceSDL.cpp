@@ -148,8 +148,7 @@ void FDeviceSDL::Init()
 	//
 	ScanJoystickDevices();
 
-	//SDL_AddEventWatch(HandleSDLEvent, this);
-	SDL_SetEventFilter(HandleSDLEvent, this);
+	SDL_AddEventWatch(HandleSDLEvent, this);
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -161,14 +160,8 @@ FDeviceSDL::~FDeviceSDL()
 	UE_LOG(JoystickPluginLog, Log, TEXT("FDeviceSDL::~FDeviceSDL() DeviceSDL Closing"));
 
 	UE_LOG(JoystickPluginLog, Log, TEXT("FDeviceSDL::~FDeviceSDL() Todo !!! Remove and close devices"));
-	/*for (auto & Device : DevicesMap)
-	{
-		FDeviceInstanceId DeviceInstanceId = Device.Value.DeviceInstanceId;
-		
-		RemoveDevice(DeviceInstanceId);
-	}*/
 
-	// not in SDL3 ??? SDL_DelEventWatch(HandleSDLEvent, this);
+	SDL_RemoveEventWatch(HandleSDLEvent, this);
 
 	if (bOwnsSDL)
 	{
@@ -454,9 +447,9 @@ void FDeviceSDL::Update()
 		{
 			// The event watcher handles it
 			// but not often enought?!
-			
+			HandleSDLEvent(this, &Event);
 		}
-		HandleSDLEvent(this, &Event);
+		
 	}
 }
 

@@ -253,7 +253,8 @@ void FJoystickDevice::EmitEvents(const FJoystickState &_previous, const FJoystic
 
 void FJoystickDevice::Tick(float DeltaTime)
 {
-
+	//UE_LOG(JoystickPluginLog, Log, TEXT("FJoystickDevice::Tick(%f)"), DeltaTime);
+	DeviceSDL->Update();
 }
 
 void FJoystickDevice::SendControllerEvents()
