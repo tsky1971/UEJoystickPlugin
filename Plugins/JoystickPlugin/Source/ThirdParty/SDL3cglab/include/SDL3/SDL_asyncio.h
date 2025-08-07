@@ -67,14 +67,14 @@
  *
  * ## Best Practices
  *
- * Simple non-blocking i/o--for an app that just wants to pick up data
+ * Simple non-blocking I/O--for an app that just wants to pick up data
  * whenever it's ready without losing framerate waiting on disks to spin--can
  * use whatever pattern works well for the program. In this case, simply call
  * SDL_ReadAsyncIO, or maybe SDL_LoadFileAsync, as needed. Once a frame, call
  * SDL_GetAsyncIOResult to check for any completed tasks and deal with the
  * data as it arrives.
  *
- * If two separate pieces of the same program need their own i/o, it is legal
+ * If two separate pieces of the same program need their own I/O, it is legal
  * for each to create their own queue. This will prevent either piece from
  * accidentally consuming the other's completed tasks. Each queue does require
  * some amount of resources, but it is not an overwhelming cost. Do not make a
@@ -83,7 +83,7 @@
  * were submitted, so it doesn't generally matter what order tasks are
  * started.
  *
- * One async i/o queue can be shared by multiple threads, or one thread can
+ * One async I/O queue can be shared by multiple threads, or one thread can
  * have more than one queue, but the most efficient way--if ruthless
  * efficiency is the goal--is to have one queue per thread, with multiple
  * threads working in parallel, and attempt to keep each queue loaded with
@@ -213,7 +213,7 @@ typedef struct SDL_AsyncIOQueue SDL_AsyncIOQueue;
  * \returns a pointer to the SDL_AsyncIO structure that is created or NULL on
  *          failure; call SDL_GetError() for more information.
  *
- * \since This function is available since SDL 3.1.8.
+ * \since This function is available since SDL 3.2.0.
  *
  * \sa SDL_CloseAsyncIO
  * \sa SDL_ReadAsyncIO
@@ -234,7 +234,7 @@ extern SDL_DECLSPEC SDL_AsyncIO * SDLCALL SDL_AsyncIOFromFile(const char *file, 
  *
  * \threadsafety It is safe to call this function from any thread.
  *
- * \since This function is available since SDL 3.1.8.
+ * \since This function is available since SDL 3.2.0.
  */
 extern SDL_DECLSPEC Sint64 SDLCALL SDL_GetAsyncIOSize(SDL_AsyncIO *asyncio);
 
@@ -269,7 +269,7 @@ extern SDL_DECLSPEC Sint64 SDLCALL SDL_GetAsyncIOSize(SDL_AsyncIO *asyncio);
  *
  * \threadsafety It is safe to call this function from any thread.
  *
- * \since This function is available since SDL 3.1.8.
+ * \since This function is available since SDL 3.2.0.
  *
  * \sa SDL_WriteAsyncIO
  * \sa SDL_CreateAsyncIOQueue
@@ -306,7 +306,7 @@ extern SDL_DECLSPEC bool SDLCALL SDL_ReadAsyncIO(SDL_AsyncIO *asyncio, void *ptr
  *
  * \threadsafety It is safe to call this function from any thread.
  *
- * \since This function is available since SDL 3.1.8.
+ * \since This function is available since SDL 3.2.0.
  *
  * \sa SDL_ReadAsyncIO
  * \sa SDL_CreateAsyncIOQueue
@@ -358,7 +358,7 @@ extern SDL_DECLSPEC bool SDLCALL SDL_WriteAsyncIO(SDL_AsyncIO *asyncio, void *pt
  * \threadsafety It is safe to call this function from any thread, but two
  *               threads should not attempt to close the same object.
  *
- * \since This function is available since SDL 3.1.8.
+ * \since This function is available since SDL 3.2.0.
  */
 extern SDL_DECLSPEC bool SDLCALL SDL_CloseAsyncIO(SDL_AsyncIO *asyncio, bool flush, SDL_AsyncIOQueue *queue, void *userdata);
 
@@ -373,7 +373,7 @@ extern SDL_DECLSPEC bool SDLCALL SDL_CloseAsyncIO(SDL_AsyncIO *asyncio, bool flu
  *
  * \threadsafety It is safe to call this function from any thread.
  *
- * \since This function is available since SDL 3.1.8.
+ * \since This function is available since SDL 3.2.0.
  *
  * \sa SDL_DestroyAsyncIOQueue
  * \sa SDL_GetAsyncIOResult
@@ -407,7 +407,7 @@ extern SDL_DECLSPEC SDL_AsyncIOQueue * SDLCALL SDL_CreateAsyncIOQueue(void);
  *               no other thread is waiting on the queue with
  *               SDL_WaitAsyncIOResult.
  *
- * \since This function is available since SDL 3.1.8.
+ * \since This function is available since SDL 3.2.0.
  */
 extern SDL_DECLSPEC void SDLCALL SDL_DestroyAsyncIOQueue(SDL_AsyncIOQueue *queue);
 
@@ -431,7 +431,7 @@ extern SDL_DECLSPEC void SDLCALL SDL_DestroyAsyncIOQueue(SDL_AsyncIOQueue *queue
  *
  * \threadsafety It is safe to call this function from any thread.
  *
- * \since This function is available since SDL 3.1.8.
+ * \since This function is available since SDL 3.2.0.
  *
  * \sa SDL_WaitAsyncIOResult
  */
@@ -475,7 +475,7 @@ extern SDL_DECLSPEC bool SDLCALL SDL_GetAsyncIOResult(SDL_AsyncIOQueue *queue, S
  *
  * \threadsafety It is safe to call this function from any thread.
  *
- * \since This function is available since SDL 3.1.8.
+ * \since This function is available since SDL 3.2.0.
  *
  * \sa SDL_SignalAsyncIOQueue
  */
@@ -499,7 +499,7 @@ extern SDL_DECLSPEC bool SDLCALL SDL_WaitAsyncIOResult(SDL_AsyncIOQueue *queue, 
  *
  * \threadsafety It is safe to call this function from any thread.
  *
- * \since This function is available since SDL 3.1.8.
+ * \since This function is available since SDL 3.2.0.
  *
  * \sa SDL_WaitAsyncIOResult
  */
@@ -531,7 +531,7 @@ extern SDL_DECLSPEC void SDLCALL SDL_SignalAsyncIOQueue(SDL_AsyncIOQueue *queue)
  * \returns true on success or false on failure; call SDL_GetError() for more
  *          information.
  *
- * \since This function is available since SDL 3.1.8.
+ * \since This function is available since SDL 3.2.0.
  *
  * \sa SDL_LoadFile_IO
  */

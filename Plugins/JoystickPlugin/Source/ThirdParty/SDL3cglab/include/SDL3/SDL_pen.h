@@ -28,9 +28,18 @@
  * handling, e.g., for input and drawing tablets or suitably equipped mobile /
  * tablet devices.
  *
- * To get started with pens, simply handle SDL_EVENT_PEN_* events. When a pen
- * starts providing input, SDL will assign it a unique SDL_PenID, which will
- * remain for the life of the process, as long as the pen stays connected.
+ * To get started with pens, simply handle pen events:
+ *
+ * - SDL_EVENT_PEN_PROXIMITY_IN, SDL_EVENT_PEN_PROXIMITY_OUT
+ *   (SDL_PenProximityEvent)
+ * - SDL_EVENT_PEN_DOWN, SDL_EVENT_PEN_UP (SDL_PenTouchEvent)
+ * - SDL_EVENT_PEN_MOTION (SDL_PenMotionEvent)
+ * - SDL_EVENT_PEN_BUTTON_DOWN, SDL_EVENT_PEN_BUTTON_UP (SDL_PenButtonEvent)
+ * - SDL_EVENT_PEN_AXIS (SDL_PenAxisEvent)
+ *
+ * When a pen starts providing input, SDL will assign it a unique SDL_PenID,
+ * which will remain for the life of the process, as long as the pen stays
+ * connected.
  *
  * Pens may provide more than simple touch input; they might have other axes,
  * such as pressure, tilt, rotation, etc.
@@ -40,6 +49,8 @@
 #define SDL_pen_h_
 
 #include <SDL3/SDL_stdinc.h>
+#include <SDL3/SDL_mouse.h>
+#include <SDL3/SDL_touch.h>
 
 /* Set up for C function definitions, even when using C++ */
 #ifdef __cplusplus
@@ -55,15 +66,29 @@ extern "C" {
  * consistent as long as SDL can recognize a tool to be the same pen; but if a
  * pen physically leaves the area and returns, it might get a new ID.
  *
- * \since This datatype is available since SDL 3.1.3.
+ * \since This datatype is available since SDL 3.2.0.
  */
 typedef Uint32 SDL_PenID;
+
+/**
+ * The SDL_MouseID for mouse events simulated with pen input.
+ *
+ * \since This macro is available since SDL 3.2.0.
+ */
+#define SDL_PEN_MOUSEID ((SDL_MouseID)-2)
+
+/**
+ * The SDL_TouchID for touch events simulated with pen input.
+ *
+ * \since This macro is available since SDL 3.2.0.
+ */
+#define SDL_PEN_TOUCHID ((SDL_TouchID)-2)
 
 
 /**
  * Pen input flags, as reported by various pen events' `pen_state` field.
  *
- * \since This datatype is available since SDL 3.1.3.
+ * \since This datatype is available since SDL 3.2.0.
  */
 typedef Uint32 SDL_PenInputFlags;
 
@@ -88,7 +113,7 @@ typedef Uint32 SDL_PenInputFlags;
  *
  * `SDL_sinf(xtilt * SDL_PI_F / 180.0)`.
  *
- * \since This enum is available since SDL 3.1.3
+ * \since This enum is available since SDL 3.2.0.
  */
 typedef enum SDL_PenAxis
 {

@@ -22,7 +22,36 @@
 /**
  * # CategoryMouse
  *
- * SDL mouse handling.
+ * Any GUI application has to deal with the mouse, and SDL provides functions
+ * to manage mouse input and the displayed cursor.
+ *
+ * Most interactions with the mouse will come through the event subsystem.
+ * Moving a mouse generates an SDL_EVENT_MOUSE_MOTION event, pushing a button
+ * generates SDL_EVENT_MOUSE_BUTTON_DOWN, etc, but one can also query the
+ * current state of the mouse at any time with SDL_GetMouseState().
+ *
+ * For certain games, it's useful to disassociate the mouse cursor from mouse
+ * input. An FPS, for example, would not want the player's motion to stop as
+ * the mouse hits the edge of the window. For these scenarios, use
+ * SDL_SetWindowRelativeMouseMode(), which hides the cursor, grabs mouse input
+ * to the window, and reads mouse input no matter how far it moves.
+ *
+ * Games that want the system to track the mouse but want to draw their own
+ * cursor can use SDL_HideCursor() and SDL_ShowCursor(). It might be more
+ * efficient to let the system manage the cursor, if possible, using
+ * SDL_SetCursor() with a custom image made through SDL_CreateColorCursor(),
+ * or perhaps just a specific system cursor from SDL_CreateSystemCursor().
+ *
+ * SDL can, on many platforms, differentiate between multiple connected mice,
+ * allowing for interesting input scenarios and multiplayer games. They can be
+ * enumerated with SDL_GetMice(), and SDL will send SDL_EVENT_MOUSE_ADDED and
+ * SDL_EVENT_MOUSE_REMOVED events as they are connected and unplugged.
+ *
+ * Since many apps only care about basic mouse input, SDL offers a virtual
+ * mouse device for touch and pen input, which often can make a desktop
+ * application work on a touchscreen phone without any code changes. Apps that
+ * care about touch/pen separately from mouse input should filter out events
+ * with a `which` field of SDL_TOUCH_MOUSEID/SDL_PEN_MOUSEID.
  */
 
 #ifndef SDL_mouse_h_
@@ -47,7 +76,7 @@ extern "C" {
  *
  * The value 0 is an invalid ID.
  *
- * \since This datatype is available since SDL 3.1.3.
+ * \since This datatype is available since SDL 3.2.0.
  */
 typedef Uint32 SDL_MouseID;
 
@@ -56,14 +85,14 @@ typedef Uint32 SDL_MouseID;
  *
  * This is opaque data.
  *
- * \since This struct is available since SDL 3.1.3.
+ * \since This struct is available since SDL 3.2.0.
  */
 typedef struct SDL_Cursor SDL_Cursor;
 
 /**
  * Cursor types for SDL_CreateSystemCursor().
  *
- * \since This enum is available since SDL 3.1.3.
+ * \since This enum is available since SDL 3.2.0.
  */
 typedef enum SDL_SystemCursor
 {
@@ -93,7 +122,7 @@ typedef enum SDL_SystemCursor
 /**
  * Scroll direction types for the Scroll event
  *
- * \since This enum is available since SDL 3.1.3.
+ * \since This enum is available since SDL 3.2.0.
  */
 typedef enum SDL_MouseWheelDirection
 {
@@ -110,7 +139,7 @@ typedef enum SDL_MouseWheelDirection
  * - Button 4: Side mouse button 1
  * - Button 5: Side mouse button 2
  *
- * \since This datatype is available since SDL 3.1.3.
+ * \since This datatype is available since SDL 3.2.0.
  *
  * \sa SDL_GetMouseState
  * \sa SDL_GetGlobalMouseState
@@ -131,6 +160,44 @@ typedef Uint32 SDL_MouseButtonFlags;
 #define SDL_BUTTON_X1MASK   SDL_BUTTON_MASK(SDL_BUTTON_X1)
 #define SDL_BUTTON_X2MASK   SDL_BUTTON_MASK(SDL_BUTTON_X2)
 
+/**
+ * A callback used to transform mouse motion delta from raw values.
+ *
+ * This is called during SDL's handling of platform mouse events to scale the
+ * values of the resulting motion delta.
+ *
+ * \param userdata what was passed as `userdata` to
+ *                 SDL_SetRelativeMouseTransform().
+ * \param timestamp the associated time at which this mouse motion event was
+ *                  received.
+ * \param window the associated window to which this mouse motion event was
+ *               addressed.
+ * \param mouseID the associated mouse from which this mouse motion event was
+ *                emitted.
+ * \param x pointer to a variable that will be treated as the resulting x-axis
+ *          motion.
+ * \param y pointer to a variable that will be treated as the resulting y-axis
+ *          motion.
+ *
+ * \threadsafety This callback is called by SDL's internal mouse input
+ *               processing procedure, which may be a thread separate from the
+ *               main event loop that is run at realtime priority. Stalling
+ *               this thread with too much work in the callback can therefore
+ *               potentially freeze the entire system. Care should be taken
+ *               with proper synchronization practices when adding other side
+ *               effects beyond mutation of the x and y values.
+ *
+ * \since This datatype is available since SDL 3.4.0.
+ *
+ * \sa SDL_SetRelativeMouseTransform
+ */
+typedef void (SDLCALL *SDL_MouseMotionTransformCallback)(
+    void *userdata, 
+    Uint64 timestamp, 
+    SDL_Window *window, 
+    SDL_MouseID mouseID, 
+    float *x, float *y
+);
 
 /* Function prototypes */
 
@@ -141,7 +208,7 @@ typedef Uint32 SDL_MouseButtonFlags;
  *
  * \threadsafety This function should only be called on the main thread.
  *
- * \since This function is available since SDL 3.1.3.
+ * \since This function is available since SDL 3.2.0.
  *
  * \sa SDL_GetMice
  */
@@ -163,7 +230,7 @@ extern SDL_DECLSPEC bool SDLCALL SDL_HasMouse(void);
  *
  * \threadsafety This function should only be called on the main thread.
  *
- * \since This function is available since SDL 3.1.3.
+ * \since This function is available since SDL 3.2.0.
  *
  * \sa SDL_GetMouseNameForID
  * \sa SDL_HasMouse
@@ -181,7 +248,7 @@ extern SDL_DECLSPEC SDL_MouseID * SDLCALL SDL_GetMice(int *count);
  *
  * \threadsafety This function should only be called on the main thread.
  *
- * \since This function is available since SDL 3.1.3.
+ * \since This function is available since SDL 3.2.0.
  *
  * \sa SDL_GetMice
  */
@@ -194,7 +261,7 @@ extern SDL_DECLSPEC const char * SDLCALL SDL_GetMouseNameForID(SDL_MouseID insta
  *
  * \threadsafety This function should only be called on the main thread.
  *
- * \since This function is available since SDL 3.1.3.
+ * \since This function is available since SDL 3.2.0.
  */
 extern SDL_DECLSPEC SDL_Window * SDLCALL SDL_GetMouseFocus(void);
 
@@ -224,7 +291,7 @@ extern SDL_DECLSPEC SDL_Window * SDLCALL SDL_GetMouseFocus(void);
  *
  * \threadsafety This function should only be called on the main thread.
  *
- * \since This function is available since SDL 3.1.3.
+ * \since This function is available since SDL 3.2.0.
  *
  * \sa SDL_GetGlobalMouseState
  * \sa SDL_GetRelativeMouseState
@@ -260,7 +327,7 @@ extern SDL_DECLSPEC SDL_MouseButtonFlags SDLCALL SDL_GetMouseState(float *x, flo
  *
  * \threadsafety This function should only be called on the main thread.
  *
- * \since This function is available since SDL 3.1.3.
+ * \since This function is available since SDL 3.2.0.
  *
  * \sa SDL_CaptureMouse
  * \sa SDL_GetMouseState
@@ -296,7 +363,7 @@ extern SDL_DECLSPEC SDL_MouseButtonFlags SDLCALL SDL_GetGlobalMouseState(float *
  *
  * \threadsafety This function should only be called on the main thread.
  *
- * \since This function is available since SDL 3.1.3.
+ * \since This function is available since SDL 3.2.0.
  *
  * \sa SDL_GetMouseState
  * \sa SDL_GetGlobalMouseState
@@ -320,11 +387,11 @@ extern SDL_DECLSPEC SDL_MouseButtonFlags SDLCALL SDL_GetRelativeMouseState(float
  *
  * \threadsafety This function should only be called on the main thread.
  *
- * \since This function is available since SDL 3.1.3.
+ * \since This function is available since SDL 3.2.0.
  *
  * \sa SDL_WarpMouseGlobal
  */
-extern SDL_DECLSPEC void SDLCALL SDL_WarpMouseInWindow(SDL_Window * window,
+extern SDL_DECLSPEC void SDLCALL SDL_WarpMouseInWindow(SDL_Window *window,
                                                    float x, float y);
 
 /**
@@ -345,11 +412,29 @@ extern SDL_DECLSPEC void SDLCALL SDL_WarpMouseInWindow(SDL_Window * window,
  *
  * \threadsafety This function should only be called on the main thread.
  *
- * \since This function is available since SDL 3.1.3.
+ * \since This function is available since SDL 3.2.0.
  *
  * \sa SDL_WarpMouseInWindow
  */
 extern SDL_DECLSPEC bool SDLCALL SDL_WarpMouseGlobal(float x, float y);
+
+/**
+ * Set a user-defined function by which to transform relative mouse inputs.
+ *
+ * This overrides the relative system scale and relative speed scale hints.
+ * Should be called prior to enabling relative mouse mode, fails otherwise.
+ *
+ * \param callback a callback used to transform relative mouse motion, or NULL
+ *                 for default behavior.
+ * \param userdata a pointer that will be passed to `callback`.
+ * \returns true on success or false on failure; call SDL_GetError() for more
+ *          information.
+ *
+ * \threadsafety This function should only be called on the main thread.
+ *
+ * \since This function is available since SDL 3.4.0.
+ */
+extern SDL_DECLSPEC bool SDLCALL SDL_SetRelativeMouseTransform(SDL_MouseMotionTransformCallback callback, void *userdata);
 
 /**
  * Set relative mouse mode for a window.
@@ -358,6 +443,11 @@ extern SDL_DECLSPEC bool SDLCALL SDL_WarpMouseGlobal(float x, float y);
  * is hidden, the mouse position is constrained to the window, and SDL will
  * report continuous relative mouse motion even if the mouse is at the edge of
  * the window.
+ *
+ * If you'd like to keep the mouse position fixed while in relative mode you
+ * can use SDL_SetWindowMouseRect(). If you'd like the cursor to be at a
+ * specific location when relative mode ends, you should use
+ * SDL_WarpMouseInWindow() before disabling relative mode.
  *
  * This function will flush any pending mouse motion for this window.
  *
@@ -368,7 +458,7 @@ extern SDL_DECLSPEC bool SDLCALL SDL_WarpMouseGlobal(float x, float y);
  *
  * \threadsafety This function should only be called on the main thread.
  *
- * \since This function is available since SDL 3.1.3.
+ * \since This function is available since SDL 3.2.0.
  *
  * \sa SDL_GetWindowRelativeMouseMode
  */
@@ -382,7 +472,7 @@ extern SDL_DECLSPEC bool SDLCALL SDL_SetWindowRelativeMouseMode(SDL_Window *wind
  *
  * \threadsafety This function should only be called on the main thread.
  *
- * \since This function is available since SDL 3.1.3.
+ * \since This function is available since SDL 3.2.0.
  *
  * \sa SDL_SetWindowRelativeMouseMode
  */
@@ -430,7 +520,7 @@ extern SDL_DECLSPEC bool SDLCALL SDL_GetWindowRelativeMouseMode(SDL_Window *wind
  *
  * \threadsafety This function should only be called on the main thread.
  *
- * \since This function is available since SDL 3.1.3.
+ * \since This function is available since SDL 3.2.0.
  *
  * \sa SDL_GetGlobalMouseState
  */
@@ -473,30 +563,31 @@ extern SDL_DECLSPEC bool SDLCALL SDL_CaptureMouse(bool enabled);
  *
  * \threadsafety This function should only be called on the main thread.
  *
- * \since This function is available since SDL 3.1.3.
+ * \since This function is available since SDL 3.2.0.
  *
  * \sa SDL_CreateColorCursor
  * \sa SDL_CreateSystemCursor
  * \sa SDL_DestroyCursor
  * \sa SDL_SetCursor
  */
-extern SDL_DECLSPEC SDL_Cursor * SDLCALL SDL_CreateCursor(const Uint8 * data,
-                                                     const Uint8 * mask,
+extern SDL_DECLSPEC SDL_Cursor * SDLCALL SDL_CreateCursor(const Uint8 *data,
+                                                     const Uint8 *mask,
                                                      int w, int h, int hot_x,
                                                      int hot_y);
 
 /**
  * Create a color cursor.
  *
- * If this function is passed a surface with alternate representations, the
- * surface will be interpreted as the content to be used for 100% display
- * scale, and the alternate representations will be used for high DPI
- * situations. For example, if the original surface is 32x32, then on a 2x
- * macOS display or 200% display scale on Windows, a 64x64 version of the
- * image will be used, if available. If a matching version of the image isn't
- * available, the closest larger size image will be downscaled to the
- * appropriate size and be used instead, if available. Otherwise, the closest
- * smaller image will be upscaled and be used instead.
+ * If this function is passed a surface with alternate representations added
+ * with SDL_AddSurfaceAlternateImage(), the surface will be interpreted as the
+ * content to be used for 100% display scale, and the alternate
+ * representations will be used for high DPI situations. For example, if the
+ * original surface is 32x32, then on a 2x macOS display or 200% display scale
+ * on Windows, a 64x64 version of the image will be used, if available. If a
+ * matching version of the image isn't available, the closest larger size
+ * image will be downscaled to the appropriate size and be used instead, if
+ * available. Otherwise, the closest smaller image will be upscaled and be
+ * used instead.
  *
  * \param surface an SDL_Surface structure representing the cursor image.
  * \param hot_x the x position of the cursor hot spot.
@@ -506,8 +597,9 @@ extern SDL_DECLSPEC SDL_Cursor * SDLCALL SDL_CreateCursor(const Uint8 * data,
  *
  * \threadsafety This function should only be called on the main thread.
  *
- * \since This function is available since SDL 3.1.3.
+ * \since This function is available since SDL 3.2.0.
  *
+ * \sa SDL_AddSurfaceAlternateImage
  * \sa SDL_CreateCursor
  * \sa SDL_CreateSystemCursor
  * \sa SDL_DestroyCursor
@@ -526,7 +618,7 @@ extern SDL_DECLSPEC SDL_Cursor * SDLCALL SDL_CreateColorCursor(SDL_Surface *surf
  *
  * \threadsafety This function should only be called on the main thread.
  *
- * \since This function is available since SDL 3.1.3.
+ * \since This function is available since SDL 3.2.0.
  *
  * \sa SDL_DestroyCursor
  */
@@ -546,7 +638,7 @@ extern SDL_DECLSPEC SDL_Cursor * SDLCALL SDL_CreateSystemCursor(SDL_SystemCursor
  *
  * \threadsafety This function should only be called on the main thread.
  *
- * \since This function is available since SDL 3.1.3.
+ * \since This function is available since SDL 3.2.0.
  *
  * \sa SDL_GetCursor
  */
@@ -562,7 +654,7 @@ extern SDL_DECLSPEC bool SDLCALL SDL_SetCursor(SDL_Cursor *cursor);
  *
  * \threadsafety This function should only be called on the main thread.
  *
- * \since This function is available since SDL 3.1.3.
+ * \since This function is available since SDL 3.2.0.
  *
  * \sa SDL_SetCursor
  */
@@ -579,7 +671,7 @@ extern SDL_DECLSPEC SDL_Cursor * SDLCALL SDL_GetCursor(void);
  *
  * \threadsafety This function should only be called on the main thread.
  *
- * \since This function is available since SDL 3.1.3.
+ * \since This function is available since SDL 3.2.0.
  */
 extern SDL_DECLSPEC SDL_Cursor * SDLCALL SDL_GetDefaultCursor(void);
 
@@ -593,7 +685,7 @@ extern SDL_DECLSPEC SDL_Cursor * SDLCALL SDL_GetDefaultCursor(void);
  *
  * \threadsafety This function should only be called on the main thread.
  *
- * \since This function is available since SDL 3.1.3.
+ * \since This function is available since SDL 3.2.0.
  *
  * \sa SDL_CreateColorCursor
  * \sa SDL_CreateCursor
@@ -609,7 +701,7 @@ extern SDL_DECLSPEC void SDLCALL SDL_DestroyCursor(SDL_Cursor *cursor);
  *
  * \threadsafety This function should only be called on the main thread.
  *
- * \since This function is available since SDL 3.1.3.
+ * \since This function is available since SDL 3.2.0.
  *
  * \sa SDL_CursorVisible
  * \sa SDL_HideCursor
@@ -624,7 +716,7 @@ extern SDL_DECLSPEC bool SDLCALL SDL_ShowCursor(void);
  *
  * \threadsafety This function should only be called on the main thread.
  *
- * \since This function is available since SDL 3.1.3.
+ * \since This function is available since SDL 3.2.0.
  *
  * \sa SDL_CursorVisible
  * \sa SDL_ShowCursor
@@ -639,7 +731,7 @@ extern SDL_DECLSPEC bool SDLCALL SDL_HideCursor(void);
  *
  * \threadsafety This function should only be called on the main thread.
  *
- * \since This function is available since SDL 3.1.3.
+ * \since This function is available since SDL 3.2.0.
  *
  * \sa SDL_HideCursor
  * \sa SDL_ShowCursor

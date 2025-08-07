@@ -59,7 +59,7 @@ extern "C" {
  * hyphens, underscores and periods. Alternatively, the whole string can be a
  * single asterisk ("*"), which serves as an "All files" filter.
  *
- * \since This struct is available since SDL 3.1.3.
+ * \since This struct is available since SDL 3.2.0.
  *
  * \sa SDL_DialogFileCallback
  * \sa SDL_ShowOpenFileDialog
@@ -84,8 +84,8 @@ typedef struct SDL_DialogFileFilter
  * - A pointer to NULL, the user either didn't choose any file or canceled the
  *   dialog.
  * - A pointer to non-`NULL`, the user chose one or more files. The argument
- *   is a null-terminated list of pointers to C strings, each containing a
- *   path.
+ *   is a null-terminated array of pointers to UTF-8 encoded strings, each
+ *   containing a path.
  *
  * The filelist argument should not be freed; it will automatically be freed
  * when the callback returns.
@@ -102,7 +102,7 @@ typedef struct SDL_DialogFileFilter
  * \param filelist the file(s) chosen by the user.
  * \param filter index of the selected filter.
  *
- * \since This datatype is available since SDL 3.1.3.
+ * \since This datatype is available since SDL 3.2.0.
  *
  * \sa SDL_DialogFileFilter
  * \sa SDL_ShowOpenFileDialog
@@ -139,10 +139,12 @@ typedef void (SDLCALL *SDL_DialogFileCallback)(void *userdata, const char * cons
  *                 it will be invoked.
  * \param window the window that the dialog should be modal for, may be NULL.
  *               Not all platforms support this option.
- * \param filters a list of filters, may be NULL. Not all platforms support
- *                this option, and platforms that do support it may allow the
- *                user to ignore the filters. If non-NULL, it must remain
- *                valid at least until the callback is invoked.
+ * \param filters a list of filters, may be NULL. See the
+ *                [`SDL_DialogFileFilter` documentation for
+ *                examples](SDL_DialogFileFilter#code-examples). Not all
+ *                platforms support this option, and platforms that do support
+ *                it may allow the user to ignore the filters. If non-NULL, it
+ *                must remain valid at least until the callback is invoked.
  * \param nfilters the number of filters. Ignored if filters is NULL.
  * \param default_location the default folder or file to start the dialog at,
  *                         may be NULL. Not all platforms support this option.
@@ -153,7 +155,7 @@ typedef void (SDLCALL *SDL_DialogFileCallback)(void *userdata, const char * cons
  *               callback may be invoked from the same thread or from a
  *               different one, depending on the OS's constraints.
  *
- * \since This function is available since SDL 3.1.3.
+ * \since This function is available since SDL 3.2.0.
  *
  * \sa SDL_DialogFileCallback
  * \sa SDL_DialogFileFilter
@@ -202,7 +204,7 @@ extern SDL_DECLSPEC void SDLCALL SDL_ShowOpenFileDialog(SDL_DialogFileCallback c
  *               callback may be invoked from the same thread or from a
  *               different one, depending on the OS's constraints.
  *
- * \since This function is available since SDL 3.1.3.
+ * \since This function is available since SDL 3.2.0.
  *
  * \sa SDL_DialogFileCallback
  * \sa SDL_DialogFileFilter
@@ -248,7 +250,7 @@ extern SDL_DECLSPEC void SDLCALL SDL_ShowSaveFileDialog(SDL_DialogFileCallback c
  *               callback may be invoked from the same thread or from a
  *               different one, depending on the OS's constraints.
  *
- * \since This function is available since SDL 3.1.3.
+ * \since This function is available since SDL 3.2.0.
  *
  * \sa SDL_DialogFileCallback
  * \sa SDL_ShowOpenFileDialog
@@ -263,7 +265,7 @@ extern SDL_DECLSPEC void SDLCALL SDL_ShowOpenFolderDialog(SDL_DialogFileCallback
  * This is used by SDL_ShowFileDialogWithProperties() to decide what kind of
  * dialog to present to the user.
  *
- * \since This enum is available since SDL 3.1.3.
+ * \since This enum is available since SDL 3.2.0.
  *
  * \sa SDL_ShowFileDialogWithProperties
  */
@@ -312,7 +314,7 @@ typedef enum SDL_FileDialogType
  *               callback may be invoked from the same thread or from a
  *               different one, depending on the OS's constraints.
  *
- * \since This function is available since SDL 3.1.8.
+ * \since This function is available since SDL 3.2.0.
  *
  * \sa SDL_FileDialogType
  * \sa SDL_DialogFileCallback

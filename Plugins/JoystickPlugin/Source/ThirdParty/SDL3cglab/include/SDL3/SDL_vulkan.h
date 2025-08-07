@@ -51,14 +51,14 @@
 extern "C" {
 #endif
 
-/* Avoid including vulkan.h, don't define VkInstance if it's already included */
-#ifdef VULKAN_H_
+/* Avoid including vulkan_core.h, don't define VkInstance if it's already included */
+#ifdef VULKAN_CORE_H_
 #define NO_SDL_VULKAN_TYPEDEFS
 #endif
 #ifndef NO_SDL_VULKAN_TYPEDEFS
 #define VK_DEFINE_HANDLE(object) typedef struct object##_T* object;
 
-#if defined(__LP64__) || defined(_WIN64) || defined(__x86_64__) || defined(_M_X64) || defined(__ia64) || defined (_M_IA64) || defined(__aarch64__) || defined(__powerpc64__)
+#if defined(__LP64__) || defined(_WIN64) || (defined(__x86_64__) && !defined(__ILP32__)) || defined(_M_X64) || defined(__ia64) || defined (_M_IA64) || defined(__aarch64__) || defined(__powerpc64__) || (defined(__riscv) && __riscv_xlen == 64)
 #define VK_DEFINE_NON_DISPATCHABLE_HANDLE(object) typedef struct object##_T *object;
 #else
 #define VK_DEFINE_NON_DISPATCHABLE_HANDLE(object) typedef uint64_t object;
@@ -125,7 +125,7 @@ struct VkAllocationCallbacks;
  *
  * \threadsafety This function is not thread safe.
  *
- * \since This function is available since SDL 3.1.3.
+ * \since This function is available since SDL 3.2.0.
  *
  * \sa SDL_Vulkan_GetVkGetInstanceProcAddr
  * \sa SDL_Vulkan_UnloadLibrary
@@ -149,7 +149,7 @@ extern SDL_DECLSPEC bool SDLCALL SDL_Vulkan_LoadLibrary(const char *path);
  * \returns the function pointer for `vkGetInstanceProcAddr` or NULL on
  *          failure; call SDL_GetError() for more information.
  *
- * \since This function is available since SDL 3.1.3.
+ * \since This function is available since SDL 3.2.0.
  */
 extern SDL_DECLSPEC SDL_FunctionPointer SDLCALL SDL_Vulkan_GetVkGetInstanceProcAddr(void);
 
@@ -169,7 +169,7 @@ extern SDL_DECLSPEC SDL_FunctionPointer SDLCALL SDL_Vulkan_GetVkGetInstanceProcA
  *
  * \threadsafety This function is not thread safe.
  *
- * \since This function is available since SDL 3.1.3.
+ * \since This function is available since SDL 3.2.0.
  *
  * \sa SDL_Vulkan_LoadLibrary
  */
@@ -193,7 +193,7 @@ extern SDL_DECLSPEC void SDLCALL SDL_Vulkan_UnloadLibrary(void);
  * \returns an array of extension name strings on success, NULL on failure;
  *          call SDL_GetError() for more information.
  *
- * \since This function is available since SDL 3.1.3.
+ * \since This function is available since SDL 3.2.0.
  *
  * \sa SDL_Vulkan_CreateSurface
  */
@@ -218,7 +218,7 @@ extern SDL_DECLSPEC char const * const * SDLCALL SDL_Vulkan_GetInstanceExtension
  * \returns true on success or false on failure; call SDL_GetError() for more
  *          information.
  *
- * \since This function is available since SDL 3.1.3.
+ * \since This function is available since SDL 3.2.0.
  *
  * \sa SDL_Vulkan_GetInstanceExtensions
  * \sa SDL_Vulkan_DestroySurface
@@ -226,7 +226,7 @@ extern SDL_DECLSPEC char const * const * SDLCALL SDL_Vulkan_GetInstanceExtension
 extern SDL_DECLSPEC bool SDLCALL SDL_Vulkan_CreateSurface(SDL_Window *window,
                                                               VkInstance instance,
                                                               const struct VkAllocationCallbacks *allocator,
-                                                              VkSurfaceKHR* surface);
+                                                              VkSurfaceKHR *surface);
 
 /**
  * Destroy the Vulkan rendering surface of a window.
@@ -246,7 +246,7 @@ extern SDL_DECLSPEC bool SDLCALL SDL_Vulkan_CreateSurface(SDL_Window *window,
  * \param allocator a VkAllocationCallbacks struct, which lets the app set the
  *                  allocator that destroys the surface. Can be NULL.
  *
- * \since This function is available since SDL 3.1.3.
+ * \since This function is available since SDL 3.2.0.
  *
  * \sa SDL_Vulkan_GetInstanceExtensions
  * \sa SDL_Vulkan_CreateSurface
@@ -268,7 +268,7 @@ extern SDL_DECLSPEC void SDLCALL SDL_Vulkan_DestroySurface(VkInstance instance,
  *                         device.
  * \returns true if supported, false if unsupported or an error occurred.
  *
- * \since This function is available since SDL 3.1.3.
+ * \since This function is available since SDL 3.2.0.
  *
  * \sa SDL_Vulkan_GetInstanceExtensions
  */

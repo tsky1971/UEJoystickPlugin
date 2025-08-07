@@ -47,7 +47,7 @@
  * The values in this enumeration are based on the USB usage page standard:
  * https://usb.org/sites/default/files/hut1_5.pdf
  *
- * \since This enum is available since SDL 3.1.3.
+ * \since This enum is available since SDL 3.2.0.
  */
 typedef enum SDL_Scancode
 {
@@ -208,7 +208,7 @@ typedef enum SDL_Scancode
 
     SDL_SCANCODE_NONUSBACKSLASH = 100, /**< This is the additional key that ISO
                                         *   keyboards have over ANSI ones,
-                                        *   located between left shift and Y.
+                                        *   located between left shift and Z.
                                         *   Produces GRAVE ACCENT and TILDE in a
                                         *   US or UK Mac layout, REVERSE SOLIDUS
                                         *   (backslash) and VERTICAL LINE in a
