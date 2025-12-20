@@ -55,7 +55,7 @@ void FJoystickDevice::InitInputDevice(const FDeviceInfoSDL &Device)
 	DeviceAxisKeys.Emplace(DeviceInstanceId);
 	for (int iAxis = 0; iAxis < InitialState.Axes.Num(); iAxis++)
 	{
-		FString strName = FString::Printf(TEXT("Joystick_%s_%d_Axis%d"), *JoystickInfo.DeviceName, DeviceInstanceId.value, iAxis);
+		FString strName = FString::Printf(TEXT("%s_%d_Axis%d"), *JoystickInfo.DeviceName, DeviceInstanceId.value, iAxis);
 		UE_LOG(JoystickPluginLog, Log, TEXT("add %s %i"), *strName, DeviceInstanceId.value);
 		DeviceAxisKeys[DeviceInstanceId].Add(FKey(FName(*strName)));
 
@@ -71,7 +71,7 @@ void FJoystickDevice::InitInputDevice(const FDeviceInfoSDL &Device)
 	DeviceButtonKeys.Emplace(DeviceInstanceId);
 	for (int iButton = 0; iButton < InitialState.Buttons.Num(); iButton++)
 	{
-		FString strName = FString::Printf(TEXT("Joystick_%s_%d_Button%d"), *JoystickInfo.DeviceName, JoystickInfo.DeviceInstanceId, iButton);
+		FString strName = FString::Printf(TEXT("%s_%d_Button%d"), *JoystickInfo.DeviceName, JoystickInfo.DeviceInstanceId, iButton);
 		UE_LOG(JoystickPluginLog, Log, TEXT("add %s %i"), *strName, DeviceInstanceId.value);
 		DeviceButtonKeys[DeviceInstanceId].Add(FKey(FName(*strName)));
 
@@ -90,7 +90,7 @@ void FJoystickDevice::InitInputDevice(const FDeviceInfoSDL &Device)
 		DeviceHatKeys[iAxis].Emplace(DeviceInstanceId);
 		for (int iHat = 0; iHat < InitialState.Hats.Num(); iHat++)
 		{
-			FString strName = FString::Printf(TEXT("Joystick_%s_%d_Hat%d_%s"), *JoystickInfo.DeviceName, JoystickInfo.DeviceInstanceId, iHat, *_2DaxisNames[iAxis]);
+			FString strName = FString::Printf(TEXT("%s_%d_Hat%d_%s"), *JoystickInfo.DeviceName, JoystickInfo.DeviceInstanceId, iHat, *_2DaxisNames[iAxis]);
 			UE_LOG(JoystickPluginLog, Log, TEXT("add %s %i"), *strName, DeviceInstanceId.value);
 			FKey key{ *strName };
 			DeviceHatKeys[iAxis][DeviceInstanceId].Add(key);

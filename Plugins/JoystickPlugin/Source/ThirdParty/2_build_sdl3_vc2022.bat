@@ -8,6 +8,15 @@ if not exist %CMAKE_EXE% (
 	goto INSTALL_CMAKE
 )
 
+if not exist nuget.exe (
+	powershell -Command "Invoke-WebRequest -Uri 'https://dist.nuget.org/win-x86-commandline/latest/nuget.exe' -OutFile 'nuget.exe'"
+)
+
+nuget install Microsoft.GameInput -OutputDirectory packages
+REM Pfad zum GameInput-Include-Verzeichnis setzen
+set GAMEINPUT_INCLUDE_DIR=..\packages\Microsoft.GameInput.2.0.26100.5334\native\include\v1
+
+
 echo "Visual Studio 2022"
 call "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" x86_amd64
 
@@ -30,7 +39,9 @@ echo "BUILD_DIR" %BUILD_DIR%
 
 cd %BUILD_DIR%
 
-%CMAKE_EXE% -G "Visual Studio 17 2022" -A x64 -DSDL_LIBC=ON -DSDL_STATIC=ON -DSDL_SHARED=ON -DLIB_C=ON-DFORCE_STATIC_VCRT=ON -DEPIC_EXTENSIONS=OFF ../%SDL_DIR% 
+rem %CMAKE_EXE% -G "Visual Studio 17 2022" -A x64 -DCMAKE_INSTALL_PREFIX=./INSTALL -DSDL_LIBC=ON -DSDL_GAMEINPUT=OFF -DSDL_STATIC=ON -DSDL_SHARED=ON -DLIB_C=ON-DFORCE_STATIC_VCRT=ON -DEPIC_EXTENSIONS=OFF ../%SDL_DIR% 
+
+%CMAKE_EXE% -G "Visual Studio 17 2022" -A x64 -DSDL_LIBC=ON -DSDL_GAMEINPUT=OFF -DGameInput_INCLUDE_DIR=%GAMEINPUT_INCLUDE_DIR% -DSDL_STATIC=ON -DSDL_SHARED=ON -DLIB_C=ON-DFORCE_STATIC_VCRT=ON -DEPIC_EXTENSIONS=OFF ../%SDL_DIR% 
 
 "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Current\Bin\MSBuild.exe" sdl3.sln /t:SDL3-shared /p:Configuration="Release"
 rem "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Current\Bin\MSBuild.exe" sdl3.sln /t:SDL3-static /p:Configuration="Release"
